@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg5ylhntjx24h"]
+
+[ext_resource type="Texture2D" uid="uid://dvuir01uxok3y" path="res://icon.svg" id="1_aq1o3"]
+[ext_resource type="PackedScene" uid="uid://d08ccoljf6rsq" path="res://projectile.tscn" id="1_dti1j"]
+[ext_resource type="PackedScene" uid="uid://dgm56wkrr7lkw" path="res://health_component.tscn" id="2_4iyny"]
+[ext_resource type="PackedScene" uid="uid://iingtp51noin" path="res://hitbox_component.tscn" id="3_n1wei"]
+
+[sub_resource type="GDScript" id="GDScript_l2wj1"]
+script/source = "extends StaticBody2D
+
+@export var RayCast_EnemyDetected:RayCast2D
+
+@export var Bullet: PackedScene
+@onready var ProjectileOrigin = $\"Projectile Origin\"
+@export var bullet_speed: float = 100000000.0
+
+var isAttacking:bool = false
+
+signal player_Fired_Bullet(bullet)
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	RayCast_EnemyDetected.connect(\"DetectEnemy\", Attack)
+	RayCast_EnemyDetected.connect(\"NoEnemy\", StopAttack)
+	
+func Attack():
+	print(\"Attacking\")
+	if !isAttacking:
+		isAttacking = true
+		AttackEnemy()
+		
+func StopAttack():
+	if isAttacking:
+		isAttacking = false
+		AttackEnemy()
+
+func AttackEnemy():
+	while isAttacking:
+		await(get_tree().create_timer(0.3).timeout)
+		shoot()
+		
+		
+func shoot():
+	var bullet_instance = Bullet.instantiate()
+	#bullet_instance.set_player(self)
+	bullet_instance.global_position = ProjectileOrigin.global_position
+	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_central_impulse(Vector2(bullet_speed,0).rotated(global_rotation))
+	get_tree().get_root().add_child(bullet_instance)
+	emit_signal(\"player_Fired_Bullet\", bullet_instance)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mjr1"]
+
+[sub_resource type="GDScript" id="GDScript_hvs1a"]
+script/source = "extends RayCast2D
+
+signal DetectEnemy
+signal NoEnemy
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if is_colliding():
+		emit_signal(\"DetectEnemy\")
+	else:
+		emit_signal(\"NoEnemy\")
+		
+		
+"
+
+[node name="Minion" type="StaticBody2D" node_paths=PackedStringArray("RayCast_EnemyDetected")]
+script = SubResource("GDScript_l2wj1")
+RayCast_EnemyDetected = NodePath("RayCast2D")
+Bullet = ExtResource("1_dti1j")
+bullet_speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aq1o3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_3mjr1")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_4iyny")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_n1wei")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(1455, 0)
+script = SubResource("GDScript_hvs1a")
+
+[node name="Projectile Origin" type="Node2D" parent="."]
+position = Vector2(91, 0)

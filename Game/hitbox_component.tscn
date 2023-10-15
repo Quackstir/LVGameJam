@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://iingtp51noin"]
+
+[sub_resource type="GDScript" id="GDScript_hvl17"]
+script/source = "extends Area2D
+
+@export var HealthComp: Node2D
+@export var Group: String
+
+func damage(damage: int):
+	if HealthComp:
+		HealthComp._take_damage()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wrnj"]
+
+[node name="HitboxComponent" type="Area2D"]
+scale = Vector2(6, 6)
+script = SubResource("GDScript_hvl17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6wrnj")
