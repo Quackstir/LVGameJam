@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://chbjox8nn5cvg"]
+
+[ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="1_ism4c"]
+[ext_resource type="Script" path="res://Player.gd" id="1_yrlnl"]
+[ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://enemy.tscn" id="2_18ndf"]
+[ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://weapon.tscn" id="3_pcl6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_yrlnl")
+EnemyInstance = ExtResource("2_18ndf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(-0.144904, -0.144904)
+texture = ExtResource("1_ism4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ra885")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
+[node name="w" type="Sprite2D" parent="."]
+scale = Vector2(0.0400002, 0.0400001)
+texture = ExtResource("1_ism4c")
+
+[node name="Weapon" parent="w" instance=ExtResource("3_pcl6h")]
+position = Vector2(258.332, 0)
