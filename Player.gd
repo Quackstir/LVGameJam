@@ -6,8 +6,8 @@ const JUMP_VELOCITY = -400.0
 
 var Acceleration = 10.0
 
-@onready var w = $w
-@onready var weapon: WeaponComponent = $w/Weapon
+@onready var center = $Center
+@onready var weapon: WeaponComponent = $Center/Weapon
 
 var playerMovement := Vector2.ZERO
 var isPlayerMoving = false
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	MovementInput()
 	
-	w.look_at(playerMovement + position)
+	center.look_at(playerMovement + position)
 	
 	isPlayerMoving = playerMovement.length() > 0.3
 	if (isPlayerMoving):

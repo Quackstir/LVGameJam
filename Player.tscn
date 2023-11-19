@@ -23,9 +23,28 @@ shape = SubResource("CircleShape2D_ra885")
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 
-[node name="w" type="Sprite2D" parent="."]
+[node name="Center" type="Node2D" parent="."]
+
+[node name="Weapon" parent="Center" instance=ExtResource("3_pcl6h")]
+position = Vector2(10.3333, 0)
 scale = Vector2(0.0400002, 0.0400001)
+
+[node name="Sprite2D" type="Sprite2D" parent="Center"]
+position = Vector2(9, -9.33333)
+scale = Vector2(0.0242001, 0.0242001)
 texture = ExtResource("1_ism4c")
 
-[node name="Weapon" parent="w" instance=ExtResource("3_pcl6h")]
-position = Vector2(258.332, 0)
+[node name="Sprite2D2" type="Sprite2D" parent="Center"]
+position = Vector2(9.33334, 9)
+scale = Vector2(0.0242001, 0.0242001)
+texture = ExtResource("1_ism4c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Center"]
+position = Vector2(-9, 9.33333)
+scale = Vector2(0.0242001, 0.0242001)
+texture = ExtResource("1_ism4c")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Center"]
+position = Vector2(-10, -9.33333)
+scale = Vector2(0.0242001, 0.0242001)
+texture = ExtResource("1_ism4c")
