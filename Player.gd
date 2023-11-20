@@ -16,6 +16,7 @@ var playerStartedMoving = false
 var currentrecoil = 10.0
 
 @export var EnemyInstance: PackedScene
+@onready var health_component = $HealthComponent
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -46,8 +47,6 @@ func _physics_process(delta: float) -> void:
 	currentrecoil = lerp(currentrecoil,0.0,delta * 20)
 	velocity = lerp(velocity, -playerMovement * currentrecoil * SPEED, delta * Acceleration)
 	move_and_slide()
-	
-	
 
 func MovementInput():
 	var HorizontalMovement = Input.get_axis("Movement_Left", "Movement_Right")
@@ -69,3 +68,7 @@ func SpawnEnemy():
 	enemy_instance._set_Player(self)
 	get_tree().get_root().add_child(enemy_instance)
 	
+
+
+func _on_hit_box_area_entered(area):
+	pass # Replace with function body.

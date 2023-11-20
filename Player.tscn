@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://chbjox8nn5cvg"]
+[gd_scene load_steps=8 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="1_ism4c"]
 [ext_resource type="Script" path="res://Player.gd" id="1_yrlnl"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://enemy.tscn" id="2_18ndf"]
 [ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://weapon.tscn" id="3_pcl6h"]
+[ext_resource type="Script" path="res://HealthComponent.gd" id="5_5x5pc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
+radius = 8.00694
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f83d"]
+radius = 8.67307
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
+collision_mask = 2
 script = ExtResource("1_yrlnl")
 EnemyInstance = ExtResource("2_18ndf")
 
@@ -48,3 +54,15 @@ texture = ExtResource("1_ism4c")
 position = Vector2(-10, -9.33333)
 scale = Vector2(0.0242001, 0.0242001)
 texture = ExtResource("1_ism4c")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_8f83d")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("5_5x5pc")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
