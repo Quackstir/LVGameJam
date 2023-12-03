@@ -12,15 +12,12 @@ var isShooting: bool = false
 
 @export var Recoil = 5.0
 
+@export var canShoot: bool = false
+
 signal player_Fired_Bullet(Recoil)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-	
-	
 func ShootRepeat():
-	while isShooting:
+	while isShooting and canShoot:
 		await get_tree().create_timer(FireCoolDown).timeout
 		shoot()
 		
