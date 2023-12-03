@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://itihdsxsasau"]
+[gd_scene load_steps=10 format=3 uid="uid://itihdsxsasau"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_1uq5v"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="2_ssppc"]
+[ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://health_component.tscn" id="3_u27k0"]
+[ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://HitBoxComponent.tscn" id="4_tes3v"]
+[ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://damage_box_component.tscn" id="5_ytwt8"]
+[ext_resource type="Script" path="res://damage_box_component.gd" id="6_pbavq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch8kf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcfci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u173x"]
+
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(399, -109)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_1uq5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +25,22 @@ texture = ExtResource("2_ssppc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ch8kf")
+
+[node name="HitBoxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("4_tes3v")]
+collision_layer = 2
+collision_mask = 0
+healthComponent = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+scale = Vector2(1.195, 1.195)
+shape = SubResource("RectangleShape2D_mcfci")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_u27k0")]
+
+[node name="DamageBoxComponent" parent="." instance=ExtResource("5_ytwt8")]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("6_pbavq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
+shape = SubResource("CircleShape2D_u173x")

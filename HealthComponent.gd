@@ -13,6 +13,7 @@ func _take_damage(damage):
 
 func _set_health(new_value : float):
 	Curr_Health = new_value
+	print("New Health: " + str(Curr_Health))
 	emit_signal("Health_Change", new_value)
 	if Curr_Health <= 0:
 		Death()
@@ -22,4 +23,3 @@ func _get_health():
 	
 func Death():
 	emit_signal("onDeath")
-	queue_free()

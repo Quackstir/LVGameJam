@@ -64,11 +64,7 @@ func EnemySpawnRepeat():
 		
 func SpawnEnemy():
 	var enemy_instance = EnemyInstance.instantiate()
-	enemy_instance.global_position = Vector2(10,10)
+	enemy_instance.global_position = self.position + Vector2(100,100)
 	enemy_instance._set_Player(self)
 	get_tree().get_root().add_child(enemy_instance)
 	
-
-
-func _on_hit_box_area_entered(area):
-	pass # Replace with function body.
