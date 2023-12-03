@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cw3quvxx0vsfb"
+path="res://.godot/imported/Beetle Game_AutoRifle v.1.mp3-b35d0ad731fd9e7e6c50e05a3e69a0e2.mp3str"
+
+[deps]
+
+source_file="res://Audio/Beetle Game_AutoRifle v.1.mp3"
+dest_files=["res://.godot/imported/Beetle Game_AutoRifle v.1.mp3-b35d0ad731fd9e7e6c50e05a3e69a0e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

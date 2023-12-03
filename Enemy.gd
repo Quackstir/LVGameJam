@@ -7,9 +7,16 @@ var target_position
 # Get a reference to the player. It's likely different in your project
 var player
 
+@onready var hit_box_component = $HitBoxComponent
+@onready var health_component = $HealthComponent
+
 func _ready():
 	velocity = Vector2.ZERO
-
+	health_component.connect("onDeath", destroySelf)
+	
+func destroySelf():
+	queue_free()
+	
 func _set_Player(a:CharacterBody2D):
 	player = a
  

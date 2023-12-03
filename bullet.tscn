@@ -1,26 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://lvnwrtdrw7ls"]
+[gd_scene load_steps=7 format=3 uid="uid://lvnwrtdrw7ls"]
 
+[ext_resource type="Script" path="res://bullet.gd" id="1_8tcbk"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="1_j10lu"]
+[ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://damage_box_component.tscn" id="3_ds58h"]
+[ext_resource type="Script" path="res://damage_box_component.gd" id="4_jpokl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jshqo"]
+radius = 8.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t8jm"]
+size = Vector2(23, 23)
 
 [node name="Bullet" type="RigidBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+collision_mask = 2
 gravity_scale = 0.0
+script = ExtResource("1_8tcbk")
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(-1, -2)
+scale = Vector2(0.155, 0.155)
 texture = ExtResource("1_j10lu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jshqo")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DamageBoxComponent" parent="." instance=ExtResource("3_ds58h")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_jpokl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(8.82619, -5.09041)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
 shape = SubResource("RectangleShape2D_8t8jm")
+
+[connection signal="area_entered" from="DamageBoxComponent" to="." method="_on_damage_box_component_area_entered"]
+[connection signal="area_entered" from="DamageBoxComponent" to="DamageBoxComponent" method="_on_area_entered"]
