@@ -6,14 +6,16 @@ const JUMP_VELOCITY = -400.0
 
 var Acceleration = 10.0
 
+#@export var po: Array[int]
+
 @onready var center = $Center
 @onready var weapon: WeaponComponent = $Center/Weapon
-@onready var weapon_2: WeaponComponent = $Center/Weapon2
-@onready var weapon_3: WeaponComponent = $Center/Weapon3
-@onready var weapon_4: WeaponComponent = $Center/Weapon4
+#@onready var weapon_2: WeaponComponent = $Center/Weapon2
+#@onready var weapon_3: WeaponComponent = $Center/Weapon3
+#@onready var weapon_4: WeaponComponent = $Center/Weapon4
 
 var CurrentSelectedWeapon: int = 0
-@onready var Weapons: Array[WeaponComponent] = [weapon, weapon_2, weapon_3, weapon_4]
+@onready var Weapons: Array[WeaponComponent] = [weapon]
 
 var playerMovement := Vector2.ZERO
 var isPlayerMoving = false
@@ -30,26 +32,26 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
-	weapon_2.connect("player_Fired_Bullet", _applyVelocity)
-	weapon_3.connect("player_Fired_Bullet", _applyVelocity)
-	weapon_4.connect("player_Fired_Bullet", _applyVelocity)
+	#weapon_2.connect("player_Fired_Bullet", _applyVelocity)
+	#weapon_3.connect("player_Fired_Bullet", _applyVelocity)
+	#weapon_4.connect("player_Fired_Bullet", _applyVelocity)
 	EnemySpawnRepeat()
 	
 
-func _process(delta):
-	if Input.is_action_just_pressed("Weapon North"):
-		CurrentSelectedWeapon = 0
-		_switch_weapon()
-	if Input.is_action_just_pressed("Weapon East"):
-		CurrentSelectedWeapon = 1
-		_switch_weapon()
-	if Input.is_action_just_pressed("Weapon South"):
-		CurrentSelectedWeapon = 2
-		_switch_weapon()
-	if Input.is_action_just_pressed("Weapon West"):
-		CurrentSelectedWeapon = 3
-		_switch_weapon()
-	print(CurrentSelectedWeapon)
+#func _process(delta):
+	#if Input.is_action_just_pressed("Weapon North"):
+		#CurrentSelectedWeapon = 0
+		#_switch_weapon()
+	#if Input.is_action_just_pressed("Weapon East"):
+		#CurrentSelectedWeapon = 1
+		#_switch_weapon()
+	#if Input.is_action_just_pressed("Weapon South"):
+		#CurrentSelectedWeapon = 2
+		#_switch_weapon()
+	#if Input.is_action_just_pressed("Weapon West"):
+		#CurrentSelectedWeapon = 3
+		#_switch_weapon()
+	#print(CurrentSelectedWeapon)
 
 func _switch_weapon():
 	for n in Weapons:
@@ -88,7 +90,7 @@ func MovementInput():
 	var VerticalMovement = Input.get_action_raw_strength("Movement_Down") - Input.get_action_raw_strength("Movement_Up")
 	
 	playerMovement = Vector2(HorizontalMovement, VerticalMovement)
-	print("PlayerInput Stick: " + str(playerMovement))
+	#print("PlayerInput Stick: " + str(playerMovement))
 	
 func  _applyVelocity(Recoil):
 	currentrecoil = Recoil
@@ -104,3 +106,8 @@ func SpawnEnemy():
 	enemy_instance._set_Player(self)
 	get_tree().get_root().add_child(enemy_instance)
 	
+
+
+func _on_health_component_on_death():
+	#queue_free()
+	pass

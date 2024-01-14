@@ -5,6 +5,7 @@ class_name WeaponComponent
 @export var Bullet: PackedScene
 @export var bullet_speed: float = 100000000.0
 @export var FireCoolDown: float = 0.5
+@export var BulletTowards: Array[Vector2]
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 @onready var EndOfGun = $EndOfGun
@@ -23,6 +24,9 @@ func ShootRepeat():
 		
 func shoot():
 	print("Firing Weapon")
+	
+	
+	
 	var bullet_instance = Bullet.instantiate()
 	audio_stream_player_2d.play()
 	bullet_instance.global_position = EndOfGun.global_position

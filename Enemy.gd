@@ -10,6 +10,8 @@ var player
 @onready var hit_box_component = $HitBoxComponent
 @onready var health_component = $HealthComponent
 
+@onready var damage_box_component: DamageBoxComponent = $DamageBoxComponent as DamageBoxComponent
+
 func _ready():
 	velocity = Vector2.ZERO
 	health_component.connect("onDeath", destroySelf)
@@ -32,3 +34,7 @@ func _physics_process(delta):
 		velocity = target_position * speed
 		move_and_slide()
 		look_at(player_position)
+
+
+func _on_damage_box_component_hit_hurtbox(hurtbox):
+	queue_free()
