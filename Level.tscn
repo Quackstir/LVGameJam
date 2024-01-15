@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Player.tscn" id="1_jowkm"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="2_i8kle"]
-[ext_resource type="AudioStream" uid="uid://dont7sks8osd2" path="res://Audio/11.17.23_Game_jam_session_1_v.2.mp3" id="3_igpgb"]
+[ext_resource type="AudioStream" uid="uid://da7cqk0ck8cbk" path="res://Audio/BeetleBarrage MASTER v.1.mp3" id="3_xe1j8"]
 
 [node name="Level" type="Node2D"]
 
@@ -16,6 +16,6 @@ scale = Vector2(-8.53076, 10.414)
 texture = ExtResource("2_i8kle")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_igpgb")
+stream = ExtResource("3_xe1j8")
 volume_db = -8.725
 autoplay = true
