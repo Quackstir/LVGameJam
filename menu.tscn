@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://h61hwgjd2aof"]
+[gd_scene load_steps=3 format=3 uid="uid://h61hwgjd2aof"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_o1fue"]
+[ext_resource type="AudioStream" uid="uid://dajl8eexvp3dq" path="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3" id="2_8vfst"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -34,6 +35,11 @@ text = "Options"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8vfst")
+volume_db = -8.725
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Player" to="." method="_on_player_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

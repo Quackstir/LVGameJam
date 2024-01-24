@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqowsmwnjind6"
+path="res://.godot/imported/BeetleGame_Ant_Death Sound v.2 MASTER.mp3-d2460817a1739f4facb8c3c551953703.mp3str"
+
+[deps]
+
+source_file="res://Audio/BeetleGame_Ant_Death Sound v.2 MASTER.mp3"
+dest_files=["res://.godot/imported/BeetleGame_Ant_Death Sound v.2 MASTER.mp3-d2460817a1739f4facb8c3c551953703.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

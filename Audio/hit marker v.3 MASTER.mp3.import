@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk4x4vpxbxvco"
+path="res://.godot/imported/hit marker v.3 MASTER.mp3-02b63f4cea3597e26254c34308519979.mp3str"
+
+[deps]
+
+source_file="res://Audio/hit marker v.3 MASTER.mp3"
+dest_files=["res://.godot/imported/hit marker v.3 MASTER.mp3-02b63f4cea3597e26254c34308519979.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

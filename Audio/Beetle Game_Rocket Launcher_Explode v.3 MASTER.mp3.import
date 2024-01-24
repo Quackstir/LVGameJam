@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdryf0i3cbsmb"
+path="res://.godot/imported/Beetle Game_Rocket Launcher_Explode v.3 MASTER.mp3-2c3c768109b8b080a5db044ce7a09887.mp3str"
+
+[deps]
+
+source_file="res://Audio/Beetle Game_Rocket Launcher_Explode v.3 MASTER.mp3"
+dest_files=["res://.godot/imported/Beetle Game_Rocket Launcher_Explode v.3 MASTER.mp3-2c3c768109b8b080a5db044ce7a09887.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
