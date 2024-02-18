@@ -23,9 +23,8 @@ var currentrecoil = 10.0
 
 @export var EnemyInstance: PackedScene
 @onready var health_component = $HealthComponent
-
+var CurrentDevice: String
 signal fireWeapon(isShooting:bool)
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,22 +35,11 @@ func _ready():
 	#weapon_3.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_4.connect("player_Fired_Bullet", _applyVelocity)
 	EnemySpawnRepeat()
-	
+	InputHelper.device_changed.connect(_on_input_device_changed)
 
-#func _process(delta):
-	#if Input.is_action_just_pressed("Weapon North"):
-		#CurrentSelectedWeapon = 0
-		#_switch_weapon()
-	#if Input.is_action_just_pressed("Weapon East"):
-		#CurrentSelectedWeapon = 1
-		#_switch_weapon()
-	#if Input.is_action_just_pressed("Weapon South"):
-		#CurrentSelectedWeapon = 2
-		#_switch_weapon()
-	#if Input.is_action_just_pressed("Weapon West"):
-		#CurrentSelectedWeapon = 3
-		#_switch_weapon()
-	#print(CurrentSelectedWeapon)
+func _on_input_device_changed(device: String, device_index: int) -> void:
+	print(device)
+	CurrentDevice = device
 
 func _switch_weapon():
 	for n in Weapons:
@@ -65,7 +53,10 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	MovementInput()
 	
-	center.look_at(playerMovement + position)
+	var rotationPosition: Vector2 = (playerMovement + position) - global_position
+	var rotationDirection: float = rotationPosition.angle()
+	
+	global_rotation = rotationDirection
 	
 	isPlayerMoving = playerMovement.length() > 0.3
 	if (isPlayerMoving):
@@ -78,17 +69,24 @@ func _physics_process(delta: float) -> void:
 		emit_signal("fireWeapon", true)
 	
 	currentrecoil = lerp(currentrecoil,0.0,delta * 20)
-	velocity = lerp(velocity, -playerMovement * currentrecoil * SPEED, delta * Acceleration)
+	var ClampedInputLength = clamp(playerMovement.length(),0,1);
+	velocity = lerp(velocity, transform.x * -ClampedInputLength * currentrecoil * SPEED, delta * Acceleration)
 	move_and_slide()
 	
 	
 
 func MovementInput():
-	var HorizontalMovement = Input.get_action_raw_strength("Movement_Right") - Input.get_action_raw_strength("Movement_Left")
-	var VerticalMovement = Input.get_action_raw_strength("Movement_Down") - Input.get_action_raw_strength("Movement_Up")
-	
-	playerMovement = Vector2(HorizontalMovement, VerticalMovement)
+	if CurrentDevice != "keyboard":
+		var HorizontalMovement = Input.get_action_raw_strength("Movement_Right") - Input.get_action_raw_strength("Movement_Left")
+		var VerticalMovement = Input.get_action_raw_strength("Movement_Down") - Input.get_action_raw_strength("Movement_Up")
+		playerMovement = Vector2(HorizontalMovement, VerticalMovement)
+		return
 	#print("PlayerInput Stick: " + str(playerMovement))
+	
+	if Input.is_action_pressed("Select"):
+		playerMovement = (get_global_mouse_position() - position)
+	elif Input.is_action_just_released("Select"):
+		playerMovement = Vector2.ZERO
 	
 func  _applyVelocity(Recoil):
 	currentrecoil = Recoil
@@ -104,8 +102,6 @@ func SpawnEnemy():
 	enemy_instance._set_Player(self)
 	get_tree().get_root().add_child(enemy_instance)
 	
-
-
 func _on_health_component_on_death():
 	#queue_free()
 	pass
