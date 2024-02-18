@@ -23,7 +23,7 @@ var currentrecoil = 10.0
 
 @export var EnemyInstance: PackedScene
 @onready var health_component = $HealthComponent
-var CurrentDevice: String
+var CurrentDevice: String = "keyboard"
 signal fireWeapon(isShooting:bool)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
