@@ -18,3 +18,6 @@ scale = Vector2(0.891426, 0.556342)
 texture = ExtResource("3_s2lq8")
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
