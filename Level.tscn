@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=5 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Player.tscn" id="1_jowkm"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="2_i8kle"]
 [ext_resource type="AudioStream" uid="uid://dont7sks8osd2" path="res://Audio/11.17.23_Game_jam_session_1_v.2.mp3" id="3_igpgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
 [node name="Level" type="Node2D"]
 
@@ -19,3 +21,47 @@ texture = ExtResource("2_i8kle")
 stream = ExtResource("3_igpgb")
 volume_db = -8.725
 autoplay = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, 980)
+scale = Vector2(166.12, 2.04)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D2"]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_i8kle")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0, -980)
+scale = Vector2(166.12, 2.04)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D4"]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_i8kle")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1516, 0)
+scale = Vector2(9.12299, 98.6284)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D3"]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_i8kle")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-1516, 0)
+scale = Vector2(9.12299, 98.6284)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D5"]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_i8kle")

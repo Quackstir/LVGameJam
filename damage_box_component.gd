@@ -13,6 +13,8 @@ func _ready():
 	area_entered.connect(_on_hurtbox_entered)
 
 func _on_hurtbox_entered(hitbox: HitboxComponent):
+	print("GAMER HELP")
+	
 	# Make sure the area we are overlapping is a hurtbox
 	if not hitbox is HitboxComponent: return
 	# Make sure the hurtbox isn't invincible
