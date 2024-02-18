@@ -1,6 +1,9 @@
 extends Node2D
 
 class_name WeaponComponent
+@onready var animation = $AnimationPlayer
+
+var isShoot: bool = false
 
 @export var Bullet: PackedScene
 @export var bullet_speed: float = 100000000.0
@@ -29,10 +32,10 @@ func ShootRepeat(isShooting):
 		timer.start()
 	else:
 		timer.stop()
-	
 		
 func _on_timer_timeout():
 	var bullet_instance = Bullet.instantiate()
+	animation.play("Gun")
 	audio_stream_player_2d.play()
 	bullet_instance.global_position = EndOfGun.global_position
 	bullet_instance.rotation_degrees = rotation_degrees
