@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://chbjox8nn5cvg"]
+[gd_scene load_steps=11 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_yrlnl"]
 [ext_resource type="Texture2D" uid="uid://ctrtpjxxcf6ea" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly(1).png" id="3_kayf7"]
+[ext_resource type="Script" path="res://ScreenShake.gd" id="3_n3uq4"]
 [ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://weapon.tscn" id="3_pcl6h"]
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://HitBoxComponent.tscn" id="5_fhxqj"]
 [ext_resource type="AudioStream" uid="uid://cw3quvxx0vsfb" path="res://Audio/Beetle Game_AutoRifle v.1.mp3" id="5_g7yeo"]
@@ -32,6 +33,9 @@ shape = SubResource("CircleShape2D_ra885")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
+script = ExtResource("3_n3uq4")
+randomStrength = 15.0
+shakeFade = 2.0
 
 [node name="Center" type="Node2D" parent="."]
 
