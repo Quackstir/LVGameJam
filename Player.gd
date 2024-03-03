@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var hit_box_component:HitboxComponent = $HitBoxComponent
+@onready var camera_2d:ScreenShake = $Camera2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -24,9 +26,12 @@ var currentrecoil = 10.0
 @onready var health_component = $HealthComponent
 var CurrentDevice: String = "keyboard"
 signal fireWeapon(isShooting:bool)
+signal Death
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var canMove:bool = true
 
 func _ready():
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
@@ -34,6 +39,10 @@ func _ready():
 	#weapon_3.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_4.connect("player_Fired_Bullet", _applyVelocity)
 	InputHelper.device_changed.connect(_on_input_device_changed)
+	hit_box_component.hurt.connect(onHurt)
+
+func onHurt(area: int):
+	camera_2d.apply_shake()
 
 func _on_input_device_changed(device: String, device_index: int) -> void:
 	print(device)
@@ -49,6 +58,10 @@ func _switch_weapon():
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	if !canMove: 
+		playerStartedMoving = false
+		emit_signal("fireWeapon", true)
+		return
 	MovementInput()
 	
 	var rotationPosition: Vector2 = (playerMovement + position) - global_position
@@ -90,5 +103,6 @@ func  _applyVelocity(Recoil):
 	currentrecoil = Recoil
 	
 func _on_health_component_on_death():
+	emit_signal("Death")
 	#queue_free()
-	pass
+	canMove = false

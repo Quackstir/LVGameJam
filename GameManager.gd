@@ -10,9 +10,9 @@ var Score:int = 0: set = newScore
 		
 
 func newScore(newValue):
-	emit_signal("scoreChanged", Score)
 	print("Score" + str(Score))
 	Score = newValue
+	emit_signal("scoreChanged", Score)
 
 func addScore(adding:int):
 	Score += adding

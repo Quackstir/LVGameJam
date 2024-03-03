@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=11 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Player.tscn" id="1_jowkm"]
 [ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="2_bstjw"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dont7sks8osd2" path="res://Audio/11.17.23_Game_jam_session_1_v.2.mp3" id="3_igpgb"]
 [ext_resource type="Script" path="res://GameManager.gd" id="5_t2lx8"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://enemy.tscn" id="6_m5iq0"]
+[ext_resource type="PackedScene" uid="uid://cbr8dj4m1b3wo" path="res://Objects/UI/DeathScreen.tscn" id="7_ckly0"]
 [ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="7_u5sdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
@@ -103,3 +104,7 @@ rotation = -0.00167317
 
 [node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("gameManager") instance=ExtResource("7_u5sdj")]
 gameManager = NodePath("../../GameManager")
+
+[node name="DeathScreen" parent="CanvasLayer" node_paths=PackedStringArray("gameManager", "player") instance=ExtResource("7_ckly0")]
+gameManager = NodePath("../../GameManager")
+player = NodePath("../../Player")
