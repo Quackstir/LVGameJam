@@ -21,6 +21,7 @@ var playerStartedMoving = false
 
 var currentrecoil = 10.0
 
+@export var EnemyInstance: PackedScene
 @onready var health_component = $HealthComponent
 var CurrentDevice: String = "keyboard"
 signal fireWeapon(isShooting:bool)
@@ -33,6 +34,7 @@ func _ready():
 	#weapon_2.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_3.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_4.connect("player_Fired_Bullet", _applyVelocity)
+	EnemySpawnRepeat()
 	InputHelper.device_changed.connect(_on_input_device_changed)
 
 func _on_input_device_changed(device: String, device_index: int) -> void:
@@ -88,6 +90,17 @@ func MovementInput():
 	
 func  _applyVelocity(Recoil):
 	currentrecoil = Recoil
+	
+func EnemySpawnRepeat():
+	while true:
+		await get_tree().create_timer(0.5).timeout
+		SpawnEnemy()
+		
+func SpawnEnemy():
+	var enemy_instance = EnemyInstance.instantiate()
+	enemy_instance.global_position = self.position + Vector2(200,200)
+	enemy_instance._set_Player(self)
+	get_tree().get_root().add_child(enemy_instance)
 	
 func _on_health_component_on_death():
 	#queue_free()
