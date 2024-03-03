@@ -1,13 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=9 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Player.tscn" id="1_jowkm"]
+[ext_resource type="Script" path="res://GameManager.gd" id="1_l6l4q"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="2_i8kle"]
+[ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://enemy.tscn" id="2_nggi6"]
 [ext_resource type="AudioStream" uid="uid://dont7sks8osd2" path="res://Audio/11.17.23_Game_jam_session_1_v.2.mp3" id="3_igpgb"]
 [ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="4_p4xrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
+[sub_resource type="Curve2D" id="Curve2D_7q0qn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1774, -1120, 0, 0, 0, 0, 1883, -1121, 0, 0, 0, 0, 1883, 1129, 0, 0, 0, 0, -1771, 1126, 0, 0, 0, 0, -1774, -1120)
+}
+point_count = 5
+
 [node name="Level" type="Node2D"]
+script = ExtResource("1_l6l4q")
+EnemyInstance = ExtResource("2_nggi6")
 
 [node name="Player" parent="." instance=ExtResource("1_jowkm")]
 position = Vector2(0, -3)
@@ -76,19 +86,15 @@ shape = SubResource("RectangleShape2D_ql7q5")
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_i8kle")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
-position = Vector2(-2113, -5)
-scale = Vector2(9.12299, 98.6284)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
-shape = SubResource("RectangleShape2D_ql7q5")
-
-[node name="Icon2" type="Sprite2D" parent="StaticBody2D6"]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_i8kle")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("4_p4xrc")]
+[node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("gameManager") instance=ExtResource("4_p4xrc")]
+gameManager = NodePath("../..")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7q0qn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1774, -1120)
+rotation = -0.000273448

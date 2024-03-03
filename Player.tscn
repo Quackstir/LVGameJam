@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://chbjox8nn5cvg"]
+[gd_scene load_steps=9 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="1_ism4c"]
 [ext_resource type="Script" path="res://Player.gd" id="1_yrlnl"]
-[ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://enemy.tscn" id="2_18ndf"]
 [ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://weapon.tscn" id="3_pcl6h"]
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://HitBoxComponent.tscn" id="5_fhxqj"]
 [ext_resource type="AudioStream" uid="uid://cw3quvxx0vsfb" path="res://Audio/Beetle Game_AutoRifle v.1.mp3" id="5_g7yeo"]
@@ -18,7 +17,6 @@ radius = 10.05
 scale = Vector2(3, 3)
 collision_mask = 0
 script = ExtResource("1_yrlnl")
-EnemyInstance = ExtResource("2_18ndf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(-0.144904, -0.144904)
