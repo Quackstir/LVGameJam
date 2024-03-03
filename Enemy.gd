@@ -6,6 +6,7 @@ var player_position
 var target_position
 # Get a reference to the player. It's likely different in your project
 var player
+var gameManager:GameManager
 
 @onready var hit_box_component = $HitBoxComponent
 @onready var health_component = $HealthComponent
@@ -17,10 +18,14 @@ func _ready():
 	health_component.connect("onDeath", destroySelf)
 	
 func destroySelf():
+	gameManager.addScore(10)
 	queue_free()
 	
 func _set_Player(a:CharacterBody2D):
 	player = a
+	
+func _set_GM(a:GameManager):
+	gameManager = a
  
 func _physics_process(delta):
 	
