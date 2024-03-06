@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Player.tscn" id="1_jowkm"]
 [ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="2_bstjw"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="2_i8kle"]
-[ext_resource type="AudioStream" uid="uid://da7cqk0ck8cbk" path="res://Audio/BeetleBarrage MASTER v.1.mp3" id="3_xe1j8"]
+[ext_resource type="AudioStream" uid="uid://k5j710i7p807" path="res://Audio/BeetleBarrage MASTER v.2 march2024.mp3" id="5_dwgsk"]
 [ext_resource type="Script" path="res://GameManager.gd" id="5_t2lx8"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://enemy.tscn" id="6_m5iq0"]
 [ext_resource type="PackedScene" uid="uid://cbr8dj4m1b3wo" path="res://Objects/UI/DeathScreen.tscn" id="7_ckly0"]
@@ -36,7 +36,7 @@ scale = Vector2(-1.571, 1.918)
 texture = ExtResource("2_bstjw")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_xe1j8")
+stream = ExtResource("5_dwgsk")
 volume_db = -8.725
 autoplay = true
 
