@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://lvnwrtdrw7ls"]
+[gd_scene load_steps=6 format=3 uid="uid://lvnwrtdrw7ls"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_8tcbk"]
-[ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="1_j10lu"]
+[ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="2_b6w4e"]
 [ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://damage_box_component.tscn" id="3_ds58h"]
-[ext_resource type="Script" path="res://damage_box_component.gd" id="4_jpokl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jshqo"]
 radius = 8.6
@@ -18,9 +17,9 @@ gravity_scale = 0.0
 script = ExtResource("1_8tcbk")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 1, 1)
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("1_j10lu")
+rotation = 1.5708
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("2_b6w4e")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jshqo")
@@ -28,7 +27,6 @@ shape = SubResource("CircleShape2D_jshqo")
 [node name="DamageBoxComponent" parent="." instance=ExtResource("3_ds58h")]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("4_jpokl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
 shape = SubResource("RectangleShape2D_8t8jm")
