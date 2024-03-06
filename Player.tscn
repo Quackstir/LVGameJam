@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ctrtpjxxcf6ea" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly(1).png" id="3_kayf7"]
 [ext_resource type="Script" path="res://ScreenShake.gd" id="3_n3uq4"]
 [ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://weapon.tscn" id="3_pcl6h"]
+[ext_resource type="AudioStream" uid="uid://b55ygk67h30me" path="res://Audio/Beetle Game_AutoRifle v.2 MASTER.mp3" id="5_1lexl"]
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://HitBoxComponent.tscn" id="5_fhxqj"]
-[ext_resource type="AudioStream" uid="uid://cw3quvxx0vsfb" path="res://Audio/Beetle Game_AutoRifle v.1.mp3" id="5_g7yeo"]
 [ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://health_component.tscn" id="6_1xksy"]
 [ext_resource type="Texture2D" uid="uid://ckv7fyo2h1nw6" path="res://Sprites/Backgrounds/lighttexture2.png" id="8_sn081"]
 
@@ -46,7 +46,7 @@ player = NodePath("../..")
 canShoot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Center/Weapon"]
-stream = ExtResource("5_g7yeo")
+stream = ExtResource("5_1lexl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Center"]
 modulate = Color(0.486275, 0.486275, 0.486275, 1)
