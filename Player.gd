@@ -32,6 +32,7 @@ signal Death
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var canMove:bool = true
+@onready var damage_audio = $"Damage Audio"
 
 func _ready():
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
@@ -42,7 +43,9 @@ func _ready():
 	hit_box_component.hurt.connect(onHurt)
 
 func onHurt(area: int):
+	if !canMove: return
 	camera_2d.apply_shake()
+	damage_audio.play()
 
 func _on_input_device_changed(device: String, device_index: int) -> void:
 	print(device)
@@ -105,4 +108,7 @@ func  _applyVelocity(Recoil):
 func _on_health_component_on_death():
 	emit_signal("Death")
 	#queue_free()
-	canMove = false
+	if canMove: 
+		canMove = false
+		camera_2d.apply_shake()
+		damage_audio.play()

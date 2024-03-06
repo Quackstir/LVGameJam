@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chbjox8nn5cvg"]
+[gd_scene load_steps=12 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_yrlnl"]
 [ext_resource type="Texture2D" uid="uid://ctrtpjxxcf6ea" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly(1).png" id="3_kayf7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://HitBoxComponent.tscn" id="5_fhxqj"]
 [ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://health_component.tscn" id="6_1xksy"]
 [ext_resource type="Texture2D" uid="uid://ckv7fyo2h1nw6" path="res://Sprites/Backgrounds/lighttexture2.png" id="8_sn081"]
+[ext_resource type="AudioStream" uid="uid://dwsgjx36n76b0" path="res://Audio/BeetleGame_Beetle_Damaged v.2 MASTER.mp3" id="9_ninbk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
 radius = 8.00694
@@ -72,5 +73,8 @@ Max_Health = 4
 color = Color(0.690196, 0.615686, 0.945098, 1)
 energy = 5.16
 texture = ExtResource("8_sn081")
+
+[node name="Damage Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ninbk")
 
 [connection signal="onDeath" from="HealthComponent" to="." method="_on_health_component_on_death"]
