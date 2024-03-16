@@ -18,5 +18,5 @@ func _on_exit_game_button_down():
 	get_tree().quit()
 
 
-func _on_visibility_changed():
-	label_2.text = "Score: " + str(gameManager.Score)
+#func _on_visibility_changed():
+	#label_2.text = "Score: " + str(gameManager.Score)
