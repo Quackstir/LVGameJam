@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://don15t7wus6lr"]
+
+[ext_resource type="Script" path="res://Objects/Gameplay/GameManager.gd" id="1_mvxwo"]
+[ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/enemy.tscn" id="2_wxu82"]
+[ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Objects/Gameplay/Player.tscn" id="3_t8iqy"]
+[ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="4_0rbwn"]
+[ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="5_f61so"]
+[ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="6_n24og"]
+[ext_resource type="PackedScene" uid="uid://cbr8dj4m1b3wo" path="res://Objects/UI/DeathScreen.tscn" id="7_wgg82"]
+[ext_resource type="AudioStream" uid="uid://b74ytc25u773o" path="res://Audio/Beetle DEATHstinger MASTER v.1.mp3" id="8_ygr2a"]
+[ext_resource type="AudioStream" uid="uid://dkl0a8k3apbjb" path="res://Audio/11.17.23 Game jam session 1 v.21 SIREN.mp3" id="9_q7lyu"]
+[ext_resource type="AudioStream" uid="uid://k5j710i7p807" path="res://Audio/BeetleBarrage MASTER v.2 march2024.mp3" id="10_eprq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
+
+[sub_resource type="Curve2D" id="Curve2D_8ahb6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1784, -1085, 0, 0, 0, 0, 1802, -1091, 0, 0, 0, 0, 1773, 1109, 0, 0, 0, 0, -1783, 1117, 0, 0, 0, 0, -1784, -1085)
+}
+point_count = 5
+
+[node name="Level" type="Node2D"]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_mvxwo")
+EnemyInstance = ExtResource("2_wxu82")
+
+[node name="Player" parent="." instance=ExtResource("3_t8iqy")]
+position = Vector2(0, -3)
+collision_layer = 5
+collision_mask = 4
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.654902, 0.654902, 0.654902, 1)
+z_index = -100
+position = Vector2(-2.00002, 19)
+scale = Vector2(-1.571, 1.918)
+texture = ExtResource("4_0rbwn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, 980)
+scale = Vector2(166.12, 2.04)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D2"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("5_f61so")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0, -980)
+scale = Vector2(166.12, 2.04)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D4"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("5_f61so")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1516, 0)
+scale = Vector2(9.12299, 98.6284)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D3"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("5_f61so")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-1516, 0)
+scale = Vector2(9.12299, 98.6284)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_ql7q5")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D5"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("5_f61so")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_8ahb6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1784, -1085)
+rotation = -0.00167317
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("gameManager") instance=ExtResource("6_n24og")]
+gameManager = NodePath("../../GameManager")
+
+[node name="DeathScreen" parent="CanvasLayer" node_paths=PackedStringArray("gameManager", "player") instance=ExtResource("7_wgg82")]
+gameManager = NodePath("../../GameManager")
+player = NodePath("../../Player")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ygr2a")
+
+[node name="Siren" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_q7lyu")
+volume_db = -80.0
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_eprq5")
+volume_db = -8.725
+autoplay = true
