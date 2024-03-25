@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkl0a8k3apbjb"
+path="res://.godot/imported/11.17.23 Game jam session 1 v.21 SIREN.mp3-e850f2ec1b0e7ee3250a5c76949f987b.mp3str"
+
+[deps]
+
+source_file="res://Audio/11.17.23 Game jam session 1 v.21 SIREN.mp3"
+dest_files=["res://.godot/imported/11.17.23 Game jam session 1 v.21 SIREN.mp3-e850f2ec1b0e7ee3250a5c76949f987b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Bugcoil"
-run/main_scene="res://Level.tscn"
+run/main_scene="res://Levels/Level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 InputHelper="*res://addons/input_helper/input_helper.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
