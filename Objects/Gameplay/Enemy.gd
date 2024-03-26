@@ -41,7 +41,7 @@ func _physics_process(delta):
 			velocity = target_position * speed
 			look_at(player_position)
 		else:
-			velocity = lerp(velocity, 1500 * target_position, delta  * 0.5)
+			velocity = lerp(velocity, 1000 * target_position, delta  * 0.5)
 			var rotationDirection: float = target_position.angle()
 			var currentRotation: float = global_rotation
 			global_rotation = lerp_angle(currentRotation, rotationDirection, delta * 0.5)
