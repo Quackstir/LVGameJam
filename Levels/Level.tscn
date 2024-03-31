@@ -126,14 +126,46 @@ stream = ExtResource("10_eprq5")
 volume_db = -8.725
 autoplay = true
 
-[node name="Obstacle" parent="." instance=ExtResource("11_cx8ds")]
-position = Vector2(-820, -293)
+[node name="Obstacle11" parent="." instance=ExtResource("11_cx8ds")]
+position = Vector2(-411, -6)
+scale = Vector2(7.4, 6.36)
+
+[node name="Obstacle12" parent="." instance=ExtResource("11_cx8ds")]
+position = Vector2(383, -6)
 scale = Vector2(7.4, 6.36)
 
 [node name="Obstacle2" parent="." instance=ExtResource("12_xsnqo")]
-position = Vector2(-641, 180)
+position = Vector2(-2216, -867)
 scale = Vector2(6.79402, 5.84897)
 
 [node name="Obstacle3" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(562, -36)
+position = Vector2(-1371, -1042)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle4" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(1371, -1042)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle7" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(963, -636)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle8" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(-955, -636)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle9" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(963, 396)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle10" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(-955, 398)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle5" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(1371, 788)
+scale = Vector2(4.92, 5.92)
+
+[node name="Obstacle6" parent="." instance=ExtResource("13_7kuxr")]
+position = Vector2(-1381, 783)
 scale = Vector2(4.92, 5.92)
