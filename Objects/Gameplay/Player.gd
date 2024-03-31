@@ -69,9 +69,7 @@ func _input(event):
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	
-	
-	
+
 	if !canMove: 
 		playerStartedMoving = false
 		emit_signal("fireWeapon", false)
@@ -96,7 +94,6 @@ func _physics_process(delta: float) -> void:
 	var ClampedInputLength = clamp(playerMovement.length(),0,1);
 	velocity = lerp(velocity, transform.x * -ClampedInputLength * currentrecoil * SPEED, delta * Acceleration)
 	move_and_slide()
-	
 	
 
 func MovementInput():
