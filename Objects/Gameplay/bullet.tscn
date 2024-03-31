@@ -7,10 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jshqo"]
 radius = 8.6
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t8jm"]
-size = Vector2(23, 23)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tqaw"]
+radius = 17.5285
 
 [node name="Bullet" type="RigidBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 2
 gravity_scale = 0.0
@@ -29,7 +30,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
-shape = SubResource("RectangleShape2D_8t8jm")
+shape = SubResource("CircleShape2D_1tqaw")
 
 [connection signal="area_entered" from="DamageBoxComponent" to="." method="_on_damage_box_component_area_entered"]
 [connection signal="area_entered" from="DamageBoxComponent" to="DamageBoxComponent" method="_on_area_entered"]

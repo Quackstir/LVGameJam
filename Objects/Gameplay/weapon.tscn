@@ -124,6 +124,7 @@ _data = {
 script = ExtResource("1_1xb80")
 Bullet = ExtResource("2_u8yak")
 bullet_speed = 500.0
+FireCoolDown = 0.3
 
 [node name="EndOfGun" type="Node2D" parent="."]
 
