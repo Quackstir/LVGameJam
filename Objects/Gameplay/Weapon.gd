@@ -27,6 +27,14 @@ func _ready():
 	await get_tree().create_timer(0.000001).timeout
 	timer.wait_time = FireCoolDown
 	player.fireWeapon.connect(ShootRepeat)
+	
+func burstFire():
+	canShoot = false
+	for fire in 3:
+		fireBullet()
+		await get_tree().create_timer(0.1).timeout
+	Recoil = 2.0
+	canShoot = true
 
 func ShootRepeat(isShooting):
 	if isShooting:
@@ -42,7 +50,7 @@ func ShootRepeat(isShooting):
 func fireWeapon():
 	if !canShoot: return
 	print("Fire")
-	for fire in 3:
+	for fire in 1:
 		fireBullet()
 		await get_tree().create_timer(0.1).timeout
 	

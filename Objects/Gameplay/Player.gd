@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 		playerStartedMoving = false
 		emit_signal("fireWeapon", false)
 		return
+	Ability()
 	MovementInput()
 
 	isPlayerMoving = playerMovement.length() > 0.3
@@ -95,7 +96,13 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, transform.x * -ClampedInputLength * currentrecoil * SPEED, delta * Acceleration)
 	move_and_slide()
 	
-
+func Ability():
+	if Input.is_action_just_pressed("Weapon South"): #down
+		weapon.Recoil = 4.0
+		weapon.burstFire()
+	#elif Input.is_action_just_pressed("Weapon East"):
+		
+		
 func MovementInput():
 	if CurrentDevice != "keyboard":
 		var HorizontalMovement = Input.get_action_raw_strength("Movement_Right") - Input.get_action_raw_strength("Movement_Left")
