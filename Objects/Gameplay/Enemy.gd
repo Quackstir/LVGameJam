@@ -14,6 +14,10 @@ var gameManager:GameManager
 @onready var damage_box_component: DamageBoxComponent = $DamageBoxComponent as DamageBoxComponent
 @export var momentumMovement:bool = true
 
+var canMove:bool = true
+
+@onready var timer = $Timer
+
 func _ready():
 	velocity = Vector2.ZERO
 	health_component.connect("onDeath", destroySelf)
@@ -29,7 +33,8 @@ func _set_GM(a:GameManager):
 	gameManager = a
  
 func _physics_process(delta):
-	
+	move_and_slide()
+	if !canMove:return
 	# Set player_position to the position of the player node
 	player_position = player.position
 	# Calculate the target position
@@ -41,7 +46,7 @@ func _physics_process(delta):
 			velocity = target_position * speed
 			look_at(player_position)
 		else:
-			velocity = lerp(velocity, 600 * target_position, delta  * 0.8)
+			velocity = lerp(velocity, 400 * target_position, delta  * 0.5)
 			var rotationDirection: float = target_position.angle()
 			var currentRotation: float = global_rotation
 			global_rotation = lerp_angle(currentRotation, rotationDirection, delta * 0.3)
@@ -49,3 +54,11 @@ func _physics_process(delta):
 
 func _on_damage_box_component_hit_hurtbox(hurtbox):
 	queue_free()
+
+func stunEnemy():
+	canMove = false
+	timer.start()
+	
+
+func _on_timer_timeout():
+	canMove = true

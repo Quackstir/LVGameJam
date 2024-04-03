@@ -33,7 +33,7 @@ func burstFire():
 	for fire in 3:
 		fireBullet()
 		await get_tree().create_timer(0.1).timeout
-	Recoil = 2.0
+	Recoil = 10.0
 	canShoot = true
 
 func ShootRepeat(isShooting):

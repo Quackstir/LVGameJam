@@ -44,5 +44,9 @@ collision_mask = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
 shape = SubResource("CircleShape2D_u173x")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="DamageBoxComponent" to="DamageBoxComponent" method="_on_area_entered"]
 [connection signal="hit_hurtbox" from="DamageBoxComponent" to="." method="_on_damage_box_component_hit_hurtbox"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
