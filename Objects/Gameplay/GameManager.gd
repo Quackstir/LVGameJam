@@ -1,6 +1,7 @@
 class_name GameManager extends Node2D
 
 @export var EnemyInstance: PackedScene
+@export var Enemy_Dragonfly_Instance: PackedScene
 @onready var path_follow_2d = %PathFollow2D
 @onready var player = $"../Player"
 
@@ -12,6 +13,10 @@ var Score:int = 0: set = newScore
 @onready var music:AudioStreamPlayer = $"../Music"
 @onready var siren:AudioStreamPlayer = $"../Siren"
 
+var seconds:int
+@onready var timer = $Timer
+@onready var spawn_timer = $spawnTimer
+
 func newScore(newValue):
 	print("Score" + str(Score))
 	Score = newValue
@@ -21,7 +26,6 @@ func addScore(adding:int):
 	Score += adding
 
 func _ready():
-	EnemySpawnRepeat()
 	player.Death.connect(playDeath)
 	await get_tree().create_timer(0.000000001).timeout
 	player.health_component.Health_Change.connect(playSiren)
@@ -42,13 +46,8 @@ func playDeath():
 	music.stop()
 	death_sound.play()
 
-func EnemySpawnRepeat():
-	while true:
-		await get_tree().create_timer(0.5).timeout
-		SpawnEnemy()
-		
-func SpawnEnemy():
-	var enemy_instance = EnemyInstance.instantiate()
+func SpawnEnemy(Enemy:PackedScene):
+	var enemy_instance = Enemy.instantiate()
 	enemy_instance._set_Player(player)
 	enemy_instance._set_GM(self)
 	
@@ -57,3 +56,18 @@ func SpawnEnemy():
 
 	add_child(enemy_instance)
 	
+func _on_timer_timeout():
+	seconds += 1
+	print("Seconds" + str(seconds))
+
+
+func _on_spawn_timer_timeout():
+	SpawnEnemy(EnemyInstance)
+	
+	if spawn_timer.wait_time > 1.0:
+		spawn_timer.wait_time -= 0.02
+		print(spawn_timer.wait_time)
+	
+	if seconds < 60:return
+	if randf_range(0,1) < 0.3:
+		SpawnEnemy(Enemy_Dragonfly_Instance)
