@@ -47,6 +47,14 @@ var canMove:bool = true
 @onready var knock_back_collision = $KnockBack/KnockBackCollision
 @onready var knock_back_cool_down = $"Ability Cooldowns/KnockBackCoolDown"
 
+@export var missle: PackedScene
+@export var missle_speed: float = 100000000.0
+@onready var right = $Center/Right
+@onready var down = $Center/Down
+@onready var left = $Center/Left
+@onready var up = $Center/Up
+@onready var missle_cool_down = $"Ability Cooldowns/MissleCoolDown"
+
 func _ready():
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_2.connect("player_Fired_Bullet", _applyVelocity)
@@ -134,6 +142,13 @@ func Ability():
 		await get_tree().create_timer(.4).timeout
 		knock_back.visible = false
 		knock_back_collision.disabled = true
+	elif Input.is_action_just_pressed("Weapon North"):
+		if missle_cool_down.time_left > 0:return
+		missle_cool_down.start()
+		fireBullet(up)
+		fireBullet(down)
+		fireBullet(left)
+		fireBullet(right)
 		
 func MovementInput():
 	if !canRotate:return
@@ -168,3 +183,11 @@ func _on_lazer_activate_timeout():
 	_applyVelocity(0.0)
 	canRotate = true
 	lazer_collision.disabled = true
+	
+func fireBullet(direction):
+	var missle_instance = missle.instantiate()
+	#audio_stream_player_2d.play()
+	missle_instance.global_position = direction.global_position
+	missle_instance.rotation_degrees = direction.rotation_degrees
+	missle_instance.apply_central_impulse(Vector2(missle_speed,0).rotated(direction.global_rotation))
+	get_tree().get_root().add_child(missle_instance)
