@@ -1,10 +1,48 @@
-[gd_scene load_steps=9 format=3 uid="uid://itihdsxsasau"]
+[gd_scene load_steps=12 format=3 uid="uid://itihdsxsasau"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Enemies/Enemy.gd" id="1_1uq5v"]
-[ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="2_ssppc"]
+[ext_resource type="Texture2D" uid="uid://q5buowkvf8cv" path="res://Sprites/Player/antsprite.png" id="2_u6raj"]
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://Components/HitBoxComponent.tscn" id="3_fd6t7"]
 [ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://Components/health_component.tscn" id="4_jc4xr"]
 [ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://Components/damage_box_component.tscn" id="5_huhtc"]
+
+[sub_resource type="Animation" id="Animation_3qebr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bkqij"]
+resource_name = "ant_idle"
+length = 0.308
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3wec"]
+_data = {
+"RESET": SubResource("Animation_3qebr"),
+"ant_idle": SubResource("Animation_bkqij")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch8kf"]
 
@@ -21,8 +59,16 @@ momentumMovement = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.529412, 0.443137, 1)
-scale = Vector2(0.157745, 0.169706)
-texture = ExtResource("2_ssppc")
+rotation = 4.71239
+scale = Vector2(0.063, 0.068)
+texture = ExtResource("2_u6raj")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_j3wec")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ch8kf")
