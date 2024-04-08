@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GameManager.gd" id="1_mvxwo"]
-[ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/enemy.tscn" id="2_wxu82"]
+[ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Objects/Gameplay/Player.tscn" id="3_t8iqy"]
 [ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="4_0rbwn"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="5_f61so"]
@@ -110,6 +110,7 @@ rotation = -0.00167317
 gameManager = NodePath("../../GameManager")
 
 [node name="DeathScreen" parent="CanvasLayer" node_paths=PackedStringArray("gameManager", "player") instance=ExtResource("7_wgg82")]
+visible = false
 gameManager = NodePath("../../GameManager")
 player = NodePath("../../Player")
 
