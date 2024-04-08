@@ -7,6 +7,7 @@ var target_position
 # Get a reference to the player. It's likely different in your project
 var player
 var gameManager:GameManager
+@onready var animation = $AnimationPlayer
 
 @onready var hit_box_component = $HitBoxComponent
 @onready var health_component = $HealthComponent
@@ -19,6 +20,7 @@ var canMove:bool = true
 @onready var timer = $Timer
 
 func _ready():
+	animation.play("ant_idle")
 	velocity = Vector2.ZERO
 	health_component.connect("onDeath", destroySelf)
 	

@@ -26,7 +26,7 @@ var currentrecoil = 10.0
 var canRotate : bool = true
 
 @onready var health_component:HealthComponent = $HealthComponent
-var CurrentDevice: String = "gamepad"
+var CurrentDevice: String = "keyboard"
 signal fireWeapon(isShooting:bool)
 signal Death
 
