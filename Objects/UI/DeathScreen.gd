@@ -11,8 +11,7 @@ func appearOnDeath():
 	visible = true
 
 func _on_reset_button_down():
-	get_tree().change_scene_to_file("res://Level.tscn")
-
+	get_tree().change_scene_to_file("res://Levels/Level.tscn")
 
 func _on_exit_game_button_down():
 	get_tree().quit()

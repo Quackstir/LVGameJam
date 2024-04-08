@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=17 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GameManager.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Objects/Gameplay/Player.tscn" id="3_t8iqy"]
+[ext_resource type="PackedScene" uid="uid://xbxmk0gyn1ok" path="res://Objects/Gameplay/Enemies/enemy_DragonFly.tscn" id="3_vsp37"]
 [ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="4_0rbwn"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="5_f61so"]
 [ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="6_n24og"]
@@ -27,6 +28,15 @@ point_count = 5
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_mvxwo")
 EnemyInstance = ExtResource("2_wxu82")
+Enemy_Dragonfly_Instance = ExtResource("3_vsp37")
+
+[node name="Timer" type="Timer" parent="GameManager"]
+process_callback = 0
+autostart = true
+
+[node name="spawnTimer" type="Timer" parent="GameManager"]
+wait_time = 2.5
+autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_t8iqy")]
 position = Vector2(0, -3)
@@ -170,3 +180,6 @@ scale = Vector2(4.92, 5.92)
 [node name="Obstacle6" parent="." instance=ExtResource("13_7kuxr")]
 position = Vector2(-1381, 783)
 scale = Vector2(4.92, 5.92)
+
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
+[connection signal="timeout" from="GameManager/spawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]
