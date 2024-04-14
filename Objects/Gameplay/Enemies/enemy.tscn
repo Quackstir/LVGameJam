@@ -45,10 +45,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch8kf"]
+size = Vector2(20.084, 8.40336)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcfci"]
+size = Vector2(27.7768, 15.2948)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u173x"]
+radius = 3.78151
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(2.38, 2.38)
@@ -71,6 +74,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ch8kf")
 
 [node name="HitBoxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("3_fd6t7")]
@@ -89,6 +93,7 @@ collision_layer = 0
 collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
+position = Vector2(10.5042, 0)
 shape = SubResource("CircleShape2D_u173x")
 
 [node name="Timer" type="Timer" parent="."]

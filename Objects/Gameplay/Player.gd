@@ -55,6 +55,15 @@ var canMove:bool = true
 @onready var up = $Center/Up
 @onready var missle_cool_down = $"Ability Cooldowns/MissleCoolDown"
 
+@onready var burst_icon = $"Burst Icon"
+@onready var stink_bomb_icon = $"Stink Bomb Icon"
+@onready var lazer_icon = $"Lazer Icon"
+@onready var rockets_icon = $"Rockets Icon"
+
+@onready var lazer_audio = $"Ability Cooldowns/LazerCoolDown/Lazer Audio"
+@onready var stinkbug_audio = $"Ability Cooldowns/KnockBackCoolDown/Stinkbug Audio"
+@onready var missle_audio = $"Ability Cooldowns/MissleCoolDown/Missle Audio"
+
 func _ready():
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_2.connect("player_Fired_Bullet", _applyVelocity)
@@ -122,8 +131,12 @@ func Ability():
 		weapon.Recoil = 13.0
 		weapon.burstFire()
 		burst.start()
+		burst_icon.visible = false
 	elif Input.is_action_just_pressed("Weapon East"):
 		if lazer_cool_down.time_left > 0:return
+		lazer_audio.play()
+		lazer_cool_down.start()
+		lazer_icon.visible = false
 		weapon.canShoot = false
 		lazer.visible = true
 		lazer_activate.start()
@@ -136,6 +149,8 @@ func Ability():
 			if lazer_activate.time_left <= 0 : return
 	elif Input.is_action_just_pressed("Weapon West"):
 		if knock_back_cool_down.time_left > 0:return
+		stinkbug_audio.play()
+		stink_bomb_icon.visible = false
 		knock_back_cool_down.start()
 		knock_back.visible = true
 		knock_back_collision.disabled = false
@@ -144,11 +159,13 @@ func Ability():
 		knock_back_collision.disabled = true
 	elif Input.is_action_just_pressed("Weapon North"):
 		if missle_cool_down.time_left > 0:return
+		missle_audio.play()
 		missle_cool_down.start()
 		fireBullet(up)
 		fireBullet(down)
 		fireBullet(left)
 		fireBullet(right)
+		rockets_icon.visible = false
 		
 func MovementInput():
 	if !canRotate:return
@@ -191,3 +208,16 @@ func fireBullet(direction):
 	missle_instance.rotation_degrees = direction.rotation_degrees
 	missle_instance.apply_central_impulse(Vector2(missle_speed,0).rotated(direction.global_rotation))
 	get_tree().get_root().add_child(missle_instance)
+
+
+func _on_burst_timeout():
+	burst_icon.visible = true
+
+func _on_lazer_cool_down_timeout():
+	lazer_icon.visible = true
+
+func _on_missle_cool_down_timeout():
+	rockets_icon.visible = true
+
+func _on_knock_back_cool_down_timeout():
+	stink_bomb_icon.visible = true
