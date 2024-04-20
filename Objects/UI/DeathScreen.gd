@@ -9,6 +9,7 @@ func _ready():
 	
 func appearOnDeath():
 	visible = true
+	label_2.text = "Score: " + str(gameManager.Score)
 
 func _on_reset_button_down():
 	get_tree().change_scene_to_file("res://Levels/Level.tscn")

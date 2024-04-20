@@ -102,6 +102,7 @@ func _physics_process(delta: float) -> void:
 	if !canMove: 
 		playerStartedMoving = false
 		emit_signal("fireWeapon", false)
+		move_and_slide()
 		return
 	Ability()
 	MovementInput()

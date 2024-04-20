@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://iqblu7spah3o" path="res://Audio/Beetle Game_Lazer v.2 MASTER.mp3" id="13_8wmqr"]
 [ext_resource type="AudioStream" uid="uid://32ewhu8scfuw" path="res://Audio/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3" id="13_24oip"]
 [ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="14_14ek0"]
-[ext_resource type="AudioStream" uid="uid://e6fputsjngal" path="res://Audio/Beetle Game_Shotgun v.2 MASTER.mp3" id="14_c8gsb"]
+[ext_resource type="AudioStream" uid="uid://bl7aakk12omfo" path="res://Audio/Beetle Game_Stinkbomb v.2 MASTER.wav" id="14_xfgq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
 radius = 8.00694
@@ -152,7 +152,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="Stinkbug Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/KnockBackCoolDown"]
-stream = ExtResource("14_c8gsb")
+stream = ExtResource("14_xfgq2")
 
 [node name="MissleCoolDown" type="Timer" parent="Ability Cooldowns"]
 wait_time = 10.0

@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://xbxmk0gyn1ok"]
+[gd_scene load_steps=4 format=3 uid="uid://xbxmk0gyn1ok"]
 
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="1_x08ab"]
+[ext_resource type="Script" path="res://Components/DropOnDeath.gd" id="2_nwfaq"]
+[ext_resource type="PackedScene" uid="uid://difvpoyajplfe" path="res://Objects/Gameplay/Drops/HealthDrop.tscn" id="3_awg1c"]
 
 [node name="Enemy" instance=ExtResource("1_x08ab")]
 momentumMovement = true
+
+[node name="DropOnDeath" type="Node2D" parent="." index="0"]
+scale = Vector2(1, 1)
+script = ExtResource("2_nwfaq")
+dropScene = ExtResource("3_awg1c")

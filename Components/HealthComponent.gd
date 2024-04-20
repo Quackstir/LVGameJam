@@ -10,11 +10,17 @@ signal onDeath
 
 func _take_damage(damage):
 	_set_health(Curr_Health - damage)
+	
+func _heal(healAmount):
+	_set_health(Curr_Health + healAmount)
 
 func _set_health(new_value : float):
 	Curr_Health = new_value
 	print("New Health: " + str(Curr_Health))
 	emit_signal("Health_Change", new_value)
+	
+	if Curr_Health > Max_Health: Curr_Health = Max_Health
+	
 	if Curr_Health <= 0:
 		Death()
 	

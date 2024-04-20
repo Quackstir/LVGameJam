@@ -64,7 +64,7 @@ func _on_timer_timeout():
 func _on_spawn_timer_timeout():
 	SpawnEnemy(EnemyInstance)
 	
-	if spawn_timer.wait_time > 1.0:
+	if spawn_timer.wait_time > 0.5:
 		spawn_timer.wait_time -= 0.02
 		print(spawn_timer.wait_time)
 	
