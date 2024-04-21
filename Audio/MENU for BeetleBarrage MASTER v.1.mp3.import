@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dajl8eexvp3dq"
+path="res://.godot/imported/MENU for BeetleBarrage MASTER v.1.mp3-45e1d4378f1c8c906bb76b5d12907d9b.mp3str"
+
+[deps]
+
+source_file="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3"
+dest_files=["res://.godot/imported/MENU for BeetleBarrage MASTER v.1.mp3-45e1d4378f1c8c906bb76b5d12907d9b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.015
+bpm=112.0
+beat_count=236
+bar_beats=4

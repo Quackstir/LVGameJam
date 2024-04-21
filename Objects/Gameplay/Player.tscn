@@ -1,0 +1,222 @@
+[gd_scene load_steps=23 format=3 uid="uid://chbjox8nn5cvg"]
+
+[ext_resource type="Script" path="res://Objects/Gameplay/Player.gd" id="1_yrlnl"]
+[ext_resource type="PackedScene" uid="uid://cegvwiyxjvgb8" path="res://Objects/Gameplay/Projectiles/missle.tscn" id="2_b4jgl"]
+[ext_resource type="Texture2D" uid="uid://ctrtpjxxcf6ea" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly(1).png" id="3_kayf7"]
+[ext_resource type="Script" path="res://Objects/Gameplay/ScreenShake.gd" id="3_n3uq4"]
+[ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://Objects/Gameplay/weapon.tscn" id="3_pcl6h"]
+[ext_resource type="AudioStream" uid="uid://b55ygk67h30me" path="res://Audio/Beetle Game_AutoRifle v.2 MASTER.mp3" id="5_1lexl"]
+[ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://Components/HitBoxComponent.tscn" id="5_fhxqj"]
+[ext_resource type="Script" path="res://Components/damage_box_component.gd" id="6_ekfa4"]
+[ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="6_xbjph"]
+[ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://Components/health_component.tscn" id="7_mplm1"]
+[ext_resource type="Texture2D" uid="uid://ckv7fyo2h1nw6" path="res://Sprites/Backgrounds/lighttexture2.png" id="8_sn081"]
+[ext_resource type="Texture2D" uid="uid://dhffer3xvrnnr" path="res://Sprites/Player/buttonicons.png" id="9_hmifj"]
+[ext_resource type="AudioStream" uid="uid://dwsgjx36n76b0" path="res://Audio/BeetleGame_Beetle_Damaged v.2 MASTER.mp3" id="9_ninbk"]
+[ext_resource type="Script" path="res://Objects/Gameplay/KnockBack.gd" id="12_h6ohs"]
+[ext_resource type="AudioStream" uid="uid://iqblu7spah3o" path="res://Audio/Beetle Game_Lazer v.2 MASTER.mp3" id="13_8wmqr"]
+[ext_resource type="AudioStream" uid="uid://32ewhu8scfuw" path="res://Audio/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3" id="13_24oip"]
+[ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="14_14ek0"]
+[ext_resource type="AudioStream" uid="uid://e6fputsjngal" path="res://Audio/Beetle Game_Shotgun v.2 MASTER.mp3" id="14_c8gsb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
+radius = 8.00694
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3awxx"]
+size = Vector2(10133.3, 170.833)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftsfj"]
+radius = 10.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3m450"]
+radius = 74.6622
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 0
+script = ExtResource("1_yrlnl")
+missle = ExtResource("2_b4jgl")
+missle_speed = 1000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+scale = Vector2(-0.016, -0.016)
+texture = ExtResource("3_kayf7")
+region_enabled = true
+region_rect = Rect2(2883.48, 714.472, 1265.28, 1233.98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ra885")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("3_n3uq4")
+randomStrength = 10.0
+shakeFade = 2.0
+
+[node name="Center" type="Node2D" parent="."]
+
+[node name="Weapon" parent="Center" node_paths=PackedStringArray("player") instance=ExtResource("3_pcl6h")]
+position = Vector2(18.073, 0)
+scale = Vector2(0.08, 0.08)
+bullet_speed = 1000.0
+player = NodePath("../..")
+Recoil = 10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Center/Weapon"]
+stream = ExtResource("5_1lexl")
+
+[node name="Lazer" type="Area2D" parent="Center/Weapon"]
+visible = false
+position = Vector2(-17.5792, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_ekfa4")
+damage = 10.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Center/Weapon/Lazer"]
+position = Vector2(5182.42, 0)
+scale = Vector2(79, 1)
+texture = ExtResource("6_xbjph")
+
+[node name="LazerCollision" type="CollisionShape2D" parent="Center/Weapon/Lazer"]
+position = Vector2(5199.09, -2.08333)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_3awxx")
+disabled = true
+
+[node name="LazerActivate" type="Timer" parent="Center/Weapon/Lazer"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Center"]
+modulate = Color(0.486275, 0.486275, 0.486275, 1)
+z_index = -1
+position = Vector2(3.66667, 0.333334)
+rotation = 1.5708
+scale = Vector2(0.019, 0.019)
+texture = ExtResource("3_kayf7")
+region_enabled = true
+region_rect = Rect2(813.993, 1902.98, 1655.71, 2077.24)
+
+[node name="Right" type="Node2D" parent="Center"]
+position = Vector2(20, 0)
+
+[node name="Down" type="Node2D" parent="Center"]
+position = Vector2(0, 20)
+rotation = 1.55334
+
+[node name="Left" type="Node2D" parent="Center"]
+position = Vector2(-20, 0)
+rotation = 3.14159
+
+[node name="Up" type="Node2D" parent="Center"]
+position = Vector2(0, -20)
+rotation = -1.5708
+
+[node name="HitBoxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("5_fhxqj")]
+collision_mask = 0
+healthComponent = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("CircleShape2D_ftsfj")
+
+[node name="HealthComponent" parent="." instance=ExtResource("7_mplm1")]
+Max_Health = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = -2
+color = Color(0.690196, 0.615686, 0.945098, 1)
+energy = 5.16
+texture = ExtResource("8_sn081")
+
+[node name="Damage Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ninbk")
+
+[node name="Ability Cooldowns" type="Node" parent="."]
+
+[node name="Burst" type="Timer" parent="Ability Cooldowns"]
+wait_time = 2.5
+one_shot = true
+
+[node name="LazerCoolDown" type="Timer" parent="Ability Cooldowns"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Lazer Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/LazerCoolDown"]
+stream = ExtResource("13_8wmqr")
+
+[node name="KnockBackCoolDown" type="Timer" parent="Ability Cooldowns"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Stinkbug Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/KnockBackCoolDown"]
+stream = ExtResource("14_c8gsb")
+
+[node name="MissleCoolDown" type="Timer" parent="Ability Cooldowns"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Missle Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/MissleCoolDown"]
+stream = ExtResource("13_24oip")
+
+[node name="KnockBack" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("12_h6ohs")
+
+[node name="KnockBackCollision" type="CollisionShape2D" parent="KnockBack"]
+shape = SubResource("CircleShape2D_3m450")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="KnockBack"]
+modulate = Color(0, 1, 0.698039, 0.713726)
+scale = Vector2(2.965, 2.965)
+texture = ExtResource("14_14ek0")
+
+[node name="Burst Icon" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+light_mask = 0
+position = Vector2(0, 5.66667)
+scale = Vector2(0.011, 0.011)
+texture = ExtResource("9_hmifj")
+region_enabled = true
+region_rect = Rect2(0, 385.538, 492.107, 459.152)
+
+[node name="Stink Bomb Icon" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+light_mask = 0
+position = Vector2(-5.66667, -2.98023e-08)
+scale = Vector2(0.011, 0.011)
+texture = ExtResource("9_hmifj")
+region_enabled = true
+region_rect = Rect2(131.975, 1162.68, 472.961, 452.248)
+
+[node name="Lazer Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0.898039, 0, 1)
+light_mask = 0
+position = Vector2(5.66667, -1.77636e-15)
+scale = Vector2(0.011, 0.011)
+texture = ExtResource("9_hmifj")
+region_enabled = true
+region_rect = Rect2(715.409, 234.02, 490.223, 479.866)
+
+[node name="Rockets Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+light_mask = 0
+position = Vector2(2.84217e-14, -5.66667)
+scale = Vector2(0.011, 0.011)
+texture = ExtResource("9_hmifj")
+region_enabled = true
+region_rect = Rect2(929.45, 996.973, 472.961, 514.389)
+
+[connection signal="timeout" from="Center/Weapon/Lazer/LazerActivate" to="." method="_on_lazer_activate_timeout"]
+[connection signal="onDeath" from="HealthComponent" to="." method="_on_health_component_on_death"]
+[connection signal="timeout" from="Ability Cooldowns/Burst" to="." method="_on_burst_timeout"]
+[connection signal="timeout" from="Ability Cooldowns/LazerCoolDown" to="." method="_on_lazer_cool_down_timeout"]
+[connection signal="timeout" from="Ability Cooldowns/KnockBackCoolDown" to="." method="_on_knock_back_cool_down_timeout"]
+[connection signal="timeout" from="Ability Cooldowns/MissleCoolDown" to="." method="_on_missle_cool_down_timeout"]
+[connection signal="area_entered" from="KnockBack" to="KnockBack" method="_on_area_entered"]
+[connection signal="body_shape_entered" from="KnockBack" to="KnockBack" method="_on_body_shape_entered"]

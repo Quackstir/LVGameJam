@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://df8f3gbs0jqlr"]
+
+[ext_resource type="Script" path="res://Components/damage_box_component.gd" id="1_bk5p8"]
+
+[node name="DamageBoxComponent" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_bk5p8")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

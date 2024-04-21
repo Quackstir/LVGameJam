@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://32ewhu8scfuw"
+path="res://.godot/imported/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3-53ae0bfa32c3912e9e48e5e9f86e5ee2.mp3str"
+
+[deps]
+
+source_file="res://Audio/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3"
+dest_files=["res://.godot/imported/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3-53ae0bfa32c3912e9e48e5e9f86e5ee2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

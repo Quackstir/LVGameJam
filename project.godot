@@ -11,9 +11,23 @@ config_version=5
 [application]
 
 config/name="Bugcoil"
-run/main_scene="res://Player.tscn"
+run/main_scene="res://Levels/menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+InputHelper="*res://addons/input_helper/input_helper.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/input_helper/plugin.cfg")
 
 [input]
 
@@ -37,8 +51,3 @@ Movement_Right={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
-
-[layer_names]
-
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemy"
