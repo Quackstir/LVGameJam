@@ -1,7 +1,7 @@
 class_name DropOnDeath
 extends Node2D
 
-@export var dropScene:Array[PackedScene]
+@export var dropScene:PackedScene
 @onready var health_component = $"../HealthComponent"
 @onready var enemy = $".."
 
@@ -11,11 +11,7 @@ func _ready():
 	health_component.onDeath.connect(drop)
 
 func drop():
-	for drops in dropScene:
-		dropstuff(drops)
-	get_parent().queue_free()
-
-func dropstuff(sceneToDrop:PackedScene):
-	var drop_instance = sceneToDrop.instantiate()
+	var drop_instance = dropScene.instantiate()
 	get_tree().get_root().add_child(drop_instance)
 	drop_instance.global_position = global_position
+	get_parent().queue_free()

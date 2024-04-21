@@ -35,7 +35,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var canMove:bool = true
 @onready var damage_audio = $"Damage Audio"
-#@onready var death_sound = $DeathSound
+@onready var death_sound = $DeathSound
 
 @onready var lazer = $Center/Weapon/Lazer
 @onready var burst = $"Ability Cooldowns/Burst"

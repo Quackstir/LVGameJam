@@ -1,5 +1,6 @@
-class_name DamageBoxComponent extends Area2D
+extends Area2D
 
+class_name DamageBoxComponent
 
 # Export the damage amount this hitbox deals
 @export var damage = 1.0

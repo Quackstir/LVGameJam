@@ -26,6 +26,8 @@ func _ready():
 	
 func destroySelf():
 	gameManager.addScore(10)
+	if !momentumMovement:
+		queue_free()
 	
 func _set_Player(a:CharacterBody2D):
 	player = a
