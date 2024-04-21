@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://itihdsxsasau"]
+[gd_scene load_steps=14 format=3 uid="uid://itihdsxsasau"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Enemies/Enemy.gd" id="1_1uq5v"]
 [ext_resource type="Texture2D" uid="uid://q5buowkvf8cv" path="res://Sprites/Player/antsprite.png" id="2_u6raj"]
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://Components/HitBoxComponent.tscn" id="3_fd6t7"]
 [ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://Components/health_component.tscn" id="4_jc4xr"]
 [ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://Components/damage_box_component.tscn" id="5_huhtc"]
+[ext_resource type="Script" path="res://Components/DropOnDeath.gd" id="6_hxqh2"]
+[ext_resource type="PackedScene" uid="uid://dmt7otxifq4f8" path="res://Objects/Gameplay/Enemies/EnemyDeathEffect.tscn" id="7_l5vdu"]
 
 [sub_resource type="Animation" id="Animation_3qebr"]
 length = 0.001
@@ -74,7 +76,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ch8kf")
 
 [node name="HitBoxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("3_fd6t7")]
@@ -98,6 +99,10 @@ shape = SubResource("CircleShape2D_u173x")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DropOnDeath" type="Node2D" parent="."]
+script = ExtResource("6_hxqh2")
+dropScene = Array[PackedScene]([ExtResource("7_l5vdu")])
 
 [connection signal="area_entered" from="DamageBoxComponent" to="DamageBoxComponent" method="_on_area_entered"]
 [connection signal="hit_hurtbox" from="DamageBoxComponent" to="." method="_on_damage_box_component_hit_hurtbox"]
