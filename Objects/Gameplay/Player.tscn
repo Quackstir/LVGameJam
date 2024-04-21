@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://chbjox8nn5cvg"]
+[gd_scene load_steps=25 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Player.gd" id="1_yrlnl"]
 [ext_resource type="PackedScene" uid="uid://cegvwiyxjvgb8" path="res://Objects/Gameplay/Projectiles/missle.tscn" id="2_b4jgl"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://ckv7fyo2h1nw6" path="res://Sprites/Backgrounds/lighttexture2.png" id="8_sn081"]
 [ext_resource type="Texture2D" uid="uid://dhffer3xvrnnr" path="res://Sprites/Player/buttonicons.png" id="9_hmifj"]
 [ext_resource type="AudioStream" uid="uid://dwsgjx36n76b0" path="res://Audio/BeetleGame_Beetle_Damaged v.2 MASTER.mp3" id="9_ninbk"]
+[ext_resource type="Texture2D" uid="uid://dtn3loonetg2j" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly1.png" id="9_ymriy"]
+[ext_resource type="PackedScene" uid="uid://c6cdr6pxb0que" path="res://Objects/Gameplay/light_bulb.tscn" id="10_k6d5v"]
 [ext_resource type="Script" path="res://Objects/Gameplay/KnockBack.gd" id="12_h6ohs"]
 [ext_resource type="AudioStream" uid="uid://iqblu7spah3o" path="res://Audio/Beetle Game_Lazer v.2 MASTER.mp3" id="13_8wmqr"]
 [ext_resource type="AudioStream" uid="uid://32ewhu8scfuw" path="res://Audio/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3" id="13_24oip"]
@@ -93,12 +95,12 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="Center"]
 modulate = Color(0.486275, 0.486275, 0.486275, 1)
 z_index = -1
-position = Vector2(3.66667, 0.333334)
+position = Vector2(3.66667, -2.98023e-08)
 rotation = 1.5708
 scale = Vector2(0.019, 0.019)
-texture = ExtResource("3_kayf7")
+texture = ExtResource("9_ymriy")
 region_enabled = true
-region_rect = Rect2(813.993, 1902.98, 1655.71, 2077.24)
+region_rect = Rect2(993.148, 1902.98, 1234.19, 2077.24)
 
 [node name="Right" type="Node2D" parent="Center"]
 position = Vector2(20, 0)
@@ -114,6 +116,20 @@ rotation = 3.14159
 [node name="Up" type="Node2D" parent="Center"]
 position = Vector2(0, -20)
 rotation = -1.5708
+
+[node name="Light Bulb" parent="Center" instance=ExtResource("10_k6d5v")]
+
+[node name="Light Bulb2" parent="Center" instance=ExtResource("10_k6d5v")]
+position = Vector2(-9, 8.33333)
+rotation = -2.18166
+
+[node name="Light Bulb3" parent="Center" instance=ExtResource("10_k6d5v")]
+position = Vector2(-7.66667, -9.33333)
+rotation = 5.58505
+
+[node name="Light Bulb4" parent="Center" instance=ExtResource("10_k6d5v")]
+position = Vector2(9.33333, 8)
+rotation = 2.35619
 
 [node name="HitBoxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("5_fhxqj")]
 collision_mask = 0

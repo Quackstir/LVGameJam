@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjxi28qwqldpb"
-path="res://.godot/imported/health-normal.png-d031d0a064c77196ada50952c0d9529e.ctex"
+uid="uid://e5kx585qavs1"
+path="res://.godot/imported/stupiddrink0001.png-3df870ca64098fb2c45cef56750edb7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Backgrounds/health-normal.png"
-dest_files=["res://.godot/imported/health-normal.png-d031d0a064c77196ada50952c0d9529e.ctex"]
+source_file="res://Sprites/Objects/stupiddrink0001.png"
+dest_files=["res://.godot/imported/stupiddrink0001.png-3df870ca64098fb2c45cef56750edb7a.ctex"]
 
 [params]
 

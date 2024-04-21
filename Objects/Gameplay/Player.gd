@@ -64,6 +64,11 @@ var canMove:bool = true
 @onready var stinkbug_audio = $"Ability Cooldowns/KnockBackCoolDown/Stinkbug Audio"
 @onready var missle_audio = $"Ability Cooldowns/MissleCoolDown/Missle Audio"
 
+@onready var light_bulb:LightBulb = $"Center/Light Bulb"
+@onready var light_bulb_2:LightBulb = $"Center/Light Bulb2"
+@onready var light_bulb_3:LightBulb = $"Center/Light Bulb3"
+@onready var light_bulb_4:LightBulb = $"Center/Light Bulb4"
+
 func _ready():
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	#weapon_2.connect("player_Fired_Bullet", _applyVelocity)
@@ -71,11 +76,42 @@ func _ready():
 	#weapon_4.connect("player_Fired_Bullet", _applyVelocity)
 	InputHelper.device_changed.connect(_on_input_device_changed)
 	hit_box_component.hurt.connect(onHurt)
+	health_component.Health_Change.connect(healthChange)
+
+func healthChange(health:int):
+	match health_component.Curr_Health:
+		4:
+			light_bulb.isBroken = false
+			light_bulb_2.isBroken = false
+			light_bulb_3.isBroken = false
+			light_bulb_4.isBroken = false
+		3:
+			light_bulb.isBroken = true
+			light_bulb_2.isBroken = false
+			light_bulb_3.isBroken = false
+			light_bulb_4.isBroken = false
+		2:
+			light_bulb.isBroken = true
+			light_bulb_2.isBroken = true
+			light_bulb_3.isBroken = false
+			light_bulb_4.isBroken = false
+		1:
+			light_bulb.isBroken = true
+			light_bulb_2.isBroken = true
+			light_bulb_3.isBroken = true
+			light_bulb_4.isBroken = false
+		0:
+			light_bulb.isBroken = true
+			light_bulb_2.isBroken = true
+			light_bulb_3.isBroken = true
+			light_bulb_4.isBroken = true
 
 func onHurt(area: int):
 	if !canMove: return
 	camera_2d.apply_shake()
 	damage_audio.play()
+	
+	
 
 func _on_input_device_changed(device: String, device_index: int) -> void:
 	print(device)

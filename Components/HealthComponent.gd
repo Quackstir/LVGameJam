@@ -5,7 +5,7 @@ extends Node2D
 @export var Max_Health: int = 1
 @onready var Curr_Health: int = Max_Health: set = _set_health, get = _get_health
 
-signal Health_Change
+signal Health_Change(newHealth:int)
 signal onDeath
 
 func _take_damage(damage):
@@ -14,7 +14,7 @@ func _take_damage(damage):
 func _heal(healAmount):
 	_set_health(Curr_Health + healAmount)
 
-func _set_health(new_value : float):
+func _set_health(new_value : int):
 	Curr_Health = new_value
 	print("New Health: " + str(Curr_Health))
 	emit_signal("Health_Change", new_value)

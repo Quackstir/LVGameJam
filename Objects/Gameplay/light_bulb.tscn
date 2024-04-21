@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6cdr6pxb0que"]
+
+[ext_resource type="Texture2D" uid="uid://dtn3loonetg2j" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly1.png" id="1_3e0rn"]
+[ext_resource type="Script" path="res://Objects/Gameplay/light_bulb.gd" id="1_mj0cu"]
+
+[node name="Light Bulb" type="Node2D"]
+position = Vector2(8, -9.33333)
+rotation = 0.785398
+scale = Vector2(0.02, 0.02)
+script = ExtResource("1_mj0cu")
+
+[node name="Light Bulb Broke" type="Sprite2D" parent="."]
+position = Vector2(-8, 49.3333)
+texture = ExtResource("1_3e0rn")
+region_enabled = true
+region_rect = Rect2(656.224, 3563.65, 244.022, 230.983)
+
+[node name="Light Bulb Good" type="Sprite2D" parent="."]
+texture = ExtResource("1_3e0rn")
+region_enabled = true
+region_rect = Rect2(667.827, 2954.17, 298.565, 286.964)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://difvpoyajplfe"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Drops/HealthDrop.gd" id="1_knnl0"]
-[ext_resource type="Texture2D" uid="uid://bjxi28qwqldpb" path="res://Sprites/Backgrounds/health-normal.png" id="2_6dbma"]
+[ext_resource type="Texture2D" uid="uid://e5kx585qavs1" path="res://Sprites/Objects/stupiddrink0001.png" id="2_3jx2c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ybpf"]
 radius = 45.1885
@@ -13,9 +13,8 @@ collision_mask = 5
 script = ExtResource("1_knnl0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_6dbma")
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_3jx2c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 10
