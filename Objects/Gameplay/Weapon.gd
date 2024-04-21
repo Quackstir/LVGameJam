@@ -8,7 +8,7 @@ var isShoot: bool = false
 @export var Bullet: PackedScene
 @export var bullet_speed: float = 100000000.0
 @export var FireCoolDown: float = 0.5
-@export var BulletTowards: Array[Vector2]
+#@export var BulletTowards: Array[Vector2]
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @export var player:Player
 

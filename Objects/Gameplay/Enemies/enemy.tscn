@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://itihdsxsasau"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Enemies/Enemy.gd" id="1_1uq5v"]
-[ext_resource type="Texture2D" uid="uid://q5buowkvf8cv" path="res://Sprites/Player/antsprite.png" id="2_u6raj"]
+[ext_resource type="Texture2D" uid="uid://78jdlnskygwd" path="res://Sprites/Player/antsprite.png" id="2_u6raj"]
 [ext_resource type="PackedScene" uid="uid://u7ujf1rk1yi3" path="res://Components/HitBoxComponent.tscn" id="3_fd6t7"]
 [ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://Components/health_component.tscn" id="4_jc4xr"]
 [ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://Components/damage_box_component.tscn" id="5_huhtc"]
