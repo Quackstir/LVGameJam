@@ -36,7 +36,7 @@ scale = Vector2(3, 3)
 collision_mask = 0
 script = ExtResource("1_yrlnl")
 missle = ExtResource("2_b4jgl")
-missle_speed = 1000.0
+missle_speed = 1001.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
