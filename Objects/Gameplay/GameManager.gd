@@ -50,16 +50,15 @@ func SpawnEnemy(Enemy:PackedScene):
 	var enemy_instance = Enemy.instantiate()
 	enemy_instance._set_Player(player)
 	enemy_instance._set_GM(self)
-	
+
 	path_follow_2d.progress_ratio = randf()
 	enemy_instance.global_position = path_follow_2d.global_position
 
 	add_child(enemy_instance)
-	
+
 func _on_timer_timeout():
 	seconds += 1
 	print("Seconds" + str(seconds))
-
 
 func _on_spawn_timer_timeout():
 	SpawnEnemy(EnemyInstance)

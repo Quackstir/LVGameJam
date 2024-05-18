@@ -1,7 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Player.gd" id="1_yrlnl"]
-[ext_resource type="PackedScene" uid="uid://cegvwiyxjvgb8" path="res://Objects/Gameplay/Projectiles/missle.tscn" id="2_b4jgl"]
 [ext_resource type="Texture2D" uid="uid://ctrtpjxxcf6ea" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly(1).png" id="3_kayf7"]
 [ext_resource type="Script" path="res://Objects/Gameplay/ScreenShake.gd" id="3_n3uq4"]
 [ext_resource type="PackedScene" uid="uid://6e2h6exk7447" path="res://Objects/Gameplay/weapon.tscn" id="3_pcl6h"]
@@ -10,16 +9,17 @@
 [ext_resource type="Script" path="res://Components/damage_box_component.gd" id="6_ekfa4"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="6_xbjph"]
 [ext_resource type="PackedScene" uid="uid://wb7i7fke0ykf" path="res://Components/health_component.tscn" id="7_mplm1"]
+[ext_resource type="PackedScene" uid="uid://ce137uaindbcp" path="res://Objects/Gameplay/Abilities/Lazers/Lazer.tscn" id="8_poaix"]
 [ext_resource type="Texture2D" uid="uid://ckv7fyo2h1nw6" path="res://Sprites/Backgrounds/lighttexture2.png" id="8_sn081"]
 [ext_resource type="Texture2D" uid="uid://dhffer3xvrnnr" path="res://Sprites/Player/buttonicons.png" id="9_hmifj"]
 [ext_resource type="AudioStream" uid="uid://dwsgjx36n76b0" path="res://Audio/BeetleGame_Beetle_Damaged v.2 MASTER.mp3" id="9_ninbk"]
 [ext_resource type="Texture2D" uid="uid://dtn3loonetg2j" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly1.png" id="9_ymriy"]
 [ext_resource type="PackedScene" uid="uid://c6cdr6pxb0que" path="res://Objects/Gameplay/light_bulb.tscn" id="10_k6d5v"]
 [ext_resource type="Script" path="res://Objects/Gameplay/KnockBack.gd" id="12_h6ohs"]
-[ext_resource type="AudioStream" uid="uid://iqblu7spah3o" path="res://Audio/Beetle Game_Lazer v.2 MASTER.mp3" id="13_8wmqr"]
-[ext_resource type="AudioStream" uid="uid://32ewhu8scfuw" path="res://Audio/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3" id="13_24oip"]
 [ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="14_14ek0"]
-[ext_resource type="AudioStream" uid="uid://bl7aakk12omfo" path="res://Audio/Beetle Game_Stinkbomb v.2 MASTER.wav" id="14_xfgq2"]
+[ext_resource type="PackedScene" uid="uid://bjq1ub3auvgfj" path="res://Objects/Gameplay/Abilities/Dash/Burst.tscn" id="21_77x2v"]
+[ext_resource type="PackedScene" uid="uid://bidkte38d6qll" path="res://Objects/Gameplay/Abilities/Stinks/StinkBomb.tscn" id="22_xncdb"]
+[ext_resource type="PackedScene" uid="uid://k2dfnqtr1cf1" path="res://Objects/Gameplay/Abilities/Barrage/barrage_ability.tscn" id="24_633vt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
 radius = 8.00694
@@ -37,8 +37,6 @@ radius = 74.6622
 scale = Vector2(3, 3)
 collision_mask = 0
 script = ExtResource("1_yrlnl")
-missle = ExtResource("2_b4jgl")
-missle_speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -51,6 +49,10 @@ region_rect = Rect2(2883.48, 714.472, 1265.28, 1233.98)
 shape = SubResource("CircleShape2D_ra885")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -1500
+limit_top = -1000
+limit_right = 1500
+limit_bottom = 1000
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_n3uq4")
@@ -77,6 +79,8 @@ collision_mask = 2
 script = ExtResource("6_ekfa4")
 damage = 10.0
 
+[node name="Lazer Ability" parent="Center/Weapon/Lazer" instance=ExtResource("8_poaix")]
+
 [node name="Sprite2D2" type="Sprite2D" parent="Center/Weapon/Lazer"]
 position = Vector2(5182.42, 0)
 scale = Vector2(79, 1)
@@ -87,10 +91,6 @@ position = Vector2(5199.09, -2.08333)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_3awxx")
 disabled = true
-
-[node name="LazerActivate" type="Timer" parent="Center/Weapon/Lazer"]
-wait_time = 0.4
-one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Center"]
 modulate = Color(0.486275, 0.486275, 0.486275, 1)
@@ -150,33 +150,6 @@ texture = ExtResource("8_sn081")
 [node name="Damage Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_ninbk")
 
-[node name="Ability Cooldowns" type="Node" parent="."]
-
-[node name="Burst" type="Timer" parent="Ability Cooldowns"]
-wait_time = 2.5
-one_shot = true
-
-[node name="LazerCoolDown" type="Timer" parent="Ability Cooldowns"]
-wait_time = 3.0
-one_shot = true
-
-[node name="Lazer Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/LazerCoolDown"]
-stream = ExtResource("13_8wmqr")
-
-[node name="KnockBackCoolDown" type="Timer" parent="Ability Cooldowns"]
-wait_time = 4.0
-one_shot = true
-
-[node name="Stinkbug Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/KnockBackCoolDown"]
-stream = ExtResource("14_xfgq2")
-
-[node name="MissleCoolDown" type="Timer" parent="Ability Cooldowns"]
-wait_time = 10.0
-one_shot = true
-
-[node name="Missle Audio" type="AudioStreamPlayer2D" parent="Ability Cooldowns/MissleCoolDown"]
-stream = ExtResource("13_24oip")
-
 [node name="KnockBack" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
@@ -228,11 +201,14 @@ texture = ExtResource("9_hmifj")
 region_enabled = true
 region_rect = Rect2(929.45, 996.973, 472.961, 514.389)
 
-[connection signal="timeout" from="Center/Weapon/Lazer/LazerActivate" to="." method="_on_lazer_activate_timeout"]
+[node name="BurstAbility" parent="." instance=ExtResource("21_77x2v")]
+
+[node name="Stink Bomb Ability" parent="." instance=ExtResource("22_xncdb")]
+
+[node name="Lazer Ability" parent="." instance=ExtResource("8_poaix")]
+
+[node name="Barrage Ability" parent="." instance=ExtResource("24_633vt")]
+
 [connection signal="onDeath" from="HealthComponent" to="." method="_on_health_component_on_death"]
-[connection signal="timeout" from="Ability Cooldowns/Burst" to="." method="_on_burst_timeout"]
-[connection signal="timeout" from="Ability Cooldowns/LazerCoolDown" to="." method="_on_lazer_cool_down_timeout"]
-[connection signal="timeout" from="Ability Cooldowns/KnockBackCoolDown" to="." method="_on_knock_back_cool_down_timeout"]
-[connection signal="timeout" from="Ability Cooldowns/MissleCoolDown" to="." method="_on_missle_cool_down_timeout"]
 [connection signal="area_entered" from="KnockBack" to="KnockBack" method="_on_area_entered"]
 [connection signal="body_shape_entered" from="KnockBack" to="KnockBack" method="_on_body_shape_entered"]
