@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bidkte38d6qll"]
+
+[ext_resource type="PackedScene" uid="uid://da8u3i8qqht64" path="res://Objects/Gameplay/Abilities/Ability.tscn" id="1_x2d6s"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/Stinks/StinkBomb.gd" id="2_gefg1"]
+[ext_resource type="AudioStream" uid="uid://bl7aakk12omfo" path="res://Audio/Beetle Game_Stinkbomb v.2 MASTER.wav" id="3_q8ght"]
+
+[node name="Stink Bomb Ability" instance=ExtResource("1_x2d6s")]
+script = ExtResource("2_gefg1")
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 5.0
+
+[node name="Ability Activate SFX" parent="." index="2"]
+stream = ExtResource("3_q8ght")

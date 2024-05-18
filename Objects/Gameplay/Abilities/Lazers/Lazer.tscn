@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce137uaindbcp"]
+
+[ext_resource type="PackedScene" uid="uid://da8u3i8qqht64" path="res://Objects/Gameplay/Abilities/Ability.tscn" id="1_11jm4"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/Lazers/Lazer.gd" id="2_62mg5"]
+[ext_resource type="AudioStream" uid="uid://iqblu7spah3o" path="res://Audio/Beetle Game_Lazer v.2 MASTER.mp3" id="3_kpxmf"]
+
+[node name="Lazer Ability" instance=ExtResource("1_11jm4")]
+script = ExtResource("2_62mg5")
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 5.0
+
+[node name="Ability Activate SFX" parent="." index="2"]
+stream = ExtResource("3_kpxmf")
+
+[node name="lazerActivate" type="Timer" parent="." index="3"]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="lazerActivate" to="." method="_on_lazer_activate_timeout"]

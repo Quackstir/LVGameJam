@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://k2dfnqtr1cf1"]
+
+[ext_resource type="PackedScene" uid="uid://bjq1ub3auvgfj" path="res://Objects/Gameplay/Abilities/Dash/Burst.tscn" id="1_p6s6p"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/Barrage/barrage.gd" id="2_y8oip"]
+[ext_resource type="PackedScene" uid="uid://cegvwiyxjvgb8" path="res://Objects/Gameplay/Projectiles/missle.tscn" id="3_40fwy"]
+[ext_resource type="AudioStream" uid="uid://32ewhu8scfuw" path="res://Audio/Beetle Game_Rocket Launcher_Launch v.3 MASTER.mp3" id="4_dap32"]
+
+[node name="Barrage Ability" instance=ExtResource("1_p6s6p")]
+script = ExtResource("2_y8oip")
+missle = ExtResource("3_40fwy")
+missle_speed = 1000.0
+
+[node name="Ability Activate SFX" parent="." index="2"]
+stream = ExtResource("4_dap32")
+volume_db = 0.0
