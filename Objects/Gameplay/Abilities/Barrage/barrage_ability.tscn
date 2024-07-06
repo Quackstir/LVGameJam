@@ -9,6 +9,7 @@
 script = ExtResource("2_y8oip")
 missle = ExtResource("3_40fwy")
 missle_speed = 1000.0
+abilityType = 0
 
 [node name="Ability Activate SFX" parent="." index="2"]
 stream = ExtResource("4_dap32")

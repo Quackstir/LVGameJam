@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=3 format=3 uid="uid://cxkj5kc2s8l4m"]
+
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd" id="1_1adii"]
+[ext_resource type="PackedScene" uid="uid://ce137uaindbcp" path="res://Objects/Gameplay/Abilities/Lazers/Lazer.tscn" id="1_n8hbn"]
+
+[resource]
+script = ExtResource("1_1adii")
+Name = "Lazer"
+Type = 1
+Description = "Shoots a lazer, cannot rotate while shooting."
+AbilityScene = ExtResource("1_n8hbn")

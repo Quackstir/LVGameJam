@@ -5,6 +5,7 @@
 
 [node name="Burst Ability" instance=ExtResource("1_18yl7")]
 script = ExtResource("2_cky7q")
+abilityType = 3
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 5.0

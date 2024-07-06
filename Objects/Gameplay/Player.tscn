@@ -22,13 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://k2dfnqtr1cf1" path="res://Objects/Gameplay/Abilities/Barrage/barrage_ability.tscn" id="24_633vt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra885"]
-radius = 8.00694
+radius = 2.02759
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3awxx"]
 size = Vector2(10133.3, 170.833)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftsfj"]
-radius = 10.05
+radius = 3.01846
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3m450"]
 radius = 74.6622
@@ -80,6 +80,7 @@ script = ExtResource("6_ekfa4")
 damage = 10.0
 
 [node name="Lazer Ability" parent="Center/Weapon/Lazer" instance=ExtResource("8_poaix")]
+abilityType = 3
 
 [node name="Sprite2D2" type="Sprite2D" parent="Center/Weapon/Lazer"]
 position = Vector2(5182.42, 0)
@@ -204,8 +205,10 @@ region_rect = Rect2(929.45, 996.973, 472.961, 514.389)
 [node name="BurstAbility" parent="." instance=ExtResource("21_77x2v")]
 
 [node name="Stink Bomb Ability" parent="." instance=ExtResource("22_xncdb")]
+abilityType = 3
 
 [node name="Lazer Ability" parent="." instance=ExtResource("8_poaix")]
+abilityType = 3
 
 [node name="Barrage Ability" parent="." instance=ExtResource("24_633vt")]
 

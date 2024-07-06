@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=3 format=3 uid="uid://cphlny8qpded8"]
+
+[ext_resource type="PackedScene" uid="uid://bjq1ub3auvgfj" path="res://Objects/Gameplay/Abilities/Dash/Burst.tscn" id="1_bsjqu"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd" id="1_tcdkx"]
+
+[resource]
+script = ExtResource("1_tcdkx")
+Name = "3 Round"
+Type = 3
+Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit est."
+AbilityScene = ExtResource("1_bsjqu")
