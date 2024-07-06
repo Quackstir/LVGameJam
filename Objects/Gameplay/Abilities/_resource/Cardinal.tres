@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=3 format=3 uid="uid://fnenks4r2bje"]
+
+[ext_resource type="PackedScene" uid="uid://k2dfnqtr1cf1" path="res://Objects/Gameplay/Abilities/Barrage/barrage_ability.tscn" id="1_8kgeo"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd" id="1_rhgsv"]
+
+[resource]
+script = ExtResource("1_rhgsv")
+Name = "Cardinal"
+Type = 0
+Description = "Shoots 4 missles"
+AbilityScene = ExtResource("1_8kgeo")

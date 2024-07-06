@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=3 format=3 uid="uid://cv68bg4tu2j3u"]
+
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd" id="1_cd5ih"]
+[ext_resource type="PackedScene" uid="uid://bidkte38d6qll" path="res://Objects/Gameplay/Abilities/Stinks/StinkBomb.tscn" id="1_x5je0"]
+
+[resource]
+script = ExtResource("1_cd5ih")
+Name = "StinkBomb"
+Type = 0
+Description = "Knockback all enemies around you"
+AbilityScene = ExtResource("1_x5je0")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://l1tyad5h23oj"]
+
+[ext_resource type="PackedScene" uid="uid://caun3kuk14f6j" path="res://Objects/UI/AbilityPickUp/AbilityButton.tscn" id="1_emvd4"]
+[ext_resource type="Script" path="res://Objects/UI/AbilityPickUp/AbilityPickUp.gd" id="1_jgork"]
+[ext_resource type="Resource" uid="uid://fnenks4r2bje" path="res://Objects/Gameplay/Abilities/_resource/Cardinal.tres" id="2_1jhxh"]
+[ext_resource type="Resource" uid="uid://cphlny8qpded8" path="res://Objects/Gameplay/Abilities/_resource/3Burst.tres" id="2_ewxhy"]
+[ext_resource type="Resource" uid="uid://cxkj5kc2s8l4m" path="res://Objects/Gameplay/Abilities/_resource/Lazer.tres" id="4_gkktm"]
+[ext_resource type="Resource" uid="uid://cv68bg4tu2j3u" path="res://Objects/Gameplay/Abilities/_resource/StinkBomb.tres" id="5_m1may"]
+
+[node name="AbilityPickUp" type="Control" node_paths=PackedStringArray("ability_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jgork")
+abilityResources = Array[Resource("res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd")]([ExtResource("2_ewxhy"), ExtResource("2_1jhxh"), ExtResource("4_gkktm"), ExtResource("5_m1may")])
+ability_button = [NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton"), NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton2")]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Select Ability"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="AbilityButton" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_emvd4")]
+layout_mode = 2
+
+[node name="AbilityButton2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_emvd4")]
+layout_mode = 2

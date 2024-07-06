@@ -65,23 +65,37 @@ var canMove:bool = true
 @onready var knock_back_collision = $KnockBack/KnockBackCollision
 
 func _ready():
-	barrage_ability.setPlayer(self)
-	barrage_ability.connect("abilityUse",BarrageIconVisible)
-	
-	burst_ability.setPlayer(self)
-	burst_ability.connect("abilityUse",burstIconVisible)
-	
-	stink_bomb_ability.setPlayer(self)
-	stink_bomb_ability.connect("abilityUse", stinkBombIconVisible)
-	
-	lazer_ability.setPlayer(self)
-	lazer_ability.connect("abilityUse", lazerIconVisible)
-	
+	BurstConnect()
+	StinkbombConnect()
+	LazerConnect()
+	BarrageConnect()
+
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	InputHelper.device_changed.connect(_on_input_device_changed)
 	hit_box_component.hurt.connect(onHurt)
 	health_component.Health_Change.connect(healthChange)
 
+#func addAbility(newAbility:Ability):
+	#match newAbility.abilityType:
+		#Ability.AbilityType.Lazer:
+			#BurstConnect()
+
+func BurstConnect():
+	burst_ability.setPlayer(self)
+	burst_ability.connect("abilityUse",burstIconVisible)
+
+func StinkbombConnect():
+	stink_bomb_ability.setPlayer(self)
+	stink_bomb_ability.connect("abilityUse", stinkBombIconVisible)
+
+func LazerConnect():
+	lazer_ability.setPlayer(self)
+	lazer_ability.connect("abilityUse", lazerIconVisible)
+
+func BarrageConnect():
+	barrage_ability.setPlayer(self)
+	barrage_ability.connect("abilityUse",BarrageIconVisible)
+	
 func burstIconVisible(canUse):
 	burst_icon.visible = canUse
 
@@ -127,8 +141,6 @@ func onHurt(area: int):
 	camera_2d.apply_shake()
 	damage_audio.play()
 	
-	
-
 func _on_input_device_changed(device: String, device_index: int) -> void:
 	print(device)
 	CurrentDevice = device
