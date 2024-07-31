@@ -56,3 +56,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Description"
 autowrap_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

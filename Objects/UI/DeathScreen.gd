@@ -1,6 +1,6 @@
 extends Control
 
-@export var gameManager: GameManager
+@export var gameManager: GM
 @export var player: Player
 @onready var label_2 = $Panel/MarginContainer/VBoxContainer/Label2
 

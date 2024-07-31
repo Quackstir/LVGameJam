@@ -4,6 +4,9 @@ extends Control
 @onready var name_text = %NameText
 @onready var ability_type_text = %AbilityTypeText
 @onready var description_text = %DescriptionText
+var assignedAbility:AbilityResource
+
+var GameManager:GM
 
 var Name:String = "Placeholder":
 	set(newValue):
@@ -30,3 +33,6 @@ var Description:String = "Lorem ipsum dolor sit amet, consectetur adipiscing eli
 	set(newValue):
 		Description = newValue
 		description_text.text = newValue
+
+func _on_button_button_down():
+	GameManager.player.addAbility(assignedAbility)
