@@ -1,10 +1,10 @@
-class_name GameManager extends Node2D
+class_name GM extends Node2D
 
 @export var EnemyInstance: PackedScene
 @export var Enemy_Dragonfly_Instance: PackedScene
 @onready var path_follow_2d = %PathFollow2D
-@onready var player = $"../Player"
-
+@onready var player:Player = $"../Player"
+@onready var ability_pick_up:AbilityPickUp = $"../CanvasLayer/AbilityPickUp"
 
 signal scoreChanged(score:int)
 var Score:int = 0: set = newScore
@@ -26,6 +26,7 @@ func addScore(adding:int):
 	Score += adding
 
 func _ready():
+	ability_pick_up.GameManager = self
 	player.Death.connect(playDeath)
 	await get_tree().create_timer(0.000000001).timeout
 	player.health_component.Health_Change.connect(playSiren)

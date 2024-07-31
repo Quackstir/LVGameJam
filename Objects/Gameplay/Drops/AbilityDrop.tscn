@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://causfd1ls5ll7"]
+
+[ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="1_dj5vw"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Drops/AbiityDrop.gd" id="1_lg71k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8abi"]
+radius = 45.1885
+
+[node name="AbilityDrop" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_lg71k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2.5)
+scale = Vector2(0.421875, 0.460937)
+texture = ExtResource("1_dj5vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
+shape = SubResource("CircleShape2D_o8abi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

@@ -6,7 +6,7 @@ var player_position
 var target_position
 # Get a reference to the player. It's likely different in your project
 var player
-var gameManager:GameManager
+var gameManager:GM
 @onready var animation = $AnimationPlayer
 
 @onready var hit_box_component = $HitBoxComponent
@@ -19,18 +19,31 @@ var canMove:bool = true
 
 @onready var timer = $Timer
 
+@export var abilityPickup:PackedScene
+@export var abilityResource:AbilityResource
+
 func _ready():
 	animation.play("ant_idle")
 	velocity = Vector2.ZERO
 	health_component.connect("onDeath", destroySelf)
 	
 func destroySelf():
+	var  rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var a = rng.randi_range(0,100)
+	print("Spawn thing: " + str(a))
+	if a > 20:
+		var newPickup:AbilityDrop = abilityPickup.instantiate()
+		newPickup.currentAbility = abilityResource
+		newPickup.global_position = global_position
+		get_tree().get_root().add_child(newPickup)
+		
 	gameManager.addScore(10)
 	
 func _set_Player(a:CharacterBody2D):
 	player = a
 	
-func _set_GM(a:GameManager):
+func _set_GM(a:GM):
 	gameManager = a
  
 func _physics_process(delta):
@@ -60,6 +73,5 @@ func stunEnemy():
 	canMove = false
 	timer.start()
 	
-
 func _on_timer_timeout():
 	canMove = true

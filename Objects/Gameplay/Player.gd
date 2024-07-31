@@ -53,22 +53,22 @@ var canMove:bool = true
 @onready var light_bulb_3:LightBulb = $"Center/Light Bulb3"
 @onready var light_bulb_4:LightBulb = $"Center/Light Bulb4"
 
-@onready var burst_ability = $BurstAbility
-@onready var stink_bomb_ability = $"Stink Bomb Ability"
-@onready var lazer_ability = $"Lazer Ability"
-@onready var barrage_ability = $"Barrage Ability"
-
 @onready var lazer = $Center/Weapon/Lazer
 @onready var lazer_collision = $Center/Weapon/Lazer/LazerCollision
 
 @onready var knock_back = $KnockBack
 @onready var knock_back_collision = $KnockBack/KnockBackCollision
 
+var burst_ability:Ability
+var stink_bomb_ability:Ability
+var lazer_ability:Ability
+var barrage_ability:Ability
+
 func _ready():
-	BurstConnect()
-	StinkbombConnect()
-	LazerConnect()
-	BarrageConnect()
+	#BurstConnect()
+	#StinkbombConnect()
+	#LazerConnect()
+	#BarrageConnect()
 
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	InputHelper.device_changed.connect(_on_input_device_changed)
@@ -80,21 +80,60 @@ func _ready():
 		#Ability.AbilityType.Lazer:
 			#BurstConnect()
 
-func BurstConnect():
-	burst_ability.setPlayer(self)
-	burst_ability.connect("abilityUse",burstIconVisible)
+func addAbility(abilityResource:AbilityResource):
+	var spawnedItem:Ability = abilityResource.AbilityScene.instantiate()
+	get_tree().get_root().add_child(spawnedItem)
+	spawnedItem.setPlayer(self)
+	
+	match spawnedItem.abilityType:
+		Ability.AbilityType.Burst:
+			BurstConnect(spawnedItem)
+		Ability.AbilityType.Barrage:
+			BarrageConnect(spawnedItem)
+		Ability.AbilityType.Bomb:
+			StinkbombConnect(spawnedItem)
+		Ability.AbilityType.Lazer:
+			LazerConnect(spawnedItem)
 
-func StinkbombConnect():
-	stink_bomb_ability.setPlayer(self)
-	stink_bomb_ability.connect("abilityUse", stinkBombIconVisible)
+func checkAbilityOccupied(abilityResource:AbilityResource) -> bool:
+	match abilityResource.Type:
+		Ability.AbilityType.Burst:
+			if burst_ability != null:
+				return true
+		Ability.AbilityType.Barrage:
+			if barrage_ability != null:
+				return true
+		Ability.AbilityType.Bomb:
+			if stink_bomb_ability != null:
+				return true
+		Ability.AbilityType.Lazer:
+			if lazer_ability != null:
+				return true
+	return false
 
-func LazerConnect():
-	lazer_ability.setPlayer(self)
-	lazer_ability.connect("abilityUse", lazerIconVisible)
+func BurstConnect(burstAbility:Ability):
+	burstAbility.setPlayer(self)
+	#burstAbility.connect("abilityUse",burstIconVisible)
+	burst_ability = burstAbility
+	burstIconVisible(true)
+	
+func StinkbombConnect(stink_bombAbility:Ability):
+	stink_bombAbility.setPlayer(self)
+	#stink_bombAbility.connect("abilityUse", stinkBombIconVisible)
+	stink_bomb_ability = stink_bombAbility
+	stinkBombIconVisible(true)
 
-func BarrageConnect():
-	barrage_ability.setPlayer(self)
-	barrage_ability.connect("abilityUse",BarrageIconVisible)
+func LazerConnect(lazerAbility:Ability):
+	lazerAbility.setPlayer(self)
+	#lazerAbility.connect("abilityUse", lazerIconVisible)
+	lazer_ability = lazerAbility
+	lazerIconVisible(true)
+
+func BarrageConnect(barrageAbility:Ability):
+	barrageAbility.setPlayer(self)
+	#barrageAbility.connect("abilityUse",BarrageIconVisible)
+	barrage_ability = barrageAbility
+	BarrageIconVisible(true)
 	
 func burstIconVisible(canUse):
 	burst_icon.visible = canUse
@@ -171,7 +210,7 @@ func _physics_process(delta: float) -> void:
 		emit_signal("fireWeapon", false)
 		move_and_slide()
 		return
-	Ability()
+	AbilityActivate()
 	MovementInput()
 
 	isPlayerMoving = playerMovement.length() > 0.3
@@ -190,18 +229,26 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-func Ability():
-	if Input.is_action_just_pressed("Weapon South"): #down
+func AbilityActivate():
+	if Input.is_action_just_pressed("Weapon South") and burst_ability != null: #down
 		burst_ability._use_ability()
+		burst_ability.queue_free()
+		burstIconVisible(false)
 
-	elif Input.is_action_just_pressed("Weapon East"):
+	elif Input.is_action_just_pressed("Weapon East") and lazer_ability != null:
 		lazer_ability._use_ability()
+		lazer_ability.queue_free()
+		lazerIconVisible(false)
 		
-	elif Input.is_action_just_pressed("Weapon West"):
+	elif Input.is_action_just_pressed("Weapon West") and stink_bomb_ability != null:
 		stink_bomb_ability._use_ability()
+		stink_bomb_ability.queue_free()
+		stinkBombIconVisible(false)
 		
-	elif Input.is_action_just_pressed("Weapon North"):
+	elif Input.is_action_just_pressed("Weapon North") and barrage_ability != null:
 		barrage_ability._use_ability()
+		barrage_ability.queue_free()
+		BarrageIconVisible(false)
 		
 func MovementInput():
 	if !canRotate:return

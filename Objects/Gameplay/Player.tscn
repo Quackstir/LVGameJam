@@ -167,6 +167,7 @@ scale = Vector2(2.965, 2.965)
 texture = ExtResource("14_14ek0")
 
 [node name="Burst Icon" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 1, 1, 1)
 light_mask = 0
 position = Vector2(0, 5.66667)
@@ -176,6 +177,7 @@ region_enabled = true
 region_rect = Rect2(0, 385.538, 492.107, 459.152)
 
 [node name="Stink Bomb Icon" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 1, 0, 1)
 light_mask = 0
 position = Vector2(-5.66667, -2.98023e-08)
@@ -185,6 +187,7 @@ region_enabled = true
 region_rect = Rect2(131.975, 1162.68, 472.961, 452.248)
 
 [node name="Lazer Icon" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.898039, 0, 1)
 light_mask = 0
 position = Vector2(5.66667, -1.77636e-15)
@@ -194,6 +197,7 @@ region_enabled = true
 region_rect = Rect2(715.409, 234.02, 490.223, 479.866)
 
 [node name="Rockets Icon" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 1)
 light_mask = 0
 position = Vector2(2.84217e-14, -5.66667)
@@ -203,14 +207,18 @@ region_enabled = true
 region_rect = Rect2(929.45, 996.973, 472.961, 514.389)
 
 [node name="BurstAbility" parent="." instance=ExtResource("21_77x2v")]
+visible = false
 
 [node name="Stink Bomb Ability" parent="." instance=ExtResource("22_xncdb")]
+visible = false
 abilityType = 3
 
 [node name="Lazer Ability" parent="." instance=ExtResource("8_poaix")]
+visible = false
 abilityType = 3
 
 [node name="Barrage Ability" parent="." instance=ExtResource("24_633vt")]
+visible = false
 
 [connection signal="onDeath" from="HealthComponent" to="." method="_on_health_component_on_death"]
 [connection signal="area_entered" from="KnockBack" to="KnockBack" method="_on_area_entered"]
