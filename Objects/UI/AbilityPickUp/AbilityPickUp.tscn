@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cv68bg4tu2j3u" path="res://Objects/Gameplay/Abilities/_resource/StinkBomb.tres" id="5_m1may"]
 
 [node name="AbilityPickUp" type="Control" node_paths=PackedStringArray("ability_button")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,3 +59,6 @@ layout_mode = 2
 
 [node name="AbilityButton2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_emvd4")]
 layout_mode = 2
+
+[connection signal="selectedAbility" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton" to="." method="_on_ability_button_selected_ability"]
+[connection signal="selectedAbility" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton2" to="." method="_on_ability_button_2_selected_ability"]

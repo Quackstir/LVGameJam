@@ -17,6 +17,8 @@ var seconds:int
 @onready var timer = $Timer
 @onready var spawn_timer = $spawnTimer
 
+static var gameManager:GM
+
 func newScore(newValue):
 	print("Score" + str(Score))
 	Score = newValue
@@ -26,6 +28,11 @@ func addScore(adding:int):
 	Score += adding
 
 func _ready():
+	if GM.gameManager == null:
+		GM.gameManager = self
+	else:
+		queue_free()
+	
 	ability_pick_up.GameManager = self
 	player.Death.connect(playDeath)
 	await get_tree().create_timer(0.000000001).timeout

@@ -15,7 +15,10 @@ func _on_area_entered(area):
 	if not area.get_parent() is Player: return
 	var player:Player = area.get_parent()
 	print("Ability Drop")
+	get_tree().paused = true
+	GM.gameManager.ability_pick_up.visible = true
+	GM.gameManager.ability_pick_up.updateAbilityButtons()
 	
-	if !player.checkAbilityOccupied(currentAbility):
-		area.get_parent().addAbility(currentAbility)
-		queue_free()
+	#if !player.checkAbilityOccupied(currentAbility):
+		#area.get_parent().addAbility(currentAbility)
+		#queue_free()
