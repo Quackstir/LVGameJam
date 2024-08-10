@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{0020774d-5c59-4143-ba3f-cb287ce0e393}">
+		<property name="name">
+			<value>EQ for Ant</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8cf23e9e-ca9f-4a01-bb58-1b8616ac65cb}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3f0eb834-3739-44bf-8d63-9d9e808b550b}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3f0eb834-3739-44bf-8d63-9d9e808b550b}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{95d782ae-dd4f-4933-859b-e46f293d66b6}">
+		<property name="name">
+			<value>Panning for Enemy</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8cf23e9e-ca9f-4a01-bb58-1b8616ac65cb}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3acfa576-e894-412c-b6a6-2a9e4ec237b5}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3acfa576-e894-412c-b6a6-2a9e4ec237b5}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

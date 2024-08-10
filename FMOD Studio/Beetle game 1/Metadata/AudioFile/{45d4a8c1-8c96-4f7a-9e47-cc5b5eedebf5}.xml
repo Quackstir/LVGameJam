@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{45d4a8c1-8c96-4f7a-9e47-cc5b5eedebf5}">
+		<property name="assetPath">
+			<value>BeetleGame_AntWalking B MASTER.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3396598639455781</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e3bf10d0-e6ed-40dc-b97c-159514ee29ab}</destination>
+		</relationship>
+	</object>
+</objects>

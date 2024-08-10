@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6f11e5b3-0586-4080-85fb-2dad03158e8b}">
+		<property name="assetPath">
+			<value>Beetle Game_Rocket Launcher_Explode v.3 MASTER.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.8521088435374149</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e3bf10d0-e6ed-40dc-b97c-159514ee29ab}</destination>
+		</relationship>
+	</object>
+</objects>

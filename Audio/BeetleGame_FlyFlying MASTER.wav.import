@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uvy60w2bqg53"
+path="res://.godot/imported/BeetleGame_FlyFlying MASTER.wav-b11ed667a9ac1d69bd960a486a7b123a.sample"
+
+[deps]
+
+source_file="res://Audio/BeetleGame_FlyFlying MASTER.wav"
+dest_files=["res://.godot/imported/BeetleGame_FlyFlying MASTER.wav-b11ed667a9ac1d69bd960a486a7b123a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
