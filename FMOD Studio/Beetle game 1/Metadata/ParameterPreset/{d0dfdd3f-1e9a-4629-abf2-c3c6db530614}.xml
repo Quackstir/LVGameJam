@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{d0dfdd3f-1e9a-4629-abf2-c3c6db530614}">
+		<property name="name">
+			<value>Wet Reverb for Ant</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8cf23e9e-ca9f-4a01-bb58-1b8616ac65cb}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4c48808b-ba36-4bbb-bdd7-241e04f2f7b6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4c48808b-ba36-4bbb-bdd7-241e04f2f7b6}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

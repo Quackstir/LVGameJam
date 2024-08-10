@@ -1,0 +1,9 @@
+{9b2416b5-2b02-4ff4-8e56-61fb8bc0256f} bank:/Master
+{03393661-5a79-03b6-081f-eb057a3323f7} bank:/Master.strings
+{1659808c-a652-49ab-bec1-3ad7600f36ca} bank:/SFX Bank
+{439af3dd-5ad2-479e-a337-3e95d13df6c4} bus:/
+{46ae480a-1c19-4d7c-9036-45519e9cc42a} bus:/Reverb
+{6862ee6b-eba2-4874-b7a4-461b2f7fdc85} event:/Ant Walking sound
+{7dbe5ab1-32ef-4237-bb99-e5d9e87d4bd6} event:/Fly flying sound
+{3f0eb834-3739-44bf-8d63-9d9e808b550b} parameter:/EQ for Ant
+{3acfa576-e894-412c-b6a6-2a9e4ec237b5} parameter:/Panning for Enemy
