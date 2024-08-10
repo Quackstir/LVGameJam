@@ -1,0 +1,85 @@
+[gd_resource type="ProjectCache" load_steps=10 format=3 uid="uid://cya8cayu46tqq"]
+
+[ext_resource type="BankAsset" uid="uid://c16yudstgfpr6" path="res://addons/FMOD/editor/resources/banks/{9b2416b5-2b02-4ff4-8e56-61fb8bc0256f}.tres" id="1_7eweq"]
+[ext_resource type="BankAsset" uid="uid://dsy461shynv8i" path="res://addons/FMOD/editor/resources/banks/{03393661-5a79-03b6-081f-eb057a3323f7}.tres" id="2_ldw03"]
+[ext_resource type="BankAsset" uid="uid://dhitw2cnct8oh" path="res://addons/FMOD/editor/resources/banks/{1659808c-a652-49ab-bec1-3ad7600f36ca}.tres" id="3_skp8w"]
+[ext_resource type="BusAsset" uid="uid://b4gordt23i8f3" path="res://addons/FMOD/editor/resources/busses/{439af3dd-5ad2-479e-a337-3e95d13df6c4}.tres" id="4_r1ui7"]
+[ext_resource type="BusAsset" uid="uid://dkcb0y4q4tsm2" path="res://addons/FMOD/editor/resources/busses/{46ae480a-1c19-4d7c-9036-45519e9cc42a}.tres" id="5_2k4xy"]
+[ext_resource type="EventAsset" uid="uid://cc6sfcweoepek" path="res://addons/FMOD/editor/resources/events/{ec416a8d-e517-4e74-8852-211373b88321}.tres" id="6_adh5y"]
+[ext_resource type="EventAsset" uid="uid://sx546ebin8a4" path="res://addons/FMOD/editor/resources/events/{6862ee6b-eba2-4874-b7a4-461b2f7fdc85}.tres" id="6_fy364"]
+[ext_resource type="EventAsset" uid="uid://d2cdk0xvnaest" path="res://addons/FMOD/editor/resources/events/{7dbe5ab1-32ef-4237-bb99-e5d9e87d4bd6}.tres" id="7_ffjyk"]
+[ext_resource type="EventAsset" uid="uid://drveop6y7qraa" path="res://addons/FMOD/editor/resources/events/{b69fcde1-e7aa-4ace-9cd2-cb7607a39448}.tres" id="9_tr85u"]
+
+[resource]
+banks = {
+"{03393661-5a79-03b6-081f-eb057a3323f7}": ExtResource("2_ldw03"),
+"{1659808c-a652-49ab-bec1-3ad7600f36ca}": ExtResource("3_skp8w"),
+"{9b2416b5-2b02-4ff4-8e56-61fb8bc0256f}": ExtResource("1_7eweq")
+}
+events = {
+"{6862ee6b-eba2-4874-b7a4-461b2f7fdc85}": ExtResource("6_fy364"),
+"{7dbe5ab1-32ef-4237-bb99-e5d9e87d4bd6}": ExtResource("7_ffjyk"),
+"{b69fcde1-e7aa-4ace-9cd2-cb7607a39448}": ExtResource("9_tr85u"),
+"{ec416a8d-e517-4e74-8852-211373b88321}": ExtResource("6_adh5y")
+}
+busses = {
+"{439af3dd-5ad2-479e-a337-3e95d13df6c4}": ExtResource("4_r1ui7"),
+"{46ae480a-1c19-4d7c-9036-45519e9cc42a}": ExtResource("5_2k4xy")
+}
+bank_tree = [{
+"children": [],
+"item_type": 3,
+"node_name": "Master",
+"path": "bank:/Master",
+"resource": ExtResource("1_7eweq")
+}, {
+"children": [],
+"item_type": 3,
+"node_name": "Master.strings",
+"path": "bank:/Master.strings",
+"resource": ExtResource("2_ldw03")
+}, {
+"children": [],
+"item_type": 3,
+"node_name": "SFX Bank",
+"path": "bank:/SFX Bank",
+"resource": ExtResource("3_skp8w")
+}]
+event_tree = [{
+"children": [],
+"item_type": 1,
+"node_name": "Ant Death",
+"path": "event:/Ant Death",
+"resource": ExtResource("6_adh5y")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Ant Walking sound",
+"path": "event:/Ant Walking sound",
+"resource": ExtResource("6_fy364")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Fly flying sound",
+"path": "event:/Fly flying sound",
+"resource": ExtResource("7_ffjyk")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Rocket Explode",
+"path": "event:/Rocket Explode",
+"resource": ExtResource("9_tr85u")
+}]
+bus_tree = [{
+"children": [{
+"children": [],
+"item_type": 4,
+"node_name": "Reverb",
+"path": "bus:/Reverb",
+"resource": ExtResource("5_2k4xy")
+}],
+"item_type": 4,
+"node_name": "bus:",
+"path": "bus:/",
+"resource": ExtResource("4_r1ui7")
+}]

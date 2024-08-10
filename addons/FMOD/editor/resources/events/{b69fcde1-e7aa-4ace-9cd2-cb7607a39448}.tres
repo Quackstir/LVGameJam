@@ -1,0 +1,45 @@
+[gd_resource type="EventAsset" load_steps=7 format=3 uid="uid://drveop6y7qraa"]
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_x7acr"]
+data1 = 1232808654
+data2 = 560865400
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_sj76y"]
+name = "Panning for Enemy"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_x7acr")
+maximum = 1.0
+guid = "{3acfa576-e894-412c-b6a6-2a9e4ec237b5}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_be5iu"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_sj76y")
+path = "parameter:/Panning for Enemy"
+guid = "{3acfa576-e894-412c-b6a6-2a9e4ec237b5}"
+name = "Panning for Enemy"
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_0e6dn"]
+data1 = 2209823965
+data2 = 3740222601
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_yt5bw"]
+name = "EQ for Ant"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_0e6dn")
+maximum = 1.0
+guid = "{3f0eb834-3739-44bf-8d63-9d9e808b550b}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_qqgto"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_yt5bw")
+path = "parameter:/EQ for Ant"
+guid = "{3f0eb834-3739-44bf-8d63-9d9e808b550b}"
+name = "EQ for Ant"
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+parameters = {
+"{3acfa576-e894-412c-b6a6-2a9e4ec237b5}": SubResource("ParameterAsset_be5iu"),
+"{3f0eb834-3739-44bf-8d63-9d9e808b550b}": SubResource("ParameterAsset_qqgto")
+}
+path = "event:/Rocket Explode"
+guid = "{b69fcde1-e7aa-4ace-9cd2-cb7607a39448}"
+name = "Rocket Explode"
