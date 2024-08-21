@@ -3,71 +3,109 @@
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="1_8pgqg"]
 [ext_resource type="Script" path="res://Levels/Pause Menu.gd" id="2_ixat5"]
 
-[sub_resource type="GDScript" id="GDScript_05lb7"]
+[sub_resource type="GDScript" id="GDScript_p4oiy"]
+script/source = "extends Panel
 
-[node name="Control" type="Control"]
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Pause Menu" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 5.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ixat5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_05lb7")
+script = SubResource("GDScript_p4oiy")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Pause Menu" type="Panel" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_ixat5")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Pause Menu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Pause Menu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause Menu/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Pause Menu
-"
-
-[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer"]
-layout_mode = 2
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Pause Menu Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_8pgqg")
 
-[node name="Resume Game" type="Button" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Pause Menu Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer"]
 layout_mode = 2
-text = "Resume Game
+size_flags_horizontal = 4
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Pause Menu
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume Game" type="Button" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Resume Game"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+tooltip_text = "Resume Game
+"
+alignment = 1
+
+[node name="Resume Game" type="Button" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 13.94
+theme_override_font_sizes/font_size = 50
+text = "Restart Game
 "
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BoxContainer2" type="BoxContainer" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer2"]
-layout_mode = 2
-
-[node name="Quit Game" type="Button" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer2"]
-layout_mode = 2
-text = "End Game
-
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Quit Game
 "
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer2"]
-layout_mode = 2
-
-[connection signal="button_down" from="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer/Resume Game" to="CanvasLayer/Pause Menu" method="_on_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/Pause Menu/MarginContainer/VBoxContainer/BoxContainer2/Quit Game" to="CanvasLayer/Pause Menu" method="_on_button_button_down"]
+[connection signal="gui_input" from="CanvasLayer/Pause Menu Panel" to="." method="_on_pause_menu_panel_gui_input"]
+[connection signal="button_down" from="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer3/Resume Game" to="." method="_on_resume_game_button_down"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer/Resume Game" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
