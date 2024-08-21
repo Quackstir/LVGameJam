@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://h61hwgjd2aof"]
+[gd_scene load_steps=6 format=3 uid="uid://h61hwgjd2aof"]
 
 [ext_resource type="Script" path="res://Levels/Menu.gd" id="1_o1fue"]
 [ext_resource type="AudioStream" uid="uid://dajl8eexvp3dq" path="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3" id="2_8vfst"]
 [ext_resource type="AudioStream" uid="uid://w74gbgu3icim" path="res://Sprites/Backgrounds/Menu Option hover sound_sfx.wav" id="3_fhhfa"]
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="3_fxktm"]
+[ext_resource type="PackedScene" uid="uid://dp124g8s0rrv5" path="res://Levels/options_menu.tscn" id="5_uk5hi"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -14.0
-offset_right = -3.0
-offset_bottom = -14.0
+offset_left = 204.0
+offset_top = 107.0
+offset_right = 204.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o1fue")
@@ -30,6 +31,7 @@ offset_right = -2.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o1fue")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu"]
 layout_mode = 1
@@ -102,26 +104,6 @@ text = "Quit Game
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionsContainer4" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Quit Game" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "Options
-"
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="HoverSound" type="AudioStreamPlayer2D" parent="CanvasLayer/Menu"]
 unique_name_in_owner = true
 position = Vector2(394, 178)
@@ -134,12 +116,13 @@ stream = ExtResource("2_8vfst")
 volume_db = -8.725
 autoplay = true
 
-[connection signal="button_down" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="." method="_on_play_game_button_down"]
+[node name="Options Menu" parent="." instance=ExtResource("5_uk5hi")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="CanvasLayer/Menu" method="_on_play_game_button_down"]
 [connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="CanvasLayer/Menu" method="_on_play_game_focus_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="CanvasLayer/Menu" method="_on_play_game_mouse_entered"]
-[connection signal="button_down" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="." method="_on_quit_game_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_button_down"]
 [connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_focus_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_focus_entered"]
-[connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="." method="_on_quit_game_pressed"]
