@@ -40,11 +40,6 @@ autostart = true
 wait_time = 2.5
 autostart = true
 
-[node name="Player" parent="." instance=ExtResource("3_t8iqy")]
-position = Vector2(0, -3)
-collision_layer = 5
-collision_mask = 4
-
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.654902, 0.654902, 0.654902, 1)
 z_index = -100
@@ -119,6 +114,7 @@ rotation = -0.00167317
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("gameManager") instance=ExtResource("6_n24og")]
+mouse_filter = 2
 gameManager = NodePath("../../GameManager")
 
 [node name="DeathScreen" parent="CanvasLayer" node_paths=PackedStringArray("gameManager", "player") instance=ExtResource("7_wgg82")]
@@ -131,6 +127,11 @@ visible = false
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ygr2a")
+
+[node name="Player" parent="." instance=ExtResource("3_t8iqy")]
+position = Vector2(0, -3)
+collision_layer = 5
+collision_mask = 4
 
 [node name="Siren" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_q7lyu")

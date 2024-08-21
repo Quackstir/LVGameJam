@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var hit_box_component:HitboxComponent = $HitBoxComponent
 @onready var camera_2d:ScreenShake = $Camera2D
+@onready var pause_menu = $"Pause Menu"
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -196,6 +197,9 @@ func _input(event):
 			health_component._take_damage(1)
 		if event.keycode == KEY_O:
 			health_component._set_health(health_component.Curr_Health + 1)
+			
+		if event.keycode == KEY_ESCAPE:
+			pause_menu.pauseMenu()
 	
 
 func _physics_process(delta: float) -> void:

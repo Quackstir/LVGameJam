@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://chbjox8nn5cvg"]
+[gd_scene load_steps=26 format=3 uid="uid://chbjox8nn5cvg"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Player.gd" id="1_yrlnl"]
 [ext_resource type="Texture2D" uid="uid://ctrtpjxxcf6ea" path="res://Sprites/Player/sheet_beetle_silly-QuadHD-beetle_silly(1).png" id="3_kayf7"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Objects/Gameplay/KnockBack.gd" id="12_h6ohs"]
 [ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="14_14ek0"]
 [ext_resource type="PackedScene" uid="uid://bjq1ub3auvgfj" path="res://Objects/Gameplay/Abilities/Dash/Burst.tscn" id="21_77x2v"]
+[ext_resource type="PackedScene" uid="uid://dp124g8s0rrv5" path="res://Levels/pause.tscn" id="21_ewbid"]
 [ext_resource type="PackedScene" uid="uid://bidkte38d6qll" path="res://Objects/Gameplay/Abilities/Stinks/StinkBomb.tscn" id="22_xncdb"]
 [ext_resource type="PackedScene" uid="uid://k2dfnqtr1cf1" path="res://Objects/Gameplay/Abilities/Barrage/barrage_ability.tscn" id="24_633vt"]
 
@@ -219,6 +220,13 @@ abilityType = 3
 
 [node name="Barrage Ability" parent="." instance=ExtResource("24_633vt")]
 visible = false
+
+[node name="Pause Menu" parent="." instance=ExtResource("21_ewbid")]
+top_level = true
+offset_left = 77.6667
+offset_top = 41.3333
+offset_right = 77.6667
+offset_bottom = 41.3333
 
 [connection signal="onDeath" from="HealthComponent" to="." method="_on_health_component_on_death"]
 [connection signal="area_entered" from="KnockBack" to="KnockBack" method="_on_area_entered"]

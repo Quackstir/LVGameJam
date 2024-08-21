@@ -7,6 +7,8 @@ var paused = false
 func _on_resume_game_button_down():
 	pauseMenu()
 
+func _ready():
+	pause_menu.hide()
 
 func pauseMenu():
 	if paused:
@@ -21,6 +23,8 @@ func _on_button_pressed():
 	get_tree().quit()
 
 func _on_resume_game_pressed():
+	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://Levels/Level.tscn")
+	
 
 
