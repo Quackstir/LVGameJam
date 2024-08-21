@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=19 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
@@ -16,8 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://chhbjyq03762o" path="res://Objects/Gameplay/Obstacles/Obstacle2.tscn" id="12_xsnqo"]
 [ext_resource type="PackedScene" uid="uid://dc7jfold0vs53" path="res://Objects/Gameplay/Obstacles/Obstacle_Cactus.tscn" id="13_7kuxr"]
 [ext_resource type="PackedScene" uid="uid://causfd1ls5ll7" path="res://Objects/Gameplay/Drops/AbilityDrop.tscn" id="16_3guuw"]
-[ext_resource type="Resource" uid="uid://cphlny8qpded8" path="res://Objects/Gameplay/Abilities/_resource/3Burst.tres" id="17_dhbgy"]
-[ext_resource type="Resource" uid="uid://fnenks4r2bje" path="res://Objects/Gameplay/Abilities/_resource/Cardinal.tres" id="18_2sn0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
@@ -140,6 +138,7 @@ volume_db = -80.0
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_eprq5")
 volume_db = -8.725
 autoplay = true
@@ -189,24 +188,13 @@ position = Vector2(-1381, 783)
 scale = Vector2(4.92, 5.92)
 
 [node name="AbilityDrop" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(47, -169)
-currentAbility = ExtResource("17_dhbgy")
+position = Vector2(11, -168)
 
 [node name="AbilityDrop2" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(-128, -174)
-currentAbility = ExtResource("17_dhbgy")
+position = Vector2(143, -151)
 
 [node name="AbilityDrop3" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(-8, -309)
-currentAbility = ExtResource("18_2sn0o")
-
-[node name="AbilityDrop4" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(181, -198)
-currentAbility = ExtResource("17_dhbgy")
-
-[node name="AbilityDrop5" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(145, -50)
-currentAbility = ExtResource("17_dhbgy")
+position = Vector2(-157, -151)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameManager/spawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]

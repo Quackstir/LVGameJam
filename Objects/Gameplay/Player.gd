@@ -113,25 +113,25 @@ func checkAbilityOccupied(abilityResource:AbilityResource) -> bool:
 
 func BurstConnect(burstAbility:Ability):
 	burstAbility.setPlayer(self)
-	#burstAbility.connect("abilityUse",burstIconVisible)
+	burstAbility.connect("abilityUse",burstIconVisible)
 	burst_ability = burstAbility
 	burstIconVisible(true)
 	
 func StinkbombConnect(stink_bombAbility:Ability):
 	stink_bombAbility.setPlayer(self)
-	#stink_bombAbility.connect("abilityUse", stinkBombIconVisible)
+	stink_bombAbility.connect("abilityUse", stinkBombIconVisible)
 	stink_bomb_ability = stink_bombAbility
 	stinkBombIconVisible(true)
 
 func LazerConnect(lazerAbility:Ability):
 	lazerAbility.setPlayer(self)
-	#lazerAbility.connect("abilityUse", lazerIconVisible)
+	lazerAbility.connect("abilityUse", lazerIconVisible)
 	lazer_ability = lazerAbility
 	lazerIconVisible(true)
 
 func BarrageConnect(barrageAbility:Ability):
 	barrageAbility.setPlayer(self)
-	#barrageAbility.connect("abilityUse",BarrageIconVisible)
+	barrageAbility.connect("abilityUse",BarrageIconVisible)
 	barrage_ability = barrageAbility
 	BarrageIconVisible(true)
 	
@@ -232,22 +232,22 @@ func _physics_process(delta: float) -> void:
 func AbilityActivate():
 	if Input.is_action_just_pressed("Weapon South") and burst_ability != null: #down
 		burst_ability._use_ability()
-		burst_ability.queue_free()
+		#burst_ability.queue_free()
 		burstIconVisible(false)
 
 	elif Input.is_action_just_pressed("Weapon East") and lazer_ability != null:
 		lazer_ability._use_ability()
-		lazer_ability.queue_free()
+		#lazer_ability.queue_free()
 		lazerIconVisible(false)
 		
 	elif Input.is_action_just_pressed("Weapon West") and stink_bomb_ability != null:
 		stink_bomb_ability._use_ability()
-		stink_bomb_ability.queue_free()
+		#stink_bomb_ability.queue_free()
 		stinkBombIconVisible(false)
 		
 	elif Input.is_action_just_pressed("Weapon North") and barrage_ability != null:
 		barrage_ability._use_ability()
-		barrage_ability.queue_free()
+		#barrage_ability.queue_free()
 		BarrageIconVisible(false)
 		
 func MovementInput():

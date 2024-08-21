@@ -8,6 +8,8 @@ var assignedAbility:AbilityResource
 
 var GameManager:GM
 
+signal selectedAbility
+
 var Name:String = "Placeholder":
 	set(newValue):
 		name = newValue
@@ -35,4 +37,6 @@ var Description:String = "Lorem ipsum dolor sit amet, consectetur adipiscing eli
 		description_text.text = newValue
 
 func _on_button_button_down():
+	selectedAbility.emit()
 	GameManager.player.addAbility(assignedAbility)
+	get_tree().paused = false
