@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://chk8eigtwe0jh"
+path="res://.godot/imported/music_lvl_02_orchestra_layer_01.ogg-66fa7f4e4354047696db14b035855e0f.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Music/music_lvl_02_orchestra_layer_01.ogg"
+dest_files=["res://.godot/imported/music_lvl_02_orchestra_layer_01.ogg-66fa7f4e4354047696db14b035855e0f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

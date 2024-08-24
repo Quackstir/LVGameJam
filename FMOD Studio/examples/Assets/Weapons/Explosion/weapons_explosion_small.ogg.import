@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brihyr3hl0oxm"
+path="res://.godot/imported/weapons_explosion_small.ogg-79c27290534bab69e53049e847db820d.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Weapons/Explosion/weapons_explosion_small.ogg"
+dest_files=["res://.godot/imported/weapons_explosion_small.ogg-79c27290534bab69e53049e847db820d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

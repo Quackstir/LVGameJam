@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cdn1rhcluxhnq"
+path="res://.godot/imported/ambience_city_walla_chatter_4.ogg-643b5d3a1acc4ec2b1f3183fe1e47167.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/City/ambience_city_walla_chatter_4.ogg"
+dest_files=["res://.godot/imported/ambience_city_walla_chatter_4.ogg-643b5d3a1acc4ec2b1f3183fe1e47167.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brufqr0tk8vmn"
+path="res://.godot/imported/ambience_city_traffic_train_2.ogg-31229751dec48f6a67361593e1abc4e2.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/City/ambience_city_traffic_train_2.ogg"
+dest_files=["res://.godot/imported/ambience_city_traffic_train_2.ogg-31229751dec48f6a67361593e1abc4e2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhw1g3b1yvhdm"
+path="res://.godot/imported/weapons_m4_tail_02.ogg-faec973496fd6e24233ac29fe6cd2f66.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Weapons/M4/weapons_m4_tail_02.ogg"
+dest_files=["res://.godot/imported/weapons_m4_tail_02.ogg-faec973496fd6e24233ac29fe6cd2f66.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

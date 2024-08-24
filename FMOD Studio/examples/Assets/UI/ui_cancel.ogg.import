@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://v14l1lrmusnn"
+path="res://.godot/imported/ui_cancel.ogg-75fc0189819d093b52b8d8d591859be4.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/UI/ui_cancel.ogg"
+dest_files=["res://.godot/imported/ui_cancel.ogg-75fc0189819d093b52b8d8d591859be4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

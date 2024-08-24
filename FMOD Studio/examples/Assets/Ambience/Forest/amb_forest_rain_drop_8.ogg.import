@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2cmkpbqi643p"
+path="res://.godot/imported/amb_forest_rain_drop_8.ogg-5f80ebde6f2243603c18bf4fa2468828.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/Forest/amb_forest_rain_drop_8.ogg"
+dest_files=["res://.godot/imported/amb_forest_rain_drop_8.ogg-5f80ebde6f2243603c18bf4fa2468828.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

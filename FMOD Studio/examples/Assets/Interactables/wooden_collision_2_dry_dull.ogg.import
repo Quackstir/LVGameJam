@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ouysn6h885lu"
+path="res://.godot/imported/wooden_collision_2_dry_dull.ogg-d8b0b44936ef18dc68c6bc523e9f9a4e.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Interactables/wooden_collision_2_dry_dull.ogg"
+dest_files=["res://.godot/imported/wooden_collision_2_dry_dull.ogg-d8b0b44936ef18dc68c6bc523e9f9a4e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

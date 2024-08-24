@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cptfcafcshjra"
+path="res://.godot/imported/music_lvl_01_bleep_a.ogg-b68df8f13f8bfc00fade14fbfcacddb1.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Music/music_lvl_01_bleep_a.ogg"
+dest_files=["res://.godot/imported/music_lvl_01_bleep_a.ogg-b68df8f13f8bfc00fade14fbfcacddb1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
