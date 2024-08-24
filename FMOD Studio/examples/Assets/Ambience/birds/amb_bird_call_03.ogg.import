@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://r4jr4quw7kxe"
+path="res://.godot/imported/amb_bird_call_03.ogg-5fc3bb691a552127ef9e2e200dc0b363.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/birds/amb_bird_call_03.ogg"
+dest_files=["res://.godot/imported/amb_bird_call_03.ogg-5fc3bb691a552127ef9e2e200dc0b363.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

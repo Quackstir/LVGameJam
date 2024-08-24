@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buyhrfjyixh1u"
+path="res://.godot/imported/Beetle Game_Rocket Launcher_Explode v.3 MASTER.wav-bd9fd491cf0483b23a4eca8fc88de9e9.sample"
+
+[deps]
+
+source_file="res://FMOD Studio/Beetle game 1/Assets/Beetle Game_Rocket Launcher_Explode v.3 MASTER.wav"
+dest_files=["res://.godot/imported/Beetle Game_Rocket Launcher_Explode v.3 MASTER.wav-bd9fd491cf0483b23a4eca8fc88de9e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

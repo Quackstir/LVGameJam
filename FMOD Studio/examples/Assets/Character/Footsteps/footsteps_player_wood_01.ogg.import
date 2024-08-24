@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ck4xork11df0d"
+path="res://.godot/imported/footsteps_player_wood_01.ogg-b5864c0ff7810cece4c389b812dd9443.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Character/Footsteps/footsteps_player_wood_01.ogg"
+dest_files=["res://.godot/imported/footsteps_player_wood_01.ogg-b5864c0ff7810cece4c389b812dd9443.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

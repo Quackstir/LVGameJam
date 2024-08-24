@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bel5uq364wbk1"
+path="res://.godot/imported/music_lvl_03_sting_high_01.ogg-51d2bf216513e7baedd71f6e8d949eb7.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Music/music_lvl_03_sting_high_01.ogg"
+dest_files=["res://.godot/imported/music_lvl_03_sting_high_01.ogg-51d2bf216513e7baedd71f6e8d949eb7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

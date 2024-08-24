@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dolqhphu1gp4m"
+path="res://.godot/imported/amb_forest_wind.ogg-00bb08378c305655863f2314974c7b41.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/Forest/amb_forest_wind.ogg"
+dest_files=["res://.godot/imported/amb_forest_wind.ogg-00bb08378c305655863f2314974c7b41.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

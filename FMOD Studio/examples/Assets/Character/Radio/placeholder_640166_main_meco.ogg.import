@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dq6wv73svd0um"
+path="res://.godot/imported/placeholder_640166_main_meco.ogg-0ac23dc941a9d736173ca6536e84ff9d.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Character/Radio/placeholder_640166_main_meco.ogg"
+dest_files=["res://.godot/imported/placeholder_640166_main_meco.ogg-0ac23dc941a9d736173ca6536e84ff9d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

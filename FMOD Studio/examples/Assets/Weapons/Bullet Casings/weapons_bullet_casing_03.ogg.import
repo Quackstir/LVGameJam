@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cevdllou27klf"
+path="res://.godot/imported/weapons_bullet_casing_03.ogg-41af57a8ce3e4a75fef29fdbbdf45ecb.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Weapons/Bullet Casings/weapons_bullet_casing_03.ogg"
+dest_files=["res://.godot/imported/weapons_bullet_casing_03.ogg-41af57a8ce3e4a75fef29fdbbdf45ecb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

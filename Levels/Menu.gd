@@ -24,4 +24,3 @@ func _on_play_game_mouse_entered():
 
 func _on_quit_game_mouse_entered():
 	hover_sound.play()
-

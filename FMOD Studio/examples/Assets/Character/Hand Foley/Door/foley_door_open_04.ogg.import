@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4pk1vat8knxi"
+path="res://.godot/imported/foley_door_open_04.ogg-d4a7775767d758ebe05d52d2d1c6281a.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Character/Hand Foley/Door/foley_door_open_04.ogg"
+dest_files=["res://.godot/imported/foley_door_open_04.ogg-d4a7775767d758ebe05d52d2d1c6281a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

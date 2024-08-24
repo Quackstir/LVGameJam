@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://20qun5b855q"
+path="res://.godot/imported/amb_forest_thunderstorm_03.ogg-ee18f0499bd7597497e88454242263fa.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/Forest/amb_forest_thunderstorm_03.ogg"
+dest_files=["res://.godot/imported/amb_forest_thunderstorm_03.ogg-ee18f0499bd7597497e88454242263fa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

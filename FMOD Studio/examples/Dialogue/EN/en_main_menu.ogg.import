@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cwpv8d75j5bn3"
+path="res://.godot/imported/en_main_menu.ogg-886f4721d305625f1baaea128cb0850d.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Dialogue/EN/en_main_menu.ogg"
+dest_files=["res://.godot/imported/en_main_menu.ogg-886f4721d305625f1baaea128cb0850d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

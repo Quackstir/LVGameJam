@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bjtasp3stro1a"
+path="res://.godot/imported/noise_short.ogg-7911287fe4e1b70b5fd7b50a5de943d0.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Character/noise_short.ogg"
+dest_files=["res://.godot/imported/noise_short.ogg-7911287fe4e1b70b5fd7b50a5de943d0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

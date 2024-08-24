@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b57c6pf1nnw56"
+path="res://.godot/imported/music_radio_station_lofi_loop.ogg-baa8f41cdad7a544c372a8bfda17132e.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Music/music_radio_station_lofi_loop.ogg"
+dest_files=["res://.godot/imported/music_radio_station_lofi_loop.ogg-baa8f41cdad7a544c372a8bfda17132e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

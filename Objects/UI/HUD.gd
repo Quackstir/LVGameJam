@@ -10,5 +10,3 @@ func _ready():
 	
 func updateScore(score:int):
 	label.text = "Score: " + str(score)
-
-

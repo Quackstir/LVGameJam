@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0k3w75cnpylo"
+path="res://.godot/imported/amb_forest_rain_outside_big.ogg-90925b796d64f1cc9298aa2392b46401.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/Forest/amb_forest_rain_outside_big.ogg"
+dest_files=["res://.godot/imported/amb_forest_rain_outside_big.ogg-90925b796d64f1cc9298aa2392b46401.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

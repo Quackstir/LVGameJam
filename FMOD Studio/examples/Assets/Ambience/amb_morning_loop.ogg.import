@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://i54krurg052d"
+path="res://.godot/imported/amb_morning_loop.ogg-bea1975750fd69cb9eb6e7892b2dd353.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Ambience/amb_morning_loop.ogg"
+dest_files=["res://.godot/imported/amb_morning_loop.ogg-bea1975750fd69cb9eb6e7892b2dd353.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

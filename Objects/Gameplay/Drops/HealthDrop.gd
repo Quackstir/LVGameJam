@@ -23,4 +23,3 @@ func _on_hurtbox_entered(hitbox: HitboxComponent):
 	hitbox.heal.emit(healing)
 	
 	queue_free()
-

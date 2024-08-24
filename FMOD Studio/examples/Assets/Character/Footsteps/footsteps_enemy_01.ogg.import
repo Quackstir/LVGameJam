@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://uplqe5c0beem"
+path="res://.godot/imported/footsteps_enemy_01.ogg-6253c4b833cac385e4e74e78cc05d722.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD Studio/examples/Assets/Character/Footsteps/footsteps_enemy_01.ogg"
+dest_files=["res://.godot/imported/footsteps_enemy_01.ogg-6253c4b833cac385e4e74e78cc05d722.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
