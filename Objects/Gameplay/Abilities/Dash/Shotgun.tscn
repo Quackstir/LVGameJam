@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://jsf5ea1bh8wn"]
+
+[ext_resource type="PackedScene" uid="uid://da8u3i8qqht64" path="res://Objects/Gameplay/Abilities/Ability.tscn" id="1_6k5ty"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/Dash/Shotgun.gd" id="2_2sas1"]
+
+[node name="Shotgun Ability" instance=ExtResource("1_6k5ty")]
+script = ExtResource("2_2sas1")
+abilityType = 3
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 5.0
+
+[node name="Ability Activate SFX" parent="." index="2"]
+volume_db = -80.0

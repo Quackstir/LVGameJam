@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=24 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
@@ -9,13 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="6_n24og"]
 [ext_resource type="PackedScene" uid="uid://cbr8dj4m1b3wo" path="res://Objects/UI/DeathScreen.tscn" id="7_wgg82"]
 [ext_resource type="AudioStream" uid="uid://b74ytc25u773o" path="res://Audio/Beetle DEATHstinger MASTER v.1.mp3" id="8_ygr2a"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd" id="9_3fl1e"]
 [ext_resource type="PackedScene" uid="uid://l1tyad5h23oj" path="res://Objects/UI/AbilityPickUp/AbilityPickUp.tscn" id="9_e4uxq"]
 [ext_resource type="AudioStream" uid="uid://dkl0a8k3apbjb" path="res://Audio/11.17.23 Game jam session 1 v.21 SIREN.mp3" id="9_q7lyu"]
+[ext_resource type="Resource" uid="uid://cphlny8qpded8" path="res://Objects/Gameplay/Abilities/_resource/3Burst.tres" id="10_36gaq"]
 [ext_resource type="AudioStream" uid="uid://k5j710i7p807" path="res://Audio/BeetleBarrage MASTER v.2 march2024.mp3" id="10_eprq5"]
 [ext_resource type="PackedScene" uid="uid://ditefqqnfk7uh" path="res://Objects/Gameplay/Obstacles/Obstacle.tscn" id="11_cx8ds"]
+[ext_resource type="Resource" uid="uid://fnenks4r2bje" path="res://Objects/Gameplay/Abilities/_resource/Cardinal.tres" id="11_v0evr"]
+[ext_resource type="Resource" uid="uid://cxkj5kc2s8l4m" path="res://Objects/Gameplay/Abilities/_resource/Lazer.tres" id="12_vom45"]
 [ext_resource type="PackedScene" uid="uid://chhbjyq03762o" path="res://Objects/Gameplay/Obstacles/Obstacle2.tscn" id="12_xsnqo"]
 [ext_resource type="PackedScene" uid="uid://dc7jfold0vs53" path="res://Objects/Gameplay/Obstacles/Obstacle_Cactus.tscn" id="13_7kuxr"]
-[ext_resource type="PackedScene" uid="uid://causfd1ls5ll7" path="res://Objects/Gameplay/Drops/AbilityDrop.tscn" id="16_3guuw"]
+[ext_resource type="Resource" uid="uid://cv68bg4tu2j3u" path="res://Objects/Gameplay/Abilities/_resource/StinkBomb.tres" id="13_b50jn"]
+[ext_resource type="Resource" uid="uid://c7fsvngchbqct" path="res://Objects/Gameplay/Abilities/_resource/Shotgun.tres" id="14_h62e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
@@ -124,6 +129,7 @@ player = NodePath("../../Player")
 
 [node name="AbilityPickUp" parent="CanvasLayer" instance=ExtResource("9_e4uxq")]
 visible = false
+abilityResources = Array[ExtResource("9_3fl1e")]([ExtResource("10_36gaq"), ExtResource("11_v0evr"), ExtResource("12_vom45"), ExtResource("13_b50jn"), ExtResource("14_h62e5")])
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ygr2a")
@@ -187,15 +193,6 @@ scale = Vector2(4.92, 5.92)
 [node name="Obstacle6" parent="." instance=ExtResource("13_7kuxr")]
 position = Vector2(-1381, 783)
 scale = Vector2(4.92, 5.92)
-
-[node name="AbilityDrop" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(11, -168)
-
-[node name="AbilityDrop2" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(143, -151)
-
-[node name="AbilityDrop3" parent="." instance=ExtResource("16_3guuw")]
-position = Vector2(-157, -151)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameManager/spawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]

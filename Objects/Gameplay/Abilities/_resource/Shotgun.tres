@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=3 format=3 uid="uid://c7fsvngchbqct"]
+
+[ext_resource type="PackedScene" uid="uid://jsf5ea1bh8wn" path="res://Objects/Gameplay/Abilities/Dash/Shotgun.tscn" id="1_23kbk"]
+[ext_resource type="Script" path="res://Objects/Gameplay/Abilities/_resource/AbilityResource.gd" id="2_wjhky"]
+
+[resource]
+script = ExtResource("2_wjhky")
+Name = "Shotgun"
+Type = 3
+Description = "Shoot a 3 bullets"
+AbilityScene = ExtResource("1_23kbk")

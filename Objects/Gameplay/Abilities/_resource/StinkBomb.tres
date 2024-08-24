@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_cd5ih")
 Name = "StinkBomb"
-Type = 0
+Type = 2
 Description = "Knockback all enemies around you"
 AbilityScene = ExtResource("1_x5je0")
