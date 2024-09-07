@@ -18,6 +18,7 @@ func _on_area_entered(area):
 	get_tree().paused = true
 	GM.gameManager.ability_pick_up.visible = true
 	GM.gameManager.ability_pick_up.updateAbilityButtons()
+	queue_free()
 	
 	#if !player.checkAbilityOccupied(currentAbility):
 		#area.get_parent().addAbility(currentAbility)

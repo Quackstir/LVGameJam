@@ -37,6 +37,6 @@ var Description:String = "Lorem ipsum dolor sit amet, consectetur adipiscing eli
 		description_text.text = newValue
 
 func _on_button_button_down():
-	selectedAbility.emit()
 	GameManager.player.addAbility(assignedAbility)
+	selectedAbility.emit()
 	get_tree().paused = false

@@ -17,6 +17,12 @@ var seconds:int
 @onready var timer = $Timer
 @onready var spawn_timer = $spawnTimer
 
+@export var maxAbilityPickUps:int = 4
+@onready var currentAbilityPickUps:int = 0
+@export var spawnAbilitySecond:int = 30
+@onready var currentSpawnAbilitySecond:int = 30
+var canSpawnAbility:bool = false
+
 static var gameManager:GM
 
 func newScore(newValue):
@@ -66,6 +72,9 @@ func SpawnEnemy(Enemy:PackedScene):
 
 func _on_timer_timeout():
 	seconds += 1
+	if seconds == currentSpawnAbilitySecond:
+		currentSpawnAbilitySecond += spawnAbilitySecond
+		canSpawnAbility = true
 	print("Seconds" + str(seconds))
 
 func _on_spawn_timer_timeout():

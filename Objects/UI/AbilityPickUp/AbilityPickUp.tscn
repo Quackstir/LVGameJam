@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://l1tyad5h23oj"]
+[gd_scene load_steps=9 format=3 uid="uid://l1tyad5h23oj"]
 
 [ext_resource type="PackedScene" uid="uid://caun3kuk14f6j" path="res://Objects/UI/AbilityPickUp/AbilityButton.tscn" id="1_emvd4"]
 [ext_resource type="Script" path="res://Objects/UI/AbilityPickUp/AbilityPickUp.gd" id="1_jgork"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cphlny8qpded8" path="res://Objects/Gameplay/Abilities/_resource/3Burst.tres" id="2_ewxhy"]
 [ext_resource type="Resource" uid="uid://cxkj5kc2s8l4m" path="res://Objects/Gameplay/Abilities/_resource/Lazer.tres" id="4_gkktm"]
 [ext_resource type="Resource" uid="uid://cv68bg4tu2j3u" path="res://Objects/Gameplay/Abilities/_resource/StinkBomb.tres" id="5_m1may"]
+[ext_resource type="Resource" uid="uid://c7fsvngchbqct" path="res://Objects/Gameplay/Abilities/_resource/Shotgun.tres" id="7_ejg1t"]
 
 [node name="AbilityPickUp" type="Control" node_paths=PackedStringArray("ability_button")]
 process_mode = 3
@@ -17,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jgork")
-abilityResources = Array[ExtResource("2_5su62")]([ExtResource("2_ewxhy"), ExtResource("2_1jhxh"), ExtResource("4_gkktm"), ExtResource("5_m1may")])
+abilityResources = Array[ExtResource("2_5su62")]([ExtResource("2_ewxhy"), ExtResource("2_1jhxh"), ExtResource("4_gkktm"), ExtResource("5_m1may"), ExtResource("7_ejg1t")])
 ability_button = [NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton"), NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton2")]
 
 [node name="Panel" type="Panel" parent="."]

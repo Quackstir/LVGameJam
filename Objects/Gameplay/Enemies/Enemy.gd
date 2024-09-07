@@ -32,7 +32,9 @@ func destroySelf():
 	rng.randomize()
 	var a = rng.randi_range(0,100)
 	print("Spawn thing: " + str(a))
-	if a > 20:
+	if a > 20 and gameManager.currentAbilityPickUps < gameManager.maxAbilityPickUps and gameManager.canSpawnAbility:
+		gameManager.canSpawnAbility = false
+		gameManager.currentAbilityPickUps += 1
 		var newPickup:AbilityDrop = abilityPickup.instantiate()
 		newPickup.currentAbility = abilityResource
 		newPickup.global_position = global_position

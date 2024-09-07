@@ -10,6 +10,8 @@ var isShoot: bool = false
 @export var FireCoolDown: float = 0.5
 @export var BulletTowards: Array[Vector2]
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var shot_gun: AudioStreamPlayer2D = $shotGun
+
 @export var player:Player
 
 @onready var EndOfGun = $EndOfGun
@@ -34,6 +36,16 @@ func burstFire():
 		fireBullet()
 		await get_tree().create_timer(0.1).timeout
 	Recoil = 10.0
+	canShoot = true
+	
+func shotgun():
+	canShoot = false
+	#for fire in 5:
+	shot_gun.play()
+	shotgunFireBullet(0)
+	shotgunFireBullet(6)
+	shotgunFireBullet(-6)
+	Recoil = 15.0
 	canShoot = true
 
 func ShootRepeat(isShooting):
@@ -70,5 +82,19 @@ func fireBullet():
 	bullet_instance.global_position = EndOfGun.global_position
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_central_impulse(Vector2(bullet_speed,0).rotated(global_rotation))
+	get_tree().get_root().add_child(bullet_instance)
+	emit_signal("player_Fired_Bullet", Recoil)
+
+func shotgunFireBullet(a:float):
+	#var  rng = RandomNumberGenerator.new()
+	#rng.randomize()
+	#var a = rng.randi_range(0,10)
+		
+	var bullet_instance = Bullet.instantiate()
+	animation.play("Gun")
+	audio_stream_player_2d.play()
+	bullet_instance.global_position = EndOfGun.global_position
+	bullet_instance.rotation_degrees = rotation_degrees 
+	bullet_instance.apply_central_impulse(Vector2(bullet_speed,0).rotated(global_rotation + a))
 	get_tree().get_root().add_child(bullet_instance)
 	emit_signal("player_Fired_Bullet", Recoil)
