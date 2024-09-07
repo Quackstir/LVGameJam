@@ -10,6 +10,8 @@ var isShoot: bool = false
 @export var FireCoolDown: float = 0.5
 @export var BulletTowards: Array[Vector2]
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var shot_gun: AudioStreamPlayer2D = $shotGun
+
 @export var player:Player
 
 @onready var EndOfGun = $EndOfGun
@@ -39,6 +41,7 @@ func burstFire():
 func shotgun():
 	canShoot = false
 	#for fire in 5:
+	shot_gun.play()
 	shotgunFireBullet(0)
 	shotgunFireBullet(6)
 	shotgunFireBullet(-6)

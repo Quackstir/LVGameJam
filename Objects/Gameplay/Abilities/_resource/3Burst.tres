@@ -7,5 +7,5 @@
 script = ExtResource("1_tcdkx")
 Name = "3 Round"
 Type = 3
-Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit est."
+Description = "Shoot a burst of 3 bullets"
 AbilityScene = ExtResource("1_bsjqu")
