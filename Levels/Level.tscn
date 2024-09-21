@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=19 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Objects/Gameplay/Player.tscn" id="3_t8iqy"]
 [ext_resource type="PackedScene" uid="uid://xbxmk0gyn1ok" path="res://Objects/Gameplay/Enemies/enemy_DragonFly.tscn" id="3_vsp37"]
 [ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="4_0rbwn"]
+[ext_resource type="Script" path="res://Levels/enemy_spawn_system.gd" id="4_du6xc"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="5_f61so"]
 [ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="6_n24og"]
 [ext_resource type="PackedScene" uid="uid://cbr8dj4m1b3wo" path="res://Objects/UI/DeathScreen.tscn" id="7_wgg82"]
@@ -28,14 +29,18 @@ point_count = 5
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_mvxwo")
-EnemyInstance = ExtResource("2_wxu82")
-Enemy_Dragonfly_Instance = ExtResource("3_vsp37")
 
 [node name="Timer" type="Timer" parent="GameManager"]
 process_callback = 0
 autostart = true
 
-[node name="spawnTimer" type="Timer" parent="GameManager"]
+[node name="EnemySpawnSystem" type="Node" parent="GameManager"]
+script = ExtResource("4_du6xc")
+EnemyInstance = ExtResource("2_wxu82")
+Enemy_Dragonfly_Instance = ExtResource("3_vsp37")
+
+[node name="spawnTimer" type="Timer" parent="GameManager/EnemySpawnSystem"]
+process_callback = 0
 wait_time = 2.5
 autostart = true
 
@@ -48,7 +53,7 @@ texture = ExtResource("4_0rbwn")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(0, 980)
-scale = Vector2(166.12, 2.04)
+scale = Vector2(166.12, 11.44)
 collision_layer = 4
 collision_mask = 4
 
@@ -62,7 +67,7 @@ texture = ExtResource("5_f61so")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(0, -980)
-scale = Vector2(166.12, 2.04)
+scale = Vector2(148.6, 7.174)
 collision_layer = 4
 collision_mask = 4
 
@@ -156,11 +161,11 @@ position = Vector2(-2216, -867)
 scale = Vector2(6.79402, 5.84897)
 
 [node name="Obstacle3" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(-1371, -1042)
+position = Vector2(-1375, -941)
 scale = Vector2(4.92, 5.92)
 
 [node name="Obstacle4" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(1371, -1042)
+position = Vector2(1371, -946)
 scale = Vector2(4.92, 5.92)
 
 [node name="Obstacle7" parent="." instance=ExtResource("13_7kuxr")]
@@ -180,12 +185,12 @@ position = Vector2(-955, 398)
 scale = Vector2(4.92, 5.92)
 
 [node name="Obstacle5" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(1371, 788)
+position = Vector2(1347, 743)
 scale = Vector2(4.92, 5.92)
 
 [node name="Obstacle6" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(-1381, 783)
+position = Vector2(-1375, 696)
 scale = Vector2(4.92, 5.92)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
-[connection signal="timeout" from="GameManager/spawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="GameManager/EnemySpawnSystem/spawnTimer" to="GameManager/EnemySpawnSystem" method="_on_spawn_timer_timeout"]

@@ -1,8 +1,5 @@
 class_name GM extends Node2D
 
-@export var EnemyInstance: PackedScene
-@export var Enemy_Dragonfly_Instance: PackedScene
-@onready var path_follow_2d = %PathFollow2D
 @onready var player:Player = $"../Player"
 @onready var ability_pick_up:AbilityPickUp = $"../CanvasLayer/AbilityPickUp"
 
@@ -15,7 +12,6 @@ var Score:int = 0: set = newScore
 
 var seconds:int
 @onready var timer = $Timer
-@onready var spawn_timer = $spawnTimer
 
 @export var maxAbilityPickUps:int = 4
 @onready var currentAbilityPickUps:int = 0
@@ -60,30 +56,9 @@ func playDeath():
 	music.stop()
 	death_sound.play()
 
-func SpawnEnemy(Enemy:PackedScene):
-	var enemy_instance = Enemy.instantiate()
-	enemy_instance._set_Player(player)
-	enemy_instance._set_GM(self)
-
-	path_follow_2d.progress_ratio = randf()
-	enemy_instance.global_position = path_follow_2d.global_position
-
-	add_child(enemy_instance)
-
 func _on_timer_timeout():
 	seconds += 1
 	if seconds == currentSpawnAbilitySecond:
 		currentSpawnAbilitySecond += spawnAbilitySecond
 		canSpawnAbility = true
 	print("Seconds" + str(seconds))
-
-func _on_spawn_timer_timeout():
-	SpawnEnemy(EnemyInstance)
-	
-	if spawn_timer.wait_time > 0.5:
-		spawn_timer.wait_time -= 0.02
-		print(spawn_timer.wait_time)
-	
-	if seconds < 60:return
-	if randf_range(0,1) < 0.3:
-		SpawnEnemy(Enemy_Dragonfly_Instance)

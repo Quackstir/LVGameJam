@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://caun3kuk14f6j"]
+[gd_scene load_steps=7 format=3 uid="uid://caun3kuk14f6j"]
 
 [ext_resource type="Script" path="res://Objects/UI/AbilityPickUp/AbilityButton.gd" id="1_58cgq"]
+[ext_resource type="Texture2D" uid="uid://bbg2cuoy3xo6k" path="res://Art/InputPrompts/Controller/switch_buttons_down_outline.png" id="2_3jfa1"]
+[ext_resource type="Texture2D" uid="uid://kjb7itjw8krr" path="res://Art/InputPrompts/Controller/switch_buttons_none.png" id="2_plhs5"]
+[ext_resource type="Texture2D" uid="uid://diouce7l5lxpq" path="res://Art/InputPrompts/Controller/switch_buttons_up_outline.png" id="3_o621e"]
+[ext_resource type="Texture2D" uid="uid://hfl2lhchx82d" path="res://Art/InputPrompts/Controller/switch_buttons_right_outline.png" id="4_gtbq3"]
+[ext_resource type="Texture2D" uid="uid://b8rglswniqm1i" path="res://Art/InputPrompts/Controller/switch_buttons_left_outline.png" id="5_xlhpq"]
 
 [node name="AbilityButton" type="Control"]
 custom_minimum_size = Vector2(500, 700)
@@ -11,6 +16,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_58cgq")
+buttonTexture_Down = ExtResource("2_3jfa1")
+buttonTexture_Up = ExtResource("3_o621e")
+buttonTexture_Right = ExtResource("4_gtbq3")
+buttonTexture_Left = ExtResource("5_xlhpq")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -35,20 +44,22 @@ theme_override_constants/margin_bottom = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="Button/MarginContainer"]
 layout_mode = 2
 
-[node name="NameText" type="Label" parent="Button/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameText" type="Label" parent="Button/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "Name"
-horizontal_alignment = 1
 
-[node name="AbilityTypeText" type="Label" parent="Button/MarginContainer/VBoxContainer"]
+[node name="AbilityTypeTexture" type="TextureRect" parent="Button/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Na
-"
-horizontal_alignment = 1
+size_flags_horizontal = 10
+texture = ExtResource("2_plhs5")
+stretch_mode = 2
 
 [node name="DescriptionText" type="Label" parent="Button/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

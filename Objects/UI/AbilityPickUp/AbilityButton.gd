@@ -10,6 +10,13 @@ var GameManager:GM
 
 signal selectedAbility
 
+@onready var ability_type_texture: TextureRect = %AbilityTypeTexture
+
+@export var buttonTexture_Down:Texture
+@export var buttonTexture_Up:Texture
+@export var buttonTexture_Right:Texture
+@export var buttonTexture_Left:Texture
+
 var Name:String = "Placeholder":
 	set(newValue):
 		name = newValue
@@ -20,16 +27,20 @@ var abilityType:Ability.AbilityType = Ability.AbilityType.Burst:
 		match newValue:
 			Ability.AbilityType.Burst:
 				abilityType = Ability.AbilityType.Burst
-				ability_type_text.text = "Burst"
+				#ability_type_text.text = "Burst"
+				ability_type_texture.texture = buttonTexture_Down
 			Ability.AbilityType.Bomb:
 				abilityType = Ability.AbilityType.Bomb
-				ability_type_text.text = "Bomb"
+				#ability_type_text.text = "Bomb"
+				ability_type_texture.texture = buttonTexture_Left
 			Ability.AbilityType.Barrage:
 				abilityType = Ability.AbilityType.Barrage
-				ability_type_text.text = "Barrage"
+				#ability_type_text.text = "Barrage"
+				ability_type_texture.texture = buttonTexture_Up
 			Ability.AbilityType.Lazer:
 				abilityType = Ability.AbilityType.Lazer
-				ability_type_text.text = "Beam"
+				#ability_type_text.text = "Beam"
+				ability_type_texture.texture = buttonTexture_Right
 
 var Description:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit est.":
 	set(newValue):
