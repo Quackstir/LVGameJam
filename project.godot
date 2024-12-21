@@ -36,7 +36,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InputHelper="*res://addons/input_helper/input_helper.gd"
-FmodManager="*res://addons/fmod/FmodManager.gd"
+Fmod="*res://addons/FMOD/fmod.gd"
 FMODRuntime="*res://addons/FMOD/runtime/fmod_runtime_manager.gd"
 
 [display]
@@ -46,7 +46,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/FMOD/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/trail_2d/plugin.cfg")
+enabled=PackedStringArray("res://addons/FMOD/plugin.cfg", "res://addons/input_helper/plugin.cfg")
 
 [fmod]
 
@@ -54,7 +54,6 @@ settings/banks_path="res://Audio/Fmod Banks"
 settings/fmod_output_type=0
 settings/fmod_debug_flags=0
 settings/fmod_debug_mode=1
-settings/banks_to_load_at_startup=Array[String]([])
 settings/banks_preload_samples=false
 settings/banks_flags=0
 settings/sample_rate=48000
@@ -69,6 +68,7 @@ settings/enable_memory_tracking=false
 settings/encryption_key=""
 settings/distance_scale_2d=1.0
 settings/init_with_3d_righthanded=true
+settings/banks_to_load_at_startup=Array[String](["res://Audio/Fmod Banks/Master.bank", "res://Audio/Fmod Banks/Master.strings.bank", "res://Audio/Fmod Banks/SFX Bank.bank"])
 
 [input]
 

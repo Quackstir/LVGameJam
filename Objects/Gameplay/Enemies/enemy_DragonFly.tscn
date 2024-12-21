@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://xbxmk0gyn1ok"]
+[gd_scene load_steps=5 format=3 uid="uid://xbxmk0gyn1ok"]
 
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="1_x08ab"]
 [ext_resource type="PackedScene" uid="uid://difvpoyajplfe" path="res://Objects/Gameplay/Drops/HealthDrop.tscn" id="3_awg1c"]
 [ext_resource type="PackedScene" uid="uid://dmt7otxifq4f8" path="res://Objects/Gameplay/Enemies/EnemyDeathEffect.tscn" id="3_ql7vh"]
+[ext_resource type="EventAsset" uid="uid://d2cdk0xvnaest" path="res://addons/FMOD/editor/resources/events/{7dbe5ab1-32ef-4237-bb99-e5d9e87d4bd6}.tres" id="4_f0orn"]
 
 [node name="Enemy" instance=ExtResource("1_x08ab")]
 momentumMovement = true
+event = ExtResource("4_f0orn")
 
 [node name="DropOnDeath" parent="." index="7"]
 dropScene = Array[PackedScene]([ExtResource("3_ql7vh"), ExtResource("3_awg1c")])

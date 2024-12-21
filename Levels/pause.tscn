@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp124g8s0rrv5"]
+[gd_scene load_steps=5 format=3 uid="uid://dp124g8s0rrv5"]
 
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="1_8pgqg"]
+[ext_resource type="BusAsset" uid="uid://b4gordt23i8f3" path="res://addons/FMOD/editor/resources/busses/{439af3dd-5ad2-479e-a337-3e95d13df6c4}.tres" id="2_ey17w"]
 [ext_resource type="Script" path="res://Levels/Pause Menu.gd" id="2_ixat5"]
 
 [sub_resource type="GDScript" id="GDScript_p4oiy"]
@@ -30,6 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_ixat5")
+bus_asset = ExtResource("2_ey17w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

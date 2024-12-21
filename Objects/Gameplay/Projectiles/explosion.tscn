@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Objects/Gameplay/Projectiles/explosion.gd" id="1_7vrvd"]
 [ext_resource type="Script" path="res://Components/damage_box_component.gd" id="1_8nwrr"]
 [ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="2_cexc1"]
-[ext_resource type="AudioStream" uid="uid://bdryf0i3cbsmb" path="res://Audio/Beetle Game_Rocket Launcher_Explode v.3 MASTER.mp3" id="4_ajcak"]
+[ext_resource type="EventAsset" uid="uid://drveop6y7qraa" path="res://addons/FMOD/editor/resources/events/{b69fcde1-e7aa-4ace-9cd2-cb7607a39448}.tres" id="5_ttey4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7hgyy"]
 radius = 230.02
@@ -110,6 +110,7 @@ _data = {
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_7vrvd")
+event = ExtResource("5_ttey4")
 
 [node name="DamageBoxComponent" type="Area2D" parent="."]
 collision_layer = 0
@@ -128,10 +129,6 @@ texture = ExtResource("2_cexc1")
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ajcak")
-autoplay = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Timer")
 libraries = {
@@ -139,4 +136,3 @@ libraries = {
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
