@@ -16,6 +16,7 @@ func _ready():
 func updateAbilityButtons() -> void:
 	setAbilityButtons(abilityResources[randi_range(0,abilityResources.size() - 1)],0)
 	setAbilityButtons(abilityResources[randi_range(0,abilityResources.size() - 1)],1)
+	ability_button[0].button.grab_focus()
 
 func setAbilityButtons(ability:AbilityResource, index:int):
 	ability_button[index].Name = ability.Name

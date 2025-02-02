@@ -1,7 +1,7 @@
 extends Control
 
 @export var gameManager:GM
-@onready var label = $MarginContainer/Panel/MarginContainer/Label
+@onready var label: Label = $Score/Panel/MarginContainer/Label
 
 # Called whesn the node enters the scene tree for the first time.
 func _ready():

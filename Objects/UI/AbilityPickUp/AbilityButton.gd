@@ -2,13 +2,13 @@ class_name AbilityButton
 extends Control
 
 @onready var name_text = %NameText
-@onready var ability_type_text = %AbilityTypeText
 @onready var description_text = %DescriptionText
 var assignedAbility:AbilityResource
 
 var GameManager:GM
 
 signal selectedAbility
+@onready var button: Button = $Button
 
 @onready var ability_type_texture: TextureRect = %AbilityTypeTexture
 
@@ -51,3 +51,8 @@ func _on_button_button_down():
 	GameManager.player.addAbility(assignedAbility)
 	selectedAbility.emit()
 	get_tree().paused = false
+
+
+func _on_button_pressed() -> void:
+	_on_button_button_down()
+	pass # Replace with function body.

@@ -1,0 +1,172 @@
+[gd_scene load_steps=16 format=3 uid="uid://byu3ddcu5oyo8"]
+
+[ext_resource type="Script" path="res://Objects/UI/UI/Input_prompts.gd" id="1_e6j71"]
+[ext_resource type="Texture2D" uid="uid://dbpmmcjq4mbv8" path="res://Art/Controller/playdate_button_menu_outline.png" id="1_iknnr"]
+[ext_resource type="Texture2D" uid="uid://bdh7bu4tmo2wl" path="res://Art/Controller/Double/xbox_stick_top_l.png" id="2_6yy0d"]
+[ext_resource type="Texture2D" uid="uid://o2nwefufsc6v" path="res://Art/Keyboard_Mouse/Double/mouse_left.png" id="3_0tyll"]
+[ext_resource type="Texture2D" uid="uid://dhffer3xvrnnr" path="res://Sprites/Player/buttonicons.png" id="5_p480e"]
+[ext_resource type="Texture2D" uid="uid://bbg2cuoy3xo6k" path="res://Art/InputPrompts/Controller/switch_buttons_down_outline.png" id="6_t75q5"]
+[ext_resource type="Texture2D" uid="uid://b8rglswniqm1i" path="res://Art/InputPrompts/Controller/switch_buttons_left_outline.png" id="7_1i1nk"]
+[ext_resource type="Texture2D" uid="uid://hfl2lhchx82d" path="res://Art/InputPrompts/Controller/switch_buttons_right_outline.png" id="8_8g1cy"]
+[ext_resource type="Texture2D" uid="uid://cdxmxmxsd5uff" path="res://Art/Keyboard_Mouse/Double/keyboard_s.png" id="8_wi1al"]
+[ext_resource type="Texture2D" uid="uid://diouce7l5lxpq" path="res://Art/InputPrompts/Controller/switch_buttons_up_outline.png" id="9_jrjvr"]
+[ext_resource type="Texture2D" uid="uid://dguemqfj8r8tn" path="res://Art/Keyboard_Mouse/Double/keyboard_a.png" id="9_ndmuc"]
+[ext_resource type="Texture2D" uid="uid://16spm0bta6hl" path="res://Art/Keyboard_Mouse/Double/keyboard_d.png" id="10_lxhnl"]
+[ext_resource type="Texture2D" uid="uid://cf84oqcsaumqr" path="res://Art/Keyboard_Mouse/Double/keyboard_f.png" id="11_k2j5y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4vc5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khsco"]
+bg_color = Color(0.787759, 0.787759, 0.787759, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Button Prompts" type="HBoxContainer"]
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+script = ExtResource("1_e6j71")
+move_joystick_texture = ExtResource("2_6yy0d")
+move_mouse_texture = ExtResource("3_0tyll")
+usedColor = Color(0.443137, 0.435294, 0.380392, 0.380392)
+button_burst_controller = ExtResource("6_t75q5")
+button_bomb_controller = ExtResource("7_1i1nk")
+button_barrage_controller = ExtResource("8_8g1cy")
+button_lazer_controller = ExtResource("9_jrjvr")
+button_burst_Keyboard = ExtResource("8_wi1al")
+button_bomb_Keyboard = ExtResource("9_ndmuc")
+button_barrage_Keyboard = ExtResource("11_k2j5y")
+button_lazer_Keyboard = ExtResource("10_lxhnl")
+
+[node name="Move Anchor" type="TextureRect" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("1_iknnr")
+expand_mode = 3
+
+[node name="Joystick" type="TextureRect" parent="Move Anchor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(202, 202)
+texture = ExtResource("2_6yy0d")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r4vc5")
+
+[node name="Burst" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Burst Icon" type="NinePatchRect" parent="Burst"]
+self_modulate = Color(0, 1, 1, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_p480e")
+region_rect = Rect2(52.705, 392.128, 450, 450)
+
+[node name="Panel" type="Panel" parent="Burst"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khsco")
+
+[node name="Burst Button" type="TextureRect" parent="Burst/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_t75q5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bomb" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Bomb Icon" type="NinePatchRect" parent="Bomb"]
+self_modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_p480e")
+region_rect = Rect2(152.853, 1167.56, 450, 450)
+
+[node name="Panel" type="Panel" parent="Bomb"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khsco")
+
+[node name="Bomb Button" type="TextureRect" parent="Bomb/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1i1nk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Barrage" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Barrage Icon" type="NinePatchRect" parent="Barrage"]
+self_modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_p480e")
+region_rect = Rect2(952.5, 1013, 450, 490)
+
+[node name="Panel" type="Panel" parent="Barrage"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khsco")
+
+[node name="Barrage Button" type="TextureRect" parent="Barrage/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8g1cy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Lazer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Lazer Icon" type="NinePatchRect" parent="Lazer"]
+self_modulate = Color(1, 0.898039, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_p480e")
+region_rect = Rect2(718.58, 235.492, 470, 470)
+
+[node name="Panel" type="Panel" parent="Lazer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khsco")
+
+[node name="Lazer Button" type="TextureRect" parent="Lazer/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_jrjvr")
+expand_mode = 1
+stretch_mode = 5
