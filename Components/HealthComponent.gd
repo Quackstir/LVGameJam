@@ -4,6 +4,7 @@ extends Node2D
 
 @export var Max_Health: int = 1
 @onready var Curr_Health: int = Max_Health: set = _set_health, get = _get_health
+@onready var heal_sound = $"Pickup Sound"
 
 signal Health_Change(newHealth:int)
 signal onDeath
@@ -13,6 +14,7 @@ func _take_damage(damage):
 	
 func _heal(healAmount):
 	_set_health(Curr_Health + healAmount)
+	heal_sound.play()
 
 func _set_health(new_value : int):
 	Curr_Health = new_value
