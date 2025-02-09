@@ -29,6 +29,7 @@ DSP/dsp_buffer_count=4
 [application]
 
 config/name="Bugcoil"
+config/tags=PackedStringArray("beetle_barrage")
 run/main_scene="res://Levels/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
