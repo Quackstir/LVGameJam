@@ -9,5 +9,5 @@ extends RigidBody2D
 func _on_damage_box_component_area_entered(area):
 	var explosion_instance = explosion.instantiate()
 	explosion_instance.global_position = global_position
-	get_tree().get_root().add_child(explosion_instance)
+	get_tree().current_scene.add_child(explosion_instance)
 	queue_free()

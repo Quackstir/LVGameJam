@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbr8dj4m1b3wo"]
+[gd_scene load_steps=4 format=3 uid="uid://cbr8dj4m1b3wo"]
 
 [ext_resource type="Script" path="res://Objects/UI/DeathScreen.gd" id="1_d26xg"]
+[ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="2_0px5a"]
+[ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="3_7wmbv"]
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -37,14 +39,16 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("2_0px5a")
+theme_override_font_sizes/font_size = 80
 text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_7wmbv")
+theme_override_font_sizes/font_size = 60
 text = "Score:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -60,7 +64,8 @@ size_flags_horizontal = 3
 [node name="Reset" type="Button" parent="Panel/MarginContainer/VBoxContainer/Reset Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_7wmbv")
+theme_override_font_sizes/font_size = 50
 text = "Restart"
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Reset Container"]
@@ -78,7 +83,8 @@ size_flags_horizontal = 3
 [node name="Exit Game" type="Button" parent="Panel/MarginContainer/VBoxContainer/Exit Game Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_7wmbv")
+theme_override_font_sizes/font_size = 50
 text = "Exit Game"
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Exit Game Container"]

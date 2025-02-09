@@ -17,5 +17,5 @@ func drop():
 
 func dropstuff(sceneToDrop:PackedScene):
 	var drop_instance = sceneToDrop.instantiate()
-	get_tree().get_root().add_child(drop_instance)
+	get_tree().current_scene.add_child(drop_instance)
 	drop_instance.global_position = global_position

@@ -86,7 +86,7 @@ func _ready():
 
 func addAbility(abilityResource:AbilityResource):
 	var spawnedItem:Ability = abilityResource.AbilityScene.instantiate()
-	get_tree().get_root().add_child(spawnedItem)
+	get_tree().current_scene.add_child(spawnedItem)
 	spawnedItem.setPlayer(self)
 	
 	emit_signal("Ability_added",spawnedItem.abilityType)
@@ -200,15 +200,23 @@ func _switch_weapon():
 		
 	Weapons[CurrentSelectedWeapon].canShoot = true
 	
-func _input(event):
+func _input(event:InputEvent):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_P:
 			health_component._take_damage(1)
 		if event.keycode == KEY_O:
 			health_component._set_health(health_component.Curr_Health + 1)
-			
-		if event.keycode == KEY_ESCAPE:
-			pause_menu.pauseMenu()
+	if Input.is_action_just_pressed("pause"):
+		pause_menu.pauseMenu()
+	
+	if !canMove: 
+		playerStartedMoving = false
+		emit_signal("fireWeapon", false)
+		move_and_slide()
+		return
+	
+	MovementInput()
+	AbilityActivate()
 	
 
 func _physics_process(delta: float) -> void:
@@ -218,14 +226,7 @@ func _physics_process(delta: float) -> void:
 	currentrecoil = lerp(currentrecoil,0.0,delta * 20)
 	#print("current recoil: " + str(currentrecoil))
 	velocity = lerp(velocity, -center.transform.x * currentrecoil * SPEED, delta * Acceleration)
-	if !canMove: 
-		playerStartedMoving = false
-		emit_signal("fireWeapon", false)
-		move_and_slide()
-		return
-	AbilityActivate()
-	MovementInput()
-
+	
 	isPlayerMoving = playerMovement.length() > 0.3
 	if (isPlayerMoving):
 		var rotationPosition: Vector2 = (playerMovement + position) - global_position
