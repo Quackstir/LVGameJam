@@ -34,6 +34,7 @@ mouse_filter = 2
 script = ExtResource("2_ixat5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Pause Menu Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
