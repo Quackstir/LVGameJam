@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=22 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ditefqqnfk7uh" path="res://Objects/Gameplay/Obstacles/Obstacle.tscn" id="11_cx8ds"]
 [ext_resource type="PackedScene" uid="uid://chhbjyq03762o" path="res://Objects/Gameplay/Obstacles/Obstacle2.tscn" id="12_xsnqo"]
 [ext_resource type="PackedScene" uid="uid://dc7jfold0vs53" path="res://Objects/Gameplay/Obstacles/Obstacle_Cactus.tscn" id="13_7kuxr"]
+[ext_resource type="Texture2D" uid="uid://drp607igopxuf" path="res://Sprites/seamlessspacejunktiledingame.png" id="17_5s836"]
+[ext_resource type="Texture2D" uid="uid://b5qmqp43g2wh4" path="res://Sprites/Backgrounds/brown.png" id="18_b3dp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
@@ -24,6 +26,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1784, -1085, 0, 0, 0, 0, 1802, -1091, 0, 0, 0, 0, 1773, 1109, 0, 0, 0, 0, -1783, 1117, 0, 0, 0, 0, -1784, -1085)
 }
 point_count = 5
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nefgq"]
 
 [node name="Level" type="Node2D"]
 
@@ -45,6 +49,7 @@ wait_time = 2.5
 autostart = true
 
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.654902, 0.654902, 0.654902, 1)
 z_index = -100
 position = Vector2(-2.00002, 19)
@@ -152,45 +157,34 @@ autoplay = true
 position = Vector2(-411, -6)
 scale = Vector2(7.4, 6.36)
 
-[node name="Obstacle12" parent="." instance=ExtResource("11_cx8ds")]
-position = Vector2(383, -6)
-scale = Vector2(7.4, 6.36)
-
 [node name="Obstacle2" parent="." instance=ExtResource("12_xsnqo")]
 position = Vector2(-2216, -867)
 scale = Vector2(6.79402, 5.84897)
 
-[node name="Obstacle3" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(-1375, -941)
-scale = Vector2(4.92, 5.92)
-
-[node name="Obstacle4" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(1371, -946)
-scale = Vector2(4.92, 5.92)
-
-[node name="Obstacle7" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(963, -636)
-scale = Vector2(4.92, 5.92)
-
-[node name="Obstacle8" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(-955, -636)
-scale = Vector2(4.92, 5.92)
-
-[node name="Obstacle9" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(963, 396)
-scale = Vector2(4.92, 5.92)
-
-[node name="Obstacle10" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(-955, 398)
-scale = Vector2(4.92, 5.92)
-
-[node name="Obstacle5" parent="." instance=ExtResource("13_7kuxr")]
-position = Vector2(1347, 743)
-scale = Vector2(4.92, 5.92)
-
 [node name="Obstacle6" parent="." instance=ExtResource("13_7kuxr")]
 position = Vector2(-1375, 696)
 scale = Vector2(4.92, 5.92)
+
+[node name="Seamlessspacejunktiledingame" type="Sprite2D" parent="."]
+z_index = -100
+texture_repeat = 2
+position = Vector2(48, 3)
+texture = ExtResource("17_5s836")
+region_enabled = true
+region_rect = Rect2(0, 0, 3560, 2000)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_nefgq")
+offset_left = 1571.0
+offset_top = -827.0
+offset_right = 3760.0
+offset_bottom = 578.0
+
+[node name="Brown" type="Sprite2D" parent="."]
+z_index = -110
+position = Vector2(-8.99976, -40.375)
+scale = Vector2(67.1739, 43.0389)
+texture = ExtResource("18_b3dp5")
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameManager/EnemySpawnSystem/spawnTimer" to="GameManager/EnemySpawnSystem" method="_on_spawn_timer_timeout"]
