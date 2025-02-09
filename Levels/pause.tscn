@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp124g8s0rrv5"]
+[gd_scene load_steps=6 format=3 uid="uid://dp124g8s0rrv5"]
 
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="1_8pgqg"]
 [ext_resource type="Script" path="res://Levels/Pause Menu.gd" id="2_ixat5"]
+[ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="3_hx3or"]
+[ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="3_onwsv"]
 
 [sub_resource type="GDScript" id="GDScript_p4oiy"]
 script/source = "extends Panel
@@ -61,6 +63,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer"]
 layout_mode = 2
@@ -71,42 +77,51 @@ alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.73
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("3_hx3or")
+theme_override_font_sizes/font_size = 115
 text = "Pause Menu
 "
 horizontal_alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Resume Game" type="Button" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_onwsv")
+theme_override_font_sizes/font_size = 50
 text = "Resume Game"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
+size_flags_vertical = 3
 tooltip_text = "Resume Game
 "
 alignment = 1
 
 [node name="Resume Game" type="Button" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_stretch_ratio = 13.94
+theme_override_fonts/font = ExtResource("3_onwsv")
 theme_override_font_sizes/font_size = 50
 text = "Restart Game
 "
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_onwsv")
 theme_override_font_sizes/font_size = 50
 text = "Quit Game
 "

@@ -1,7 +1,18 @@
 extends Control
   
 @onready var pause_menu = $"CanvasLayer/Pause Menu Panel"
-var paused = false
+@onready var resume_game: Button = $"CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer3/Resume Game"
+
+var paused = false:
+	set(newValue):
+		paused = newValue
+		if paused:
+			pause_menu.hide()
+			Engine.time_scale = 1
+		else:
+			pause_menu.show()
+			resume_game.grab_focus()
+			Engine.time_scale = 0
 
 
 func _on_resume_game_button_down():
@@ -11,12 +22,6 @@ func _ready():
 	pause_menu.hide()
 
 func pauseMenu():
-	if paused:
-		pause_menu.hide()
-		Engine.time_scale = 1
-	else:
-		pause_menu.show()
-		Engine.time_scale = 0
 	paused = !paused
 
 func _on_button_pressed():

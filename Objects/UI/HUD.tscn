@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://qq1i6vy2tl5d"]
+[gd_scene load_steps=4 format=3 uid="uid://qq1i6vy2tl5d"]
 
 [ext_resource type="Script" path="res://Objects/UI/HUD.gd" id="1_gthdo"]
+[ext_resource type="PackedScene" uid="uid://byu3ddcu5oyo8" path="res://Objects/UI/UI/button_prompts.tscn" id="2_nkxkp"]
+[ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="2_wdblk"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -11,20 +13,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gthdo")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Score" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 161.0
-offset_bottom = 57.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
-custom_minimum_size = Vector2(125, 35)
+[node name="Panel" type="Panel" parent="Score"]
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Score/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,8 +43,32 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer"]
+[node name="Label" type="Label" parent="Score/Panel/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_wdblk")
+theme_override_font_sizes/font_size = 27
 text = "Score: 00000"
-vertical_alignment = 1
+horizontal_alignment = 3
+vertical_alignment = 3
+justification_flags = 161
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="Button Prompts" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_nkxkp")]
+layout_mode = 2

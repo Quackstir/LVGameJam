@@ -38,7 +38,8 @@ func destroySelf():
 		var newPickup:AbilityDrop = abilityPickup.instantiate()
 		newPickup.currentAbility = abilityResource
 		newPickup.global_position = global_position
-		get_tree().get_root().add_child(newPickup)
+		get_tree().current_scene.add_child(newPickup)
+		print("Current Abilities: " + str(gameManager.currentAbilityPickUps))
 		
 	gameManager.addScore(10)
 	
