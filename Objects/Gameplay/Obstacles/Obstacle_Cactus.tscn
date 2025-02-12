@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc7jfold0vs53"]
 
-[ext_resource type="Texture2D" uid="uid://dppac8ob7tswq" path="res://Sprites/obstacles0001.png" id="1_f2lyv"]
+[ext_resource type="Texture2D" uid="uid://cscdka6p8u32e" path="res://Art/cactus.png" id="1_md1ay"]
 [ext_resource type="Script" path="res://Components/damage_box_component.gd" id="2_niuk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 size = Vector2(9, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h6vj"]
-size = Vector2(14, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ikj5"]
+radius = 22.0
 
 [node name="Obstacle" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -20,13 +20,11 @@ shape = SubResource("RectangleShape2D_ql7q5")
 
 [node name="Icon2" type="Sprite2D" parent="."]
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("1_f2lyv")
-region_enabled = true
+texture = ExtResource("1_md1ay")
 region_rect = Rect2(548.58, 17.4305, 169.046, 381.668)
 
 [node name="DamageBoxComponent" type="Area2D" parent="."]
 script = ExtResource("2_niuk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBoxComponent"]
-position = Vector2(0, 21)
-shape = SubResource("RectangleShape2D_0h6vj")
+shape = SubResource("CircleShape2D_6ikj5")
