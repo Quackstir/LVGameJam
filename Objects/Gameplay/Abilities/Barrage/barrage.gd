@@ -18,4 +18,4 @@ func fireBullet(direction):
 	missle_instance.global_position = direction.global_position
 	missle_instance.rotation_degrees = direction.rotation_degrees
 	missle_instance.apply_central_impulse(Vector2(missle_speed,0).rotated(direction.global_rotation))
-	get_tree().get_root().add_child(missle_instance)
+	get_tree().current_scene.add_child(missle_instance)

@@ -36,7 +36,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var canMove:bool = true
 @onready var damage_audio = $"Damage Audio"
-@onready var death_sound = $DeathSound
+#@onready var death_sound = $DeathSound
 
 
 @onready var right = $Center/Right
@@ -65,6 +65,9 @@ var stink_bomb_ability:Ability
 var lazer_ability:Ability
 var barrage_ability:Ability
 
+signal Ability_added(newAbility : Ability.AbilityType)
+signal Ability_used(currAbility : Ability.AbilityType,isUsed:bool)
+
 func _ready():
 	#BurstConnect()
 	#StinkbombConnect()
@@ -83,8 +86,10 @@ func _ready():
 
 func addAbility(abilityResource:AbilityResource):
 	var spawnedItem:Ability = abilityResource.AbilityScene.instantiate()
-	get_tree().get_root().add_child(spawnedItem)
+	get_tree().current_scene.add_child(spawnedItem)
 	spawnedItem.setPlayer(self)
+	
+	emit_signal("Ability_added",spawnedItem.abilityType)
 	
 	match spawnedItem.abilityType:
 		Ability.AbilityType.Burst:
@@ -137,15 +142,19 @@ func BarrageConnect(barrageAbility:Ability):
 	BarrageIconVisible(true)
 	
 func burstIconVisible(canUse):
+	emit_signal("Ability_used",Ability.AbilityType.Burst,canUse)
 	burst_icon.visible = canUse
 
 func lazerIconVisible(canUse):
+	emit_signal("Ability_used",Ability.AbilityType.Lazer,canUse)
 	lazer_icon.visible = canUse
 
 func stinkBombIconVisible(canUse):
+	emit_signal("Ability_used",Ability.AbilityType.Bomb,canUse)
 	stink_bomb_icon.visible = canUse
 	
 func BarrageIconVisible(canUse):
+	emit_signal("Ability_used",Ability.AbilityType.Barrage,canUse)
 	rockets_icon.visible = canUse
 
 func healthChange(health:int):
@@ -191,15 +200,23 @@ func _switch_weapon():
 		
 	Weapons[CurrentSelectedWeapon].canShoot = true
 	
-func _input(event):
+func _input(event:InputEvent):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_P:
 			health_component._take_damage(1)
 		if event.keycode == KEY_O:
 			health_component._set_health(health_component.Curr_Health + 1)
-			
-		if event.keycode == KEY_ESCAPE:
-			pause_menu.pauseMenu()
+	if Input.is_action_just_pressed("pause"):
+		pause_menu.pauseMenu()
+	
+	if !canMove: 
+		playerStartedMoving = false
+		emit_signal("fireWeapon", false)
+		move_and_slide()
+		return
+	
+	MovementInput()
+	AbilityActivate()
 	
 
 func _physics_process(delta: float) -> void:
@@ -207,16 +224,9 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 
 	currentrecoil = lerp(currentrecoil,0.0,delta * 20)
-	print("current recoil: " + str(currentrecoil))
+	#print("current recoil: " + str(currentrecoil))
 	velocity = lerp(velocity, -center.transform.x * currentrecoil * SPEED, delta * Acceleration)
-	if !canMove: 
-		playerStartedMoving = false
-		emit_signal("fireWeapon", false)
-		move_and_slide()
-		return
-	AbilityActivate()
-	MovementInput()
-
+	
 	isPlayerMoving = playerMovement.length() > 0.3
 	if (isPlayerMoving):
 		var rotationPosition: Vector2 = (playerMovement + position) - global_position
@@ -265,6 +275,7 @@ func MovementInput():
 
 	if Input.is_action_pressed("Select"):
 		playerMovement = (get_global_mouse_position() - position)
+		#print(get_global_mouse_position() - position)
 	elif Input.is_action_just_released("Select"):
 		playerMovement = Vector2.ZERO
 	

@@ -1,20 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://ditefqqnfk7uh"]
 
-[ext_resource type="Texture2D" uid="uid://dppac8ob7tswq" path="res://Sprites/obstacles0001.png" id="1_hdcp8"]
+[ext_resource type="Texture2D" uid="uid://c2wbpwn4k2dj0" path="res://Art/Weaboose banter.png" id="1_j3j6k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
-size = Vector2(19, 24)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dglwb"]
+radius = 14.0357
 
 [node name="Obstacle" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 12)
-shape = SubResource("RectangleShape2D_ql7q5")
+shape = SubResource("CircleShape2D_dglwb")
 
 [node name="Icon2" type="Sprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("1_hdcp8")
-region_enabled = true
-region_rect = Rect2(216, 37, 315, 363)
+position = Vector2(-1, -3)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_j3j6k")
+region_rect = Rect2(199.5, 65, 140, 31)

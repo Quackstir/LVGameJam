@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://h61hwgjd2aof"]
+[gd_scene load_steps=7 format=3 uid="uid://h61hwgjd2aof"]
 
 [ext_resource type="Script" path="res://Levels/Menu.gd" id="1_o1fue"]
 [ext_resource type="AudioStream" uid="uid://dajl8eexvp3dq" path="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3" id="2_8vfst"]
+[ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="3_e3t53"]
 [ext_resource type="AudioStream" uid="uid://w74gbgu3icim" path="res://Sprites/Backgrounds/Menu Option hover sound_sfx.wav" id="3_fhhfa"]
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="3_fxktm"]
+[ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="4_tk4vh"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -59,7 +61,9 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("3_e3t53")
+theme_override_font_sizes/font_size = 115
 text = "Beetle Barrage"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -75,7 +79,8 @@ size_flags_horizontal = 3
 [node name="Play Game" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("4_tk4vh")
+theme_override_font_sizes/font_size = 50
 text = "Play Game
 "
 
@@ -94,7 +99,8 @@ size_flags_horizontal = 3
 [node name="Quit Game" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("4_tk4vh")
+theme_override_font_sizes/font_size = 50
 text = "Quit Game
 "
 

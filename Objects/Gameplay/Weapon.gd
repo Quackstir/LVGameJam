@@ -82,7 +82,7 @@ func fireBullet():
 	bullet_instance.global_position = EndOfGun.global_position
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_central_impulse(Vector2(bullet_speed,0).rotated(global_rotation))
-	get_tree().get_root().add_child(bullet_instance)
+	get_tree().current_scene.add_child(bullet_instance)
 	emit_signal("player_Fired_Bullet", Recoil)
 
 func shotgunFireBullet(a:float):
@@ -96,5 +96,5 @@ func shotgunFireBullet(a:float):
 	bullet_instance.global_position = EndOfGun.global_position
 	bullet_instance.rotation_degrees = rotation_degrees 
 	bullet_instance.apply_central_impulse(Vector2(bullet_speed,0).rotated(global_rotation + a))
-	get_tree().get_root().add_child(bullet_instance)
+	get_tree().current_scene.add_child(bullet_instance)
 	emit_signal("player_Fired_Bullet", Recoil)

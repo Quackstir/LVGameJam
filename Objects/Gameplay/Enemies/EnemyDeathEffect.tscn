@@ -1,75 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmt7otxifq4f8"]
+[gd_scene load_steps=13 format=3 uid="uid://dmt7otxifq4f8"]
 
-[ext_resource type="Texture2D" uid="uid://etgd5072pbjx" path="res://Sprites/Backgrounds/lightsource.png" id="1_be65w"]
 [ext_resource type="Script" path="res://Objects/Gameplay/Enemies/EnemyDeathEffectScript.gd" id="1_nnrtf"]
 [ext_resource type="AudioStream" uid="uid://bqowsmwnjind6" path="res://Audio/BeetleGame_Ant_Death Sound v.2 MASTER.mp3" id="2_bkkt6"]
+[ext_resource type="Texture2D" uid="uid://ckv7fyo2h1nw6" path="res://Sprites/Backgrounds/lighttexture2.png" id="4_bmbkl"]
+[ext_resource type="Texture2D" uid="uid://b21nsshkagskf" path="res://Art/explosion0001-Sheet-export (1).png" id="4_qnvsp"]
 
-[sub_resource type="Animation" id="Animation_qt4jt"]
-resource_name = "DeathEffect"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm8yc"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(0, 0, 480, 480)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_shia7"]
-_data = {
-"DeathEffect": SubResource("Animation_qt4jt")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvlgk"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xko0i"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxp34"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5dmt"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(1920, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q48j"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(2400, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rty4"]
+atlas = ExtResource("4_qnvsp")
+region = Rect2(2880, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xqum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm8yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvlgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xko0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxp34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5dmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q48j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rty4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="EnemyDeathEffect" type="Node2D"]
 script = ExtResource("1_nnrtf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_be65w")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.219608, 1)
+energy = 5.0
+texture = ExtResource("4_bmbkl")
+texture_scale = 0.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_bkkt6")
 autoplay = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_shia7")
-}
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5xqum")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+speed_scale = 3.0
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -69,3 +69,4 @@ text = "Description"
 autowrap_mode = 2
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

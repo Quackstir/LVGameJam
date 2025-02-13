@@ -13,7 +13,7 @@ var Score:int = 0: set = newScore
 var seconds:int
 @onready var timer = $Timer
 
-@export var maxAbilityPickUps:int = 4
+@export var maxAbilityPickUps:int = 3
 @onready var currentAbilityPickUps:int = 0
 @export var spawnAbilitySecond:int = 30
 @onready var currentSpawnAbilitySecond:int = 30
