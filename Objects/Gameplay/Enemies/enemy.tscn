@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://itihdsxsasau"]
+[gd_scene load_steps=17 format=3 uid="uid://itihdsxsasau"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/Enemies/Enemy.gd" id="1_1uq5v"]
 [ext_resource type="Texture2D" uid="uid://q5buowkvf8cv" path="res://Sprites/Player/antsprite.png" id="2_u6raj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://df8f3gbs0jqlr" path="res://Components/damage_box_component.tscn" id="5_huhtc"]
 [ext_resource type="Script" path="res://Components/DropOnDeath.gd" id="6_hxqh2"]
 [ext_resource type="PackedScene" uid="uid://dmt7otxifq4f8" path="res://Objects/Gameplay/Enemies/EnemyDeathEffect.tscn" id="7_l5vdu"]
+[ext_resource type="EventAsset" uid="uid://sx546ebin8a4" path="res://addons/FMOD/editor/resources/events/{6862ee6b-eba2-4874-b7a4-461b2f7fdc85}.tres" id="10_e8hj7"]
 
 [sub_resource type="Animation" id="Animation_3qebr"]
 length = 0.001
@@ -65,6 +66,7 @@ script = ExtResource("1_1uq5v")
 momentumMovement = false
 abilityPickup = ExtResource("2_uxu5j")
 abilityResource = ExtResource("3_751vc")
+event = ExtResource("10_e8hj7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.529412, 0.443137, 1)

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://wb7i7fke0ykf"]
+[gd_scene load_steps=3 format=3 uid="uid://wb7i7fke0ykf"]
 
 [ext_resource type="Script" path="res://Components/HealthComponent.gd" id="1_8ks2g"]
+[ext_resource type="AudioStream" uid="uid://dltxfqdcrmhqm" path="res://Audio/BeetleGame_Beetle_HealSound v.4 MASTER.wav" id="2_2awbk"]
 
 [node name="HealthComponent" type="Node2D"]
 script = ExtResource("1_8ks2g")
+
+[node name="Pickup Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2awbk")
