@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://duqbmljvecg1h"]
+
+[ext_resource type="Script" path="res://Objects/UI/Credits/Credits.gd" id="1_5lff6"]
+[ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="1_73gkd"]
+[ext_resource type="FontFile" uid="uid://b0x2o3c6gk24m" path="res://Art/Fonts/AtkinsonHyperlegible-Italic.ttf" id="2_8w7ad"]
+[ext_resource type="FontFile" uid="uid://dfiqtaqnon1uf" path="res://Art/Fonts/AtkinsonHyperlegible-BoldItalic.ttf" id="3_syqsi"]
+[ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="4_nlm0k"]
+[ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="6_0exqm"]
+[ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="7_lglvm"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5lff6")
+firstPage = "[center][b]Producer[/b]
+Mark Anthony Esparagoza
+
+[b]Design[/b]
+Christopher Cassidy - User Researcher
+Mark Anthony Esparagoza - Gameplay/UI Designer
+Andrew Diaz - Additional UI Design
+Ethan Lennaman - Additional Level Design
+
+[b]Sound[/b]
+Grady “IHaveNoMouth” Mayo - Musician/Sound Designer
+Poppy Payne - Additional Musician
+
+[b]Art[/b]
+Poppy Payne - Artist
+
+[b]Programming[/b]
+Reese Mireau - SFX Engineer
+Mark Anthony Esparagoza - Gameplay/UI Programmer
+Andrew Diaz - Additional UI Programming"
+secondPage = "[center][b]Testers[/b]
+Sam Fishback
+Collin Dougherty
+Max Stucker
+Joshua Belcastro
+Jaden Corrado
+
+[b]Special Thanks[/b]
+Jeannie Park
+Michael Schwalbe - ASK FIRST. Want to credit him as we would not have continued this project to upload to steam without his encouragement.
+Las Vegas IGDA Chapter
+
+[b]External Resources[/b]
+Copyright 2020 Braille Institute of America, Inc. https://www.brailleinstitute.org
+with Reserved Font Name Atkinsons Hyperlegible.
+
+FMOD GOES HERE. PENDING APPROVAL
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_fonts/normal_font = ExtResource("1_73gkd")
+theme_override_fonts/italics_font = ExtResource("2_8w7ad")
+theme_override_fonts/bold_italics_font = ExtResource("3_syqsi")
+theme_override_fonts/bold_font = ExtResource("4_nlm0k")
+theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[center][b]Producer[/b]
+Mark Anthony Esparagoza
+
+[b]Design[/b]
+Christopher Cassidy - User Researcher
+Mark Anthony Esparagoza - Gameplay/UI Designer
+Andrew Diaz - Additional UI Design
+Ethan Lennaman - Additional Level Design
+
+[b]Sound[/b]
+Grady “IHaveNoMouth” Mayo - Musician/Sound Designer
+Poppy Payne - Additional Musician
+
+[b]Art[/b]
+Poppy Payne - Artist
+
+[b]Programming[/b]
+Reese Mireau - SFX Engineer
+Mark Anthony Esparagoza - Gameplay/UI Programmer
+Andrew Diaz - Additional UI Programming"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="Back" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_0exqm")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+script = ExtResource("7_lglvm")
+Focus_ready = true
+
+[node name="Switch Page" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_0exqm")
+theme_override_font_sizes/font_size = 50
+text = "Page (1/2) | Next Page"
+script = ExtResource("7_lglvm")
+Focus_ready = true
+
+[connection signal="Pressed_button" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed_button"]
+[connection signal="Pressed_button" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Switch Page" to="." method="_on_switch_page_pressed_button"]

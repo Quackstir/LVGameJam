@@ -47,12 +47,7 @@ var Description:String = "Lorem ipsum dolor sit amet, consectetur adipiscing eli
 		Description = newValue
 		description_text.text = newValue
 
-func _on_button_button_down():
+func _on_button_pressed_button() -> void:
 	GameManager.player.addAbility(assignedAbility)
 	selectedAbility.emit()
 	get_tree().paused = false
-
-
-func _on_button_pressed() -> void:
-	_on_button_button_down()
-	pass # Replace with function body.

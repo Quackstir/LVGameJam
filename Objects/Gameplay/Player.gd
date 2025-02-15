@@ -76,9 +76,10 @@ func _ready():
 
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	InputHelper.device_changed.connect(_on_input_device_changed)
+	CurrentDevice = InputHelper.device
 	hit_box_component.hurt.connect(onHurt)
 	health_component.Health_Change.connect(healthChange)
-
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 #func addAbility(newAbility:Ability):
 	#match newAbility.abilityType:
 		#Ability.AbilityType.Lazer:
@@ -191,7 +192,7 @@ func onHurt(area: int):
 	damage_audio.play()
 	
 func _on_input_device_changed(device: String, device_index: int) -> void:
-	print(device)
+	print("Current Device: " + str(device) + str(device_index))
 	CurrentDevice = device
 
 func _switch_weapon():
@@ -201,13 +202,11 @@ func _switch_weapon():
 	Weapons[CurrentSelectedWeapon].canShoot = true
 	
 func _input(event:InputEvent):
-	if event is InputEventKey and event.is_pressed():
-		if event.keycode == KEY_P:
-			health_component._take_damage(1)
-		if event.keycode == KEY_O:
-			health_component._set_health(health_component.Curr_Health + 1)
-	if Input.is_action_just_pressed("pause"):
-		pause_menu.pauseMenu()
+	#if event is InputEventKey and event.is_pressed():
+		#if event.keycode == KEY_P:
+			#health_component._take_damage(1)
+		#if event.keycode == KEY_O:
+			#health_component._set_health(health_component.Curr_Health + 1)
 	
 	if !canMove: 
 		playerStartedMoving = false
@@ -267,17 +266,18 @@ func AbilityActivate():
 func MovementInput():
 	if !canRotate:return
 	
-	if CurrentDevice != "keyboard":
-		var HorizontalMovement = Input.get_action_raw_strength("Movement_Right") - Input.get_action_raw_strength("Movement_Left")
-		var VerticalMovement = Input.get_action_raw_strength("Movement_Down") - Input.get_action_raw_strength("Movement_Up")
-		playerMovement = Vector2(HorizontalMovement, VerticalMovement)
+	if CurrentDevice == "keyboard":
+		if Input.is_action_pressed("Select"):
+			playerMovement = (get_global_mouse_position() - position)
+			#print(get_global_mouse_position() - position)
+		elif Input.is_action_just_released("Select"):
+			playerMovement = Vector2.ZERO
 		return
 
-	if Input.is_action_pressed("Select"):
-		playerMovement = (get_global_mouse_position() - position)
-		#print(get_global_mouse_position() - position)
-	elif Input.is_action_just_released("Select"):
-		playerMovement = Vector2.ZERO
+	var HorizontalMovement = Input.get_action_raw_strength("Movement_Right") - Input.get_action_raw_strength("Movement_Left")
+	var VerticalMovement = Input.get_action_raw_strength("Movement_Down") - Input.get_action_raw_strength("Movement_Up")
+	playerMovement = Vector2(HorizontalMovement, VerticalMovement)
+	
 	
 func  _applyVelocity(Recoil):
 	currentrecoil = Recoil

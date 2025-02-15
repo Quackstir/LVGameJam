@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://caun3kuk14f6j"]
+[gd_scene load_steps=9 format=3 uid="uid://caun3kuk14f6j"]
 
 [ext_resource type="Script" path="res://Objects/UI/AbilityPickUp/AbilityButton.gd" id="1_58cgq"]
 [ext_resource type="Texture2D" uid="uid://bbg2cuoy3xo6k" path="res://Art/InputPrompts/Controller/switch_buttons_down_outline.png" id="2_3jfa1"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://diouce7l5lxpq" path="res://Art/InputPrompts/Controller/switch_buttons_up_outline.png" id="3_o621e"]
 [ext_resource type="Texture2D" uid="uid://hfl2lhchx82d" path="res://Art/InputPrompts/Controller/switch_buttons_right_outline.png" id="4_gtbq3"]
 [ext_resource type="Texture2D" uid="uid://b8rglswniqm1i" path="res://Art/InputPrompts/Controller/switch_buttons_left_outline.png" id="5_xlhpq"]
+[ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="6_cmj2y"]
+[ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="7_o5w4a"]
 
 [node name="AbilityButton" type="Control"]
 custom_minimum_size = Vector2(500, 700)
@@ -28,6 +30,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_cmj2y")
+script = ExtResource("7_o5w4a")
 
 [node name="MarginContainer" type="MarginContainer" parent="Button"]
 layout_mode = 1
@@ -68,5 +72,4 @@ theme_override_font_sizes/font_size = 30
 text = "Description"
 autowrap_mode = 2
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="Pressed_button" from="Button" to="." method="_on_button_pressed_button"]

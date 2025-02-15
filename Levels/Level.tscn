@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=24 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
@@ -13,11 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://l1tyad5h23oj" path="res://Objects/UI/AbilityPickUp/AbilityPickUp.tscn" id="9_e4uxq"]
 [ext_resource type="AudioStream" uid="uid://dkl0a8k3apbjb" path="res://Audio/11.17.23 Game jam session 1 v.21 SIREN.mp3" id="9_q7lyu"]
 [ext_resource type="AudioStream" uid="uid://k5j710i7p807" path="res://Audio/BeetleBarrage MASTER v.2 march2024.mp3" id="10_eprq5"]
+[ext_resource type="PackedScene" uid="uid://dp124g8s0rrv5" path="res://Levels/pause.tscn" id="10_ve3k5"]
 [ext_resource type="PackedScene" uid="uid://ditefqqnfk7uh" path="res://Objects/Gameplay/Obstacles/Obstacle.tscn" id="11_cx8ds"]
 [ext_resource type="PackedScene" uid="uid://chhbjyq03762o" path="res://Objects/Gameplay/Obstacles/Obstacle2.tscn" id="12_xsnqo"]
 [ext_resource type="PackedScene" uid="uid://dc7jfold0vs53" path="res://Objects/Gameplay/Obstacles/Obstacle_Cactus.tscn" id="13_7kuxr"]
 [ext_resource type="Texture2D" uid="uid://drp607igopxuf" path="res://Sprites/seamlessspacejunktiledingame.png" id="17_5s836"]
 [ext_resource type="Texture2D" uid="uid://b5qmqp43g2wh4" path="res://Sprites/Backgrounds/brown.png" id="18_b3dp5"]
+[ext_resource type="PackedScene" uid="uid://causfd1ls5ll7" path="res://Objects/Gameplay/Drops/AbilityDrop.tscn" id="20_mml4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
@@ -122,6 +124,14 @@ rotation = -0.00167317
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("10_ve3k5")]
+top_level = true
+z_index = 10
+offset_left = 77.6667
+offset_top = 41.3333
+offset_right = 77.6667
+offset_bottom = 41.3333
+
 [node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("gameManager") instance=ExtResource("6_n24og")]
 mouse_filter = 2
 gameManager = NodePath("../../GameManager")
@@ -155,19 +165,19 @@ autoplay = true
 
 [node name="Obstacle11" parent="." instance=ExtResource("11_cx8ds")]
 position = Vector2(-601, -99)
-scale = Vector2(7.4, 6.36)
+scale = Vector2(7.5, 7.5)
 
 [node name="Obstacle15" parent="." instance=ExtResource("11_cx8ds")]
 position = Vector2(555, -120)
-scale = Vector2(7.4, 6.36)
+scale = Vector2(7.5, 7.5)
 
 [node name="Obstacle16" parent="." instance=ExtResource("11_cx8ds")]
 position = Vector2(-27, -651)
-scale = Vector2(7.4, 6.36)
+scale = Vector2(7.5, 7.5)
 
 [node name="Obstacle17" parent="." instance=ExtResource("11_cx8ds")]
-position = Vector2(-73, 636)
-scale = Vector2(7.4, 6.36)
+position = Vector2(3, 538)
+scale = Vector2(7.5, 7.5)
 
 [node name="Obstacle2" parent="." instance=ExtResource("12_xsnqo")]
 position = Vector2(-2216, -867)
@@ -225,6 +235,15 @@ z_index = -110
 position = Vector2(-8.99976, -40.375)
 scale = Vector2(67.1739, 43.0389)
 texture = ExtResource("18_b3dp5")
+
+[node name="AbilityDrop" parent="." instance=ExtResource("20_mml4x")]
+position = Vector2(-287, -139)
+
+[node name="AbilityDrop2" parent="." instance=ExtResource("20_mml4x")]
+position = Vector2(-71, -192)
+
+[node name="AbilityDrop3" parent="." instance=ExtResource("20_mml4x")]
+position = Vector2(158, -145)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameManager/EnemySpawnSystem/spawnTimer" to="GameManager/EnemySpawnSystem" method="_on_spawn_timer_timeout"]

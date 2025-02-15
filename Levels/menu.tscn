@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://h61hwgjd2aof"]
+[gd_scene load_steps=8 format=3 uid="uid://h61hwgjd2aof"]
 
 [ext_resource type="Script" path="res://Levels/Menu.gd" id="1_o1fue"]
 [ext_resource type="AudioStream" uid="uid://dajl8eexvp3dq" path="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3" id="2_8vfst"]
 [ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="3_e3t53"]
-[ext_resource type="AudioStream" uid="uid://w74gbgu3icim" path="res://Sprites/Backgrounds/Menu Option hover sound_sfx.wav" id="3_fhhfa"]
+[ext_resource type="AudioStream" uid="uid://w74gbgu3icim" path="res://Audio/UI/Menu Option hover sound_sfx.wav" id="3_fhhfa"]
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="3_fxktm"]
-[ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="4_tk4vh"]
+[ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="5_6gotu"]
+[ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="6_h6uld"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -76,15 +77,38 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Play Game" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_tk4vh")
+theme = ExtResource("5_6gotu")
 theme_override_font_sizes/font_size = 50
-text = "Play Game
-"
+text = "Play"
+script = ExtResource("6_h6uld")
+Focus_ready = true
+Disable_on_pressed = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlaygameContainer2" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6gotu")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+script = ExtResource("6_h6uld")
+Disable_on_pressed = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -96,13 +120,14 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Quit Game" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
+[node name="Quit" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_tk4vh")
+theme = ExtResource("5_6gotu")
 theme_override_font_sizes/font_size = 50
-text = "Quit Game
-"
+text = "Quit"
+script = ExtResource("6_h6uld")
+Disable_on_pressed = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
 layout_mode = 2
@@ -140,12 +165,9 @@ stream = ExtResource("2_8vfst")
 volume_db = -8.725
 autoplay = true
 
-[connection signal="button_down" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="." method="_on_play_game_button_down"]
-[connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="CanvasLayer/Menu" method="_on_play_game_focus_entered"]
-[connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play Game" to="CanvasLayer/Menu" method="_on_play_game_mouse_entered"]
-[connection signal="button_down" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="." method="_on_quit_game_button_down"]
-[connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_focus_entered"]
-[connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_mouse_entered"]
+[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play" to="." method="_on_play_pressed_button"]
+[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2/Credits" to="." method="_on_credits_pressed_button"]
+[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit" to="." method="_on_quit_pressed_button"]
 [connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_focus_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="." method="_on_quit_game_pressed"]

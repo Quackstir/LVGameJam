@@ -2,6 +2,7 @@ class_name AbilityPickUp
 extends Control
 
 @export var abilityResources:Array[AbilityResource]
+var getAbilityResources:Array[AbilityResource]
 
 @export var ability_button:Array[AbilityButton] 
 var selectedAbilityResource:Ability.AbilityType
@@ -14,8 +15,16 @@ func _ready():
 		updateAbilityButtons()
 
 func updateAbilityButtons() -> void:
-	setAbilityButtons(abilityResources[randi_range(0,abilityResources.size() - 1)],0)
-	setAbilityButtons(abilityResources[randi_range(0,abilityResources.size() - 1)],1)
+	getAbilityResources.assign(abilityResources)
+	
+	var a = randi_range(0,getAbilityResources.size() - 1)
+	setAbilityButtons(getAbilityResources[a],0)
+	getAbilityResources.remove_at(a)
+	
+	var b = randi_range(0,getAbilityResources.size() - 1)
+	setAbilityButtons(getAbilityResources[b],1)
+	getAbilityResources.remove_at(b)
+	
 	ability_button[0].button.grab_focus()
 
 func setAbilityButtons(ability:AbilityResource, index:int):

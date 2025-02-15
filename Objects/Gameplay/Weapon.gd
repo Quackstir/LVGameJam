@@ -76,6 +76,8 @@ func _on_timer_timeout():
 		fireFirstRound = true
 
 func fireBullet():
+	if player.health_component.Curr_Health <= 0: return
+	
 	var bullet_instance = Bullet.instantiate()
 	animation.play("Gun")
 	audio_stream_player_2d.play()
@@ -86,6 +88,8 @@ func fireBullet():
 	emit_signal("player_Fired_Bullet", Recoil)
 
 func shotgunFireBullet(a:float):
+	if player.health_component.Curr_Health <= 0: return
+	
 	#var  rng = RandomNumberGenerator.new()
 	#rng.randomize()
 	#var a = rng.randi_range(0,10)
