@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://don15t7wus6lr"]
+[gd_scene load_steps=24 format=3 uid="uid://don15t7wus6lr"]
 
 [ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dc7jfold0vs53" path="res://Objects/Gameplay/Obstacles/Obstacle_Cactus.tscn" id="13_7kuxr"]
 [ext_resource type="Texture2D" uid="uid://drp607igopxuf" path="res://Sprites/seamlessspacejunktiledingame.png" id="17_5s836"]
 [ext_resource type="Texture2D" uid="uid://b5qmqp43g2wh4" path="res://Sprites/Backgrounds/brown.png" id="18_b3dp5"]
+[ext_resource type="PackedScene" uid="uid://causfd1ls5ll7" path="res://Objects/Gameplay/Drops/AbilityDrop.tscn" id="20_dtsai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
 
@@ -234,6 +235,15 @@ z_index = -110
 position = Vector2(-8.99976, -40.375)
 scale = Vector2(67.1739, 43.0389)
 texture = ExtResource("18_b3dp5")
+
+[node name="AbilityDrop" parent="." instance=ExtResource("20_dtsai")]
+position = Vector2(-170, -148)
+
+[node name="AbilityDrop2" parent="." instance=ExtResource("20_dtsai")]
+position = Vector2(109, -191)
+
+[node name="AbilityDrop3" parent="." instance=ExtResource("20_dtsai")]
+position = Vector2(283, -62)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameManager/EnemySpawnSystem/spawnTimer" to="GameManager/EnemySpawnSystem" method="_on_spawn_timer_timeout"]

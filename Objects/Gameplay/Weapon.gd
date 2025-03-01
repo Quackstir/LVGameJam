@@ -17,7 +17,7 @@ var isShoot: bool = false
 @onready var EndOfGun = $EndOfGun
 var isShooting: bool = false
 
-@export var Recoil = 5.0
+@export var Recoil:float = 10.0
 
 var canShoot: bool = false
 var fireFirstRound:bool = true
@@ -62,6 +62,7 @@ func ShootRepeat(isShooting):
 
 func fireWeapon():
 	if !canShoot: return
+	#Recoil = 10
 	print("Fire")
 	for fire in 1:
 		fireBullet()
