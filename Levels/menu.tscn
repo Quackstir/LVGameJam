@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h61hwgjd2aof"]
+[gd_scene load_steps=9 format=3 uid="uid://h61hwgjd2aof"]
 
 [ext_resource type="Script" path="res://Levels/Menu.gd" id="1_o1fue"]
 [ext_resource type="AudioStream" uid="uid://dajl8eexvp3dq" path="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3" id="2_8vfst"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="3_fxktm"]
 [ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="5_6gotu"]
 [ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="6_h6uld"]
+[ext_resource type="AudioStream" uid="uid://bxvbko6m4x7q7" path="res://Audio/UI/Menu Button press_sfx.wav" id="6_yhkbr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -84,6 +85,7 @@ theme = ExtResource("5_6gotu")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 script = ExtResource("6_h6uld")
+SFX_Pressed = ExtResource("6_yhkbr")
 Focus_ready = true
 Disable_on_pressed = true
 
@@ -106,6 +108,7 @@ theme = ExtResource("5_6gotu")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 script = ExtResource("6_h6uld")
+SFX_Pressed = ExtResource("6_yhkbr")
 Disable_on_pressed = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
@@ -127,6 +130,7 @@ theme = ExtResource("5_6gotu")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 script = ExtResource("6_h6uld")
+SFX_Pressed = ExtResource("6_yhkbr")
 Disable_on_pressed = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]

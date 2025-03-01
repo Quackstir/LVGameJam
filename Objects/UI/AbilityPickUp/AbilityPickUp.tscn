@@ -62,5 +62,7 @@ layout_mode = 2
 [node name="AbilityButton2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_emvd4")]
 layout_mode = 2
 
+[connection signal="Initial_selectedAbility" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton" to="." method="_on_ability_button_initial_selected_ability"]
 [connection signal="selectedAbility" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton" to="." method="_on_ability_button_selected_ability"]
+[connection signal="Initial_selectedAbility" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton2" to="." method="_on_ability_button_initial_selected_ability"]
 [connection signal="selectedAbility" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AbilityButton2" to="." method="_on_ability_button_2_selected_ability"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp124g8s0rrv5"]
+[gd_scene load_steps=9 format=3 uid="uid://dp124g8s0rrv5"]
 
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="1_8pgqg"]
 [ext_resource type="BusAsset" uid="uid://b4gordt23i8f3" path="res://addons/FMOD/editor/resources/busses/{439af3dd-5ad2-479e-a337-3e95d13df6c4}.tres" id="2_ey17w"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="3_hx3or"]
 [ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="6_b46fh"]
 [ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="7_80aj7"]
+[ext_resource type="AudioStream" uid="uid://bxvbko6m4x7q7" path="res://Audio/UI/Menu Button press_sfx.wav" id="7_87nht"]
 
 [sub_resource type="GDScript" id="GDScript_p4oiy"]
 script/source = "extends Panel
@@ -102,6 +103,7 @@ theme = ExtResource("6_b46fh")
 theme_override_font_sizes/font_size = 50
 text = "Resume"
 script = ExtResource("7_80aj7")
+SFX_Pressed = ExtResource("7_87nht")
 Disable_on_pressed = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
@@ -119,6 +121,7 @@ theme = ExtResource("6_b46fh")
 theme_override_font_sizes/font_size = 50
 text = "Restart"
 script = ExtResource("7_80aj7")
+SFX_Pressed = ExtResource("7_87nht")
 Disable_on_pressed = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer"]
@@ -133,6 +136,7 @@ theme = ExtResource("6_b46fh")
 theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 script = ExtResource("7_80aj7")
+SFX_Pressed = ExtResource("7_87nht")
 Disable_on_pressed = true
 
 [connection signal="gui_input" from="CanvasLayer/Pause Menu Panel" to="." method="_on_pause_menu_panel_gui_input"]

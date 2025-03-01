@@ -18,7 +18,7 @@ var sfx_button_hover_focus: AudioStreamPlayer:
 		set_sfx_button(sfx_button_hover_focus)
 		sfx_button_hover_focus.stream = SFX_Hovered
 
-@export var SFX_Pressed:AudioStream = preload("res://Audio/UI/Menu Button press_sfx.wav")
+@export var SFX_Pressed:AudioStream = preload("res://Audio/UI/Menu Button press_sfx_Ver2 Short.mp3")
 #@export var SFX_Released:AudioStream = preload("res://Audio/Free Assets/SFX/interfaceanditemsounds/V.3.0 Files/Click (14).wav")
 @export var SFX_Hovered:AudioStream = preload("res://Audio/UI/Menu Option hover sound_sfx.wav")
 @export var Audio_mix_target:AudioStreamPlayer.MixTarget = AudioStreamPlayer.MIX_TARGET_CENTER
@@ -30,6 +30,7 @@ func _init() -> void:
 	theme = preload("res://Art/new_theme.tres")
 
 signal Pressed_button
+signal Initial_Pressed_button
 signal Released_button
 signal Hovered_button
 
@@ -60,6 +61,7 @@ func _ready() -> void:
 func _play_button_down() -> void:
 	disabled = Disable_on_pressed
 	sfx_button_down.play()
+	Initial_Pressed_button.emit()
 	await sfx_button_down.finished
 	Pressed_button.emit()
 #endregion

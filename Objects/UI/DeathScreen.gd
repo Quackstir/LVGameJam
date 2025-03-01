@@ -13,12 +13,21 @@ func appearOnDeath():
 	reset.grab_focus()
 	label_2.text = "Score: " + str(gameManager.Score)
 
-func _on_reset_button_down():
+#func _on_visibility_changed():
+	#label_2.text = "Score: " + str(gameManager.Score)
+
+
+func _on_reset_pressed_button() -> void:
 	get_tree().change_scene_to_file("res://Levels/Level.tscn")
 
-func _on_exit_game_button_down():
+
+func _on_exit_game_pressed_button() -> void:
 	get_tree().quit()
 
 
-#func _on_visibility_changed():
-	#label_2.text = "Score: " + str(gameManager.Score)
+func _on_credits_pressed_button() -> void:
+	get_tree().change_scene_to_file("res://Levels/CreditsMenu.tscn")
+
+
+func _on_main_menu_pressed_button() -> void:
+	get_tree().change_scene_to_file("res://Levels/menu.tscn")

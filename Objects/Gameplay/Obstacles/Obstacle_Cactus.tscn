@@ -3,25 +3,25 @@
 [ext_resource type="Texture2D" uid="uid://cscdka6p8u32e" path="res://Art/cactus.png" id="1_md1ay"]
 [ext_resource type="Script" path="res://Components/damage_box_component.gd" id="2_niuk3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql7q5"]
-size = Vector2(9, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_37r63"]
+radius = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ikj5"]
-radius = 22.0
+radius = 24.0
 
 [node name="Obstacle" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 22)
-shape = SubResource("RectangleShape2D_ql7q5")
-
 [node name="Icon2" type="Sprite2D" parent="."]
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_md1ay")
 region_rect = Rect2(548.58, 17.4305, 169.046, 381.668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_37r63")
+debug_color = Color(0.951105, 2.11775e-06, 0.565308, 0.42)
 
 [node name="DamageBoxComponent" type="Area2D" parent="."]
 script = ExtResource("2_niuk3")

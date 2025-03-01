@@ -51,9 +51,10 @@ func shotgun():
 func ShootRepeat(isShooting):
 	if isShooting:
 		canShoot = true
-		if fireFirstRound:
+		if fireFirstRound and timer.time_left < timer.wait_time:
 			fireFirstRound = false
 			fireWeapon()
+			timer.stop()
 		if timer.time_left <= 0:
 			timer.start()
 	else:

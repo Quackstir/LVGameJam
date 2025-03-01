@@ -5,9 +5,12 @@ extends Control
 @onready var restart_game: UI_Button = $"CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer/Restart Game"
 @onready var quit_game: UI_Button = $"CanvasLayer/Pause Menu Panel/MarginContainer/VBoxContainer/HBoxContainer2/Quit Game"
 
+@onready var gameManager: GM = GM.gameManager
+var canPause:bool = true
 var paused = false:
 	set(newValue):
 		paused = newValue
+		if !canPause:return
 		if paused:
 			pause_menu.hide()
 			bus.set_paused(false)
@@ -32,6 +35,11 @@ func _ready():
 	pause_menu.hide()
 	bus = FMODStudioModule.get_studio_system().get_bus(bus_asset.path)
 	bus.set_paused(false)
+	await get_tree().create_timer(0.00001).timeout
+	gameManager.player.Death.connect(mustNotPause)
+	
+func mustNotPause()->void:
+	canPause = false
 
 func pauseMenu():
 	paused = !paused

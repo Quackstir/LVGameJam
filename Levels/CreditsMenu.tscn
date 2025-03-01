@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duqbmljvecg1h"]
+[gd_scene load_steps=9 format=3 uid="uid://duqbmljvecg1h"]
 
 [ext_resource type="Script" path="res://Objects/UI/Credits/Credits.gd" id="1_5lff6"]
 [ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="1_73gkd"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="4_nlm0k"]
 [ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="6_0exqm"]
 [ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="7_lglvm"]
+[ext_resource type="AudioStream" uid="uid://bxvbko6m4x7q7" path="res://Audio/UI/Menu Button press_sfx.wav" id="8_eck2n"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -26,8 +27,8 @@ Andrew Diaz - Additional UI Design
 Ethan Lennaman - Additional Level Design
 
 [b]Sound[/b]
-Grady “IHaveNoMouth” Mayo - Musician/Sound Designer
-Poppy Payne - Additional Musician
+Grady “IHaveNoMouth” Mayo - Composer / Sound Designer
+Poppy Payne - Additional Composer
 
 [b]Art[/b]
 Poppy Payne - Artist
@@ -36,24 +37,27 @@ Poppy Payne - Artist
 Reese Mireau - SFX Engineer
 Mark Anthony Esparagoza - Gameplay/UI Programmer
 Andrew Diaz - Additional UI Programming"
-secondPage = "[center][b]Testers[/b]
+secondPage = "[center][b]Quality Assurance[/b]
 Sam Fishback
+Christopher Cassidy
 Collin Dougherty
 Max Stucker
 Joshua Belcastro
+Grady Mayo
+
+[b]Testers[/b]
 Jaden Corrado
 
 [b]Special Thanks[/b]
 Jeannie Park
-Michael Schwalbe - ASK FIRST. Want to credit him as we would not have continued this project to upload to steam without his encouragement.
+Michael Schwalbe
 Las Vegas IGDA Chapter
 
 [b]External Resources[/b]
 Copyright 2020 Braille Institute of America, Inc. https://www.brailleinstitute.org
 with Reserved Font Name Atkinsons Hyperlegible.
 
-FMOD GOES HERE. PENDING APPROVAL
-"
+Made using FMOD Studio by Firelight Technologies Pty Ltd."
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -126,6 +130,7 @@ theme = ExtResource("6_0exqm")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 script = ExtResource("7_lglvm")
+SFX_Pressed = ExtResource("8_eck2n")
 Focus_ready = true
 
 [node name="Switch Page" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -135,6 +140,7 @@ theme = ExtResource("6_0exqm")
 theme_override_font_sizes/font_size = 50
 text = "Page (1/2) | Next Page"
 script = ExtResource("7_lglvm")
+SFX_Pressed = ExtResource("8_eck2n")
 Focus_ready = true
 
 [connection signal="Pressed_button" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed_button"]

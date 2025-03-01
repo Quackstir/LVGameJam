@@ -15,6 +15,9 @@ func _ready():
 		updateAbilityButtons()
 
 func updateAbilityButtons() -> void:
+	ability_button[0].button.disabled = false
+	ability_button[1].button.disabled = false
+	
 	getAbilityResources.assign(abilityResources)
 	
 	var a = randi_range(0,getAbilityResources.size() - 1)
@@ -46,3 +49,7 @@ func selectedAbility():
 		if abilityResources[i].Type == selectedAbilityResource:
 			abilityResources.remove_at(i)
 	visible = false
+
+func _on_ability_button_initial_selected_ability() -> void:
+	ability_button[0].button.disabled = true
+	ability_button[1].button.disabled = true

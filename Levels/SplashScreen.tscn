@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://y1falunleort"]
+[gd_scene load_steps=5 format=3 uid="uid://y1falunleort"]
 
 [ext_resource type="Script" path="res://Levels/splash_screen.gd" id="1_krqtf"]
 [ext_resource type="VideoStream" path="res://Art/Splash Screens/Team-Logo-Splash.ogv" id="1_qply7"]
+[ext_resource type="Texture2D" uid="uid://d3xmpcyunxnk3" path="res://Art/Splash Screens/FMOD Logo White - Black Background.png" id="3_r2ci4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asgnp"]
 bg_color = Color(0, 0, 0, 1)
@@ -25,6 +26,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_asgnp")
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.0
+offset_top = -96.0
+offset_right = 364.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r2ci4")
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +50,5 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("1_qply7")
-autoplay = true
 
 [connection signal="finished" from="CanvasLayer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

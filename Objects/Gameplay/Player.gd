@@ -270,7 +270,7 @@ func MovementInput():
 		if Input.is_action_pressed("Select"):
 			playerMovement = (get_global_mouse_position() - position)
 			#print(get_global_mouse_position() - position)
-		elif Input.is_action_just_released("Select"):
+		else:
 			playerMovement = Vector2.ZERO
 		return
 

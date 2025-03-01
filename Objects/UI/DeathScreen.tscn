@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbr8dj4m1b3wo"]
+[gd_scene load_steps=6 format=3 uid="uid://cbr8dj4m1b3wo"]
 
 [ext_resource type="Script" path="res://Objects/UI/DeathScreen.gd" id="1_d26xg"]
 [ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="2_0px5a"]
 [ext_resource type="FontFile" uid="uid://dfoo6jdp7qlm3" path="res://Art/Fonts/AtkinsonHyperlegible-Regular.ttf" id="3_7wmbv"]
+[ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="4_udow7"]
+[ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="5_twkhi"]
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -64,11 +66,52 @@ size_flags_horizontal = 3
 [node name="Reset" type="Button" parent="Panel/MarginContainer/VBoxContainer/Reset Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_7wmbv")
+theme = ExtResource("4_udow7")
 theme_override_font_sizes/font_size = 50
 text = "Restart"
+script = ExtResource("5_twkhi")
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Reset Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits Container" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Credits Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits" type="Button" parent="Panel/MarginContainer/VBoxContainer/Credits Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_udow7")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+script = ExtResource("5_twkhi")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Credits Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Main Menu Container" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Main Menu Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Main Menu" type="Button" parent="Panel/MarginContainer/VBoxContainer/Main Menu Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_udow7")
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+script = ExtResource("5_twkhi")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Main Menu Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -83,14 +126,17 @@ size_flags_horizontal = 3
 [node name="Exit Game" type="Button" parent="Panel/MarginContainer/VBoxContainer/Exit Game Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_7wmbv")
+theme = ExtResource("4_udow7")
 theme_override_font_sizes/font_size = 50
 text = "Exit Game"
+script = ExtResource("5_twkhi")
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Exit Game Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/Reset Container/Reset" to="." method="_on_reset_button_down"]
-[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/Exit Game Container/Exit Game" to="." method="_on_exit_game_button_down"]
+[connection signal="Pressed_button" from="Panel/MarginContainer/VBoxContainer/Reset Container/Reset" to="." method="_on_reset_pressed_button"]
+[connection signal="Pressed_button" from="Panel/MarginContainer/VBoxContainer/Credits Container/Credits" to="." method="_on_credits_pressed_button"]
+[connection signal="Pressed_button" from="Panel/MarginContainer/VBoxContainer/Main Menu Container/Main Menu" to="." method="_on_main_menu_pressed_button"]
+[connection signal="Pressed_button" from="Panel/MarginContainer/VBoxContainer/Exit Game Container/Exit Game" to="." method="_on_exit_game_pressed_button"]

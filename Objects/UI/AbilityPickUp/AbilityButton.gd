@@ -7,6 +7,7 @@ var assignedAbility:AbilityResource
 
 var GameManager:GM
 
+signal Initial_selectedAbility
 signal selectedAbility
 @onready var button: Button = $Button
 
@@ -51,3 +52,7 @@ func _on_button_pressed_button() -> void:
 	GameManager.player.addAbility(assignedAbility)
 	selectedAbility.emit()
 	get_tree().paused = false
+
+
+func _on_button_initial_pressed_button() -> void:
+	Initial_selectedAbility.emit()
