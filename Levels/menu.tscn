@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Levels/Menu.gd" id="1_o1fue"]
 [ext_resource type="AudioStream" uid="uid://dajl8eexvp3dq" path="res://Audio/MENU for BeetleBarrage MASTER v.1.mp3" id="2_8vfst"]
-[ext_resource type="FontFile" uid="uid://d3k8gfnnoivc5" path="res://Art/Fonts/AtkinsonHyperlegible-Bold.ttf" id="3_e3t53"]
 [ext_resource type="AudioStream" uid="uid://w74gbgu3icim" path="res://Audio/UI/Menu Option hover sound_sfx.wav" id="3_fhhfa"]
 [ext_resource type="Texture2D" uid="uid://c8uuhcnlixtwy" path="res://Sprites/Backgrounds/beetlebarragebg2.png" id="3_fxktm"]
+[ext_resource type="Texture2D" uid="uid://detgmajv6pmpq" path="res://Art/beetlebarragelogo.png" id="4_3085s"]
 [ext_resource type="Theme" uid="uid://bpoebudnj1o5g" path="res://Art/new_theme.tres" id="5_6gotu"]
 [ext_resource type="Script" path="res://Objects/UI/UI_Button.gd" id="6_h6uld"]
 [ext_resource type="AudioStream" uid="uid://bxvbko6m4x7q7" path="res://Audio/UI/Menu Button press_sfx.wav" id="6_yhkbr"]
@@ -61,24 +61,43 @@ theme_override_constants/margin_bottom = 23
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 35
-theme_override_fonts/font = ExtResource("3_e3t53")
-theme_override_font_sizes/font_size = 115
-text = "Beetle Barrage"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlaygameContainer" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.32
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Play" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_3085s")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="PlaygameContainer" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Play" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("5_6gotu")
@@ -89,19 +108,20 @@ SFX_Pressed = ExtResource("6_yhkbr")
 Focus_ready = true
 Disable_on_pressed = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlaygameContainer2" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+[node name="PlaygameContainer2" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Credits" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
+[node name="Credits" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("5_6gotu")
@@ -111,19 +131,20 @@ script = ExtResource("6_h6uld")
 SFX_Pressed = ExtResource("6_yhkbr")
 Disable_on_pressed = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionsContainer2" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+[node name="OptionsContainer2" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/OptionsContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Quit" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
+[node name="Quit" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/OptionsContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("5_6gotu")
@@ -133,27 +154,7 @@ script = ExtResource("6_h6uld")
 SFX_Pressed = ExtResource("6_yhkbr")
 Disable_on_pressed = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OptionsContainer4" type="HBoxContainer" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Quit Game" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "Options
-"
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/OptionsContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -169,9 +170,6 @@ stream = ExtResource("2_8vfst")
 volume_db = -8.725
 autoplay = true
 
-[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer/Play" to="." method="_on_play_pressed_button"]
-[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/PlaygameContainer2/Credits" to="." method="_on_credits_pressed_button"]
-[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer2/Quit" to="." method="_on_quit_pressed_button"]
-[connection signal="focus_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_focus_entered"]
-[connection signal="mouse_entered" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="CanvasLayer/Menu" method="_on_quit_game_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/OptionsContainer4/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer/Play" to="." method="_on_play_pressed_button"]
+[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/PlaygameContainer2/Credits" to="." method="_on_credits_pressed_button"]
+[connection signal="Pressed_button" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/VBoxContainer/OptionsContainer2/Quit" to="." method="_on_quit_pressed_button"]

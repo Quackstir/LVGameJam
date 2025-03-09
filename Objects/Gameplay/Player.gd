@@ -267,13 +267,15 @@ func MovementInput():
 	if !canRotate:return
 	
 	if CurrentDevice == "keyboard":
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if Input.is_action_pressed("Select"):
 			playerMovement = (get_global_mouse_position() - position)
 			#print(get_global_mouse_position() - position)
 		else:
 			playerMovement = Vector2.ZERO
 		return
-
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	var HorizontalMovement = Input.get_action_raw_strength("Movement_Right") - Input.get_action_raw_strength("Movement_Left")
 	var VerticalMovement = Input.get_action_raw_strength("Movement_Down") - Input.get_action_raw_strength("Movement_Up")
 	playerMovement = Vector2(HorizontalMovement, VerticalMovement)
