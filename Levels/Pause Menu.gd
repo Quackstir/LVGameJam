@@ -7,7 +7,7 @@ extends Control
 
 @onready var gameManager: GM = GM.gameManager
 var canPause:bool = true
-var paused = false:
+var paused = true:
 	set(newValue):
 		paused = newValue
 		if !canPause:return
@@ -37,12 +37,25 @@ func _ready():
 	bus.set_paused(false)
 	await get_tree().create_timer(0.00001).timeout
 	gameManager.player.Death.connect(mustNotPause)
+
+	Input.joy_connection_changed.connect(joy_connection)
+	Steam.overlay_toggled.connect(steamOverlay)
+	
+func joy_connection(_device:int, _connected:bool)->void:
+	if !_connected:
+		print("disconnected") 
+		paused = false
+	else:
+		print("connected")
 	
 func mustNotPause()->void:
 	canPause = false
 
 func pauseMenu():
 	paused = !paused
+
+func steamOverlay(toggled:bool,user_initiated: bool,app_id: int) -> void:
+	if toggled: paused = false
 
 func _on_resume_pressed_button() -> void:
 	pauseMenu()

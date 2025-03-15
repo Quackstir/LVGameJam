@@ -32,7 +32,8 @@ config/name="Bugcoil"
 config/tags=PackedStringArray("beetle_barrage")
 run/main_scene="res://Levels/SplashScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Art/beetle.png"
+config/windows_native_icon="res://Art/beetle.ico"
 
 [autoload]
 
