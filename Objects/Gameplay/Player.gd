@@ -76,6 +76,7 @@ func _ready():
 
 	weapon.connect("player_Fired_Bullet", _applyVelocity)
 	InputHelper.device_changed.connect(_on_input_device_changed)
+	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	CurrentDevice = InputHelper.device
 	hit_box_component.hurt.connect(onHurt)
 	health_component.Health_Change.connect(healthChange)
@@ -84,7 +85,12 @@ func _ready():
 	#match newAbility.abilityType:
 		#Ability.AbilityType.Lazer:
 			#BurstConnect()
-
+func _on_joy_connection_changed(device_id, connected):
+	if connected:
+		print(Input.get_joy_name(device_id))
+	else:
+		print("gamers unite Keyboard")
+	
 func addAbility(abilityResource:AbilityResource):
 	var spawnedItem:Ability = abilityResource.AbilityScene.instantiate()
 	get_tree().current_scene.add_child(spawnedItem)
