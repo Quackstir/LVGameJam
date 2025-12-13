@@ -31,7 +31,7 @@ DSP/dsp_buffer_count=4
 config/name="Bugcoil"
 config/tags=PackedStringArray("beetle_barrage")
 run/main_scene="res://Levels/SplashScreen.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Art/beetle.png"
 config/windows_native_icon="res://Art/beetle.ico"
 
@@ -40,14 +40,6 @@ config/windows_native_icon="res://Art/beetle.ico"
 InputHelper="*res://addons/input_helper/input_helper.gd"
 Fmod="*res://addons/FMOD/fmod.gd"
 FMODRuntime="*res://addons/FMOD/runtime/fmod_runtime_manager.gd"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=4
-window/size/window_width_override=1920
-window/size/window_height_override=1080
 
 [editor_plugins]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://don15t7wus6lr"]
 
-[ext_resource type="Script" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
+[ext_resource type="Script" uid="uid://cuunclyannbdi" path="res://Objects/Gameplay/GM.gd" id="1_mvxwo"]
 [ext_resource type="PackedScene" uid="uid://itihdsxsasau" path="res://Objects/Gameplay/Enemies/enemy.tscn" id="2_wxu82"]
 [ext_resource type="PackedScene" uid="uid://chbjox8nn5cvg" path="res://Objects/Gameplay/Player.tscn" id="3_t8iqy"]
 [ext_resource type="PackedScene" uid="uid://xbxmk0gyn1ok" path="res://Objects/Gameplay/Enemies/enemy_DragonFly.tscn" id="3_vsp37"]
 [ext_resource type="Texture2D" uid="uid://c3ckcex7bhqy4" path="res://Sprites/Backgrounds/beetlebarragebg.png" id="4_0rbwn"]
-[ext_resource type="Script" path="res://Levels/enemy_spawn_system.gd" id="4_du6xc"]
+[ext_resource type="Script" uid="uid://c2sj1c87i3tao" path="res://Levels/enemy_spawn_system.gd" id="4_du6xc"]
 [ext_resource type="Texture2D" uid="uid://i8dnnuog66dj" path="res://icon.svg" id="5_f61so"]
 [ext_resource type="PackedScene" uid="uid://qq1i6vy2tl5d" path="res://Objects/UI/HUD.tscn" id="6_n24og"]
 [ext_resource type="PackedScene" uid="uid://cbr8dj4m1b3wo" path="res://Objects/UI/DeathScreen.tscn" id="7_wgg82"]
@@ -119,7 +119,7 @@ curve = SubResource("Curve2D_8ahb6")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
 position = Vector2(-1784, -1085)
-rotation = -0.00167317
+rotation = -0.0016731719
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
