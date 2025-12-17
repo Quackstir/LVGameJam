@@ -2,8 +2,20 @@ extends Control
 
 @onready var texture_rect: TextureRect = $CanvasLayer/TextureRect
 @onready var video_stream_player: VideoStreamPlayer = $CanvasLayer/VideoStreamPlayer
+var steamID:int = 3396930
+
+func _init() -> void:
+	OS.set_environment("SteamAppID", str(steamID))
+	OS.set_environment("SteamGameID", str(steamID))
 
 func _ready() -> void:
+	Steam.steamInit(true, steamID)
+	var isRunning = Steam.isSteamRunning()
+	
+	if !isRunning:
+		print("ERROR: Steam is not running")
+	else:
+		print("Steam is running")
 	_fmod_logo()
 
 func _fmod_logo() -> void:

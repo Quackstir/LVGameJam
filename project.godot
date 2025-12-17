@@ -41,6 +41,10 @@ InputHelper="*res://addons/input_helper/input_helper.gd"
 Fmod="*res://addons/FMOD/fmod.gd"
 FMODRuntime="*res://addons/FMOD/runtime/fmod_runtime_manager.gd"
 
+[display]
+
+window/size/mode=4
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/FMOD/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/trail_2d/plugin.cfg")
