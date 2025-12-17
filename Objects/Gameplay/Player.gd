@@ -57,8 +57,7 @@ var canMove:bool = true
 @onready var lazer = $Center/Weapon/Lazer
 @onready var lazer_collision = $Center/Weapon/Lazer/LazerCollision
 
-@onready var knock_back = $KnockBack
-@onready var knock_back_collision = $KnockBack/KnockBackCollision
+@onready var knock_back: KnockBack = $KnockBack
 
 var burst_ability:Ability
 var stink_bomb_ability:Ability

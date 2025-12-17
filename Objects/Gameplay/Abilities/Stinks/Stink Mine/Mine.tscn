@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dchfkelghw7dc"]
+
+[ext_resource type="Script" uid="uid://c8eqrj3lws0en" path="res://Objects/Gameplay/Abilities/Stinks/Stink Mine/Mine.gd" id="1_gxlxf"]
+[ext_resource type="Texture2D" uid="uid://c2wbpwn4k2dj0" path="res://Art/Weaboose banter.png" id="1_mqibu"]
+[ext_resource type="PackedScene" uid="uid://dyqp5rid71rpm" path="res://Objects/Gameplay/Abilities/Stinks/knock_back_area.tscn" id="3_pa661"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pa661"]
+radius = 73.109505
+
+[node name="Mine" type="Node2D"]
+script = ExtResource("1_gxlxf")
+
+[node name="WeabooseBanter" type="Sprite2D" parent="."]
+position = Vector2(1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.228, 0.228)
+texture = ExtResource("1_mqibu")
+
+[node name="KnockBack" parent="." instance=ExtResource("3_pa661")]
+scale = Vector2(4.345, 4.345)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pa661")
+debug_color = Color(0.982868, 0, 0.34186512, 0.41960785)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

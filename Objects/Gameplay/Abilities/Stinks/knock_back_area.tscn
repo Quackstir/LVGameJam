@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyqp5rid71rpm"]
+
+[ext_resource type="Script" uid="uid://dat6g0detp2pk" path="res://Objects/Gameplay/KnockBack.gd" id="1_py0rf"]
+[ext_resource type="Texture2D" uid="uid://boocyv2abnbee" path="res://Sprites/Player/bullet0001.png" id="2_qqp4w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3m450"]
+radius = 74.6622
+
+[node name="KnockBack" type="Area2D"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_py0rf")
+
+[node name="KnockBackCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3m450")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.698039, 0.713726)
+scale = Vector2(2.965, 2.965)
+texture = ExtResource("2_qqp4w")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

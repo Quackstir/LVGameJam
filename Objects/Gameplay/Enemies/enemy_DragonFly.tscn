@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://difvpoyajplfe" path="res://Objects/Gameplay/Drops/HealthDrop.tscn" id="3_awg1c"]
 [ext_resource type="PackedScene" uid="uid://dmt7otxifq4f8" path="res://Objects/Gameplay/Enemies/EnemyDeathEffect.tscn" id="3_ql7vh"]
 [ext_resource type="EventAsset" uid="uid://d2cdk0xvnaest" path="res://addons/FMOD/editor/resources/events/{7dbe5ab1-32ef-4237-bb99-e5d9e87d4bd6}.tres" id="4_f0orn"]
-[ext_resource type="Script" path="res://addons/trail_2d/trail_2d.gd" id="5_e6jnn"]
+[ext_resource type="Script" uid="uid://c8eoycwnjicpo" path="res://addons/trail_2d/trail_2d.gd" id="5_e6jnn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq1e4"]
 height = 38.6555

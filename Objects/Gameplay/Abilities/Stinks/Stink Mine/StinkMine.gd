@@ -1,4 +1,4 @@
-class_name StinkBombAbility
+class_name StinkMineAbility
 extends Ability
 
 func _activate_ability():
